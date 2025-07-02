@@ -45,21 +45,21 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'hello@omy-tech.com',
+      value: 'contact@omytech.com',
       description: 'Send us an email anytime!',
-      action: 'mailto:hello@omy-tech.com'
+      action: 'mailto:contact@omytech.com'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      value: '+1 (555) 123-4567',
+      value: '0745511354',
       description: 'Mon-Fri 9am-6pm EST',
-      action: 'tel:+15551234567'
+      action: 'tel:0745511354'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      value: '123 Innovation Street, Tech City, TC 12345',
+      value: 'Upperhill, Nairobi',
       description: 'Our creative headquarters',
       action: '#'
     }

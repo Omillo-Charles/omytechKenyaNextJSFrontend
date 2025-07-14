@@ -18,6 +18,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import GDPRCompliance from './pages/GDPRCompliance';
+import OMYBOT from './components/OMYBOT';
 
 // Component to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -58,6 +59,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <OMYBOT />
       </div>
     </Router>
   );

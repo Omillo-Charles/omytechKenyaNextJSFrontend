@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { account } from '../utils/appwrite';
+import { useNavigate } from 'react-router-dom';
 
 const CreateProject = () => {
   const [projectName, setProjectName] = useState('');
@@ -12,6 +13,8 @@ const CreateProject = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Autofill email from Appwrite
@@ -55,6 +58,9 @@ const CreateProject = () => {
       setPhone('');
       setColors([]);
       setColorInput('#00bcd4');
+      setTimeout(() => {
+        navigate('/dashboard/client');
+      }, 1000);
     } catch (err: any) {
       setError('Failed to create project.');
     }
@@ -103,7 +109,6 @@ const CreateProject = () => {
               type="file"
               multiple
               onChange={e => setFiles(e.target.files)}
-              required
               disabled={loading}
             />
           </div>

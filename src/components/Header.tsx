@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
+import { account } from '../utils/appwrite';
+
+const ADMIN_EMAILS = [
+  'fidelomillo812@gmail.com',
+  'fidelomillo1@gmail.com',
+  'omytechteam@gmail.com',
+  'omytechkenya@gmail.com',
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [user, setUser] = useState<null | { email: string }>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -15,6 +24,13 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Check if user is logged in
+    account.get()
+      .then(u => setUser({ email: u.email }))
+      .catch(() => setUser(null));
+  }, [location]);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -26,6 +42,12 @@ const Header = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  // Determine dashboard link
+  let dashboardPath = '/dashboard/client';
+  if (user && ADMIN_EMAILS.includes(user.email)) {
+    dashboardPath = '/dashboard/admin';
+  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -68,12 +90,21 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <Link
-              to="/contact"
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full hover:shadow-xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-200 font-semibold"
-            >
-              Get Started
-            </Link>
+            {user ? (
+              <Link
+                to={dashboardPath}
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full hover:shadow-xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-200 font-semibold"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                to="/auth"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full hover:shadow-xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-200 font-semibold"
+              >
+                Get Started
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -108,13 +139,23 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="block mx-4 mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full text-center font-semibold"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get Started
-            </Link>
+            {user ? (
+              <Link
+                to={dashboardPath}
+                className="block mx-4 mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full text-center font-semibold"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                to="/auth"
+                className="block mx-4 mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full text-center font-semibold"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            )}
           </div>
         </div>
       )}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { account, ID } from '../utils/appwrite';
+import { useNavigate } from 'react-router-dom';
+import { account } from '../utils/appwrite';
 import type { OAuthProvider } from 'appwrite';
 
 const ADMIN_EMAILS = [
@@ -11,45 +11,9 @@ const ADMIN_EMAILS = [
 ];
 
 const Auth = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
-    try {
-      if (isSignup) {
-        // Sign up with Appwrite using ID.unique() and name
-        const userId = ID.unique();
-        console.log('userId:', userId);
-        await account.create(userId, email, password, name);
-        // After signup, log in the user
-        await account.createSession(email, password);
-        sessionStorage.setItem('firstSignup', 'true');
-        navigate('/create-project');
-      } else {
-        // Sign in with Appwrite
-        await account.createSession(email, password);
-        const isAdmin = ADMIN_EMAILS.includes(email);
-        if (isAdmin) {
-          navigate('/dashboard/admin');
-        } else {
-          navigate('/create-project');
-        }
-      }
-      setLoading(false);
-    } catch (err: any) {
-      setError(err?.message || err?.response?.message || 'Authentication failed');
-      setLoading(false);
-    }
-  };
 
   const handleOAuth = async (provider: string) => {
     setError('');
@@ -69,64 +33,18 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center bg-black text-white pt-20">
       <div className="bg-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h1 className="text-3xl font-bold mb-6 text-cyan-400 text-center">
-          {isSignup ? 'Sign Up' : 'Sign In'}
+          Sign In
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {isSignup && (
-            <input
-              className="w-full p-3 rounded bg-black/40 border border-cyan-500/30 text-white"
-              placeholder="Name"
-              type="text"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              required
-              disabled={loading}
-            />
-          )}
-          <input
-            className="w-full p-3 rounded bg-black/40 border border-cyan-500/30 text-white"
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            disabled={loading}
-          />
-          <input
-            className="w-full p-3 rounded bg-black/40 border border-cyan-500/30 text-white"
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-            disabled={loading}
-          />
-          {error && <div className="text-red-400 text-sm">{error}</div>}
-          <button
-            className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded font-semibold mt-2"
-            disabled={loading}
-            type="submit"
-          >
-            {loading ? 'Loading...' : isSignup ? 'Sign Up' : 'Sign In'}
-          </button>
-        </form>
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-gray-300 text-sm">
-            {isSignup ? 'Already have an account?' : "Don't have an account?"}
-          </span>
-          <button
-            className="text-cyan-400 underline text-sm"
-            onClick={() => setIsSignup(s => !s)}
-            disabled={loading}
-          >
-            {isSignup ? 'Sign In' : 'Sign Up'}
-          </button>
+        <div className="mb-6">
+          <div className="bg-gradient-to-r from-cyan-900/70 to-purple-900/70 border border-cyan-700/30 shadow-lg rounded-xl px-6 py-5 text-center flex flex-col items-center">
+            <p className="text-cyan-200 text-base font-medium">
+              Welcome to <span className="text-cyan-400 font-semibold">OMYTECH</span>!<br />
+              <span className="text-gray-200">Sign up or sign in to access our digital services, launch your next project, collaborate with our team, or join our tech community.</span><br />
+              <span className="text-purple-300">Whether you&apos;re a client, a creator, or a future innovator, your journey starts here.</span>
+            </p>
+          </div>
         </div>
-        <div className="my-6 flex items-center">
-          <div className="flex-1 h-px bg-cyan-900" />
-          <span className="mx-4 text-gray-400 text-sm">or</span>
-          <div className="flex-1 h-px bg-cyan-900" />
-        </div>
+        {error && <div className="text-red-400 text-sm mb-4">{error}</div>}
         <button
           className="w-full bg-white text-black py-3 rounded font-semibold flex items-center justify-center gap-2 mb-3 hover:bg-gray-100 transition"
           onClick={() => handleOAuth('google')}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink, Github, Eye, Filter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = React.useState('all');
@@ -263,9 +264,9 @@ const Portfolio = () => {
           <p className="text-xl text-blue-100 mb-8">
             Let's create something amazing together that will be the next showcase in our portfolio.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200">
+          <Link to="/auth" className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200">
             Start Your Project
-          </button>
+          </Link>
         </div>
       </section>
     </div>

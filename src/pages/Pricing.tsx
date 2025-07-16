@@ -160,7 +160,7 @@ const Pricing = () => {
 
                     {/* CTA Button */}
                     <Link
-                      to="/contact"
+                      to="/auth"
                       className={`block w-full py-4 px-6 rounded-full font-semibold text-center transition-all duration-200 ${
                         plan.popular
                           ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-xl transform hover:scale-105'
@@ -254,7 +254,7 @@ const Pricing = () => {
             Choose your package and let's begin building something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center space-x-2">
+            <Link to="/auth" className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center space-x-2">
               <span>Start Your Project</span>
               <ArrowRight className="w-5 h-5" />
             </Link>

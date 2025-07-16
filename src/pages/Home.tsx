@@ -136,7 +136,7 @@ const Home = () => {
           {/* Epic CTA buttons - responsive layout */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4">
             <Link
-              to="/contact"
+              to="/auth"
               className="group relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 sm:px-12 py-4 sm:py-6 rounded-full hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-110 transition-all duration-300 font-bold text-base sm:text-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -248,7 +248,7 @@ const Home = () => {
               💥 Let's build something that breaks the internet and makes your competitors jealous
             </p>
             <Link
-              to="/contact"
+              to="/auth"
               className="relative z-10 bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 sm:px-12 py-4 sm:py-6 rounded-full hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-110 transition-all duration-300 font-bold text-base sm:text-lg inline-flex items-center space-x-2 sm:space-x-3"
             >
               <Zap className="w-5 sm:w-6 h-5 sm:h-6 animate-pulse" />

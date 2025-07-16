@@ -20,17 +20,9 @@ const AuthCallback = () => {
         if (ADMIN_EMAILS.includes(email)) {
           navigate('/dashboard/admin', { replace: true });
         } else {
-          // If first signup, go to create-project, else to client dashboard
-          const firstSignup = sessionStorage.getItem('firstSignup');
-          if (firstSignup) {
-            sessionStorage.removeItem('firstSignup');
-            navigate('/create-project', { replace: true });
-          } else {
-            navigate('/create-project', { replace: true });
-          }
+          navigate('/create-project', { replace: true });
         }
       } catch (err) {
-        // Not logged in, redirect to auth
         navigate('/auth', { replace: true });
       }
     };

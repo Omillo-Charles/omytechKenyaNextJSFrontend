@@ -175,9 +175,9 @@ const Services = () => {
           <p className="text-xl text-cyan-100 mb-8">
             Let's discuss your project and create a custom solution that fits your needs.
           </p>
-          <button className="bg-white text-cyan-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200">
-            Start Your Project Today
-          </button>
+          <Link to="/auth" className="bg-white text-cyan-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 inline-block">
+            Get Started
+          </Link>
         </div>
       </section>
     </div>

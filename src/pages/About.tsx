@@ -32,10 +32,10 @@ const About = () => {
     },
     {
       name: 'Christopher Musyoki',
-      position: 'Creative Director',
+      position: 'Growth Strategist',
       avatar: 'CM',
-      bio: 'Award-winning designer focused on beautiful, intuitive user experiences.',
-      skills: ['UI/UX Design', 'Branding', 'Design Systems', 'Creative Direction'],
+      bio: 'Data-driven marketer dedicated to sustainable growth and client success.',
+      skills: ['Digital Marketing', 'Analytics', 'Growth Hacking', 'Customer Success'],
       social: {
         linkedin: '#',
         twitter: '#',
@@ -45,10 +45,10 @@ const About = () => {
     },
     {
       name: 'Japhet Bugaga',
-      position: 'Growth Strategist',
+      position: 'Creative Director',
       avatar: 'JB',
-      bio: 'Data-driven marketer dedicated to sustainable growth and client success.',
-      skills: ['Digital Marketing', 'Analytics', 'Growth Hacking', 'Customer Success'],
+      bio: 'Award-winning designer focused on beautiful, intuitive user experiences.',
+      skills: ['UI/UX Design', 'Branding', 'Design Systems', 'Creative Direction'],
       social: {
         linkedin: '#',
         twitter: '#',
@@ -251,6 +251,50 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wings Under OMYTECH Section */}
+      <section className="py-20 bg-gradient-to-br from-cyan-950 via-black to-purple-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">Wings Under <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">OMYTECH</span></h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              OMYTECH is more than a company—it's an ecosystem. Explore our specialized wings, each with a unique mission and creative spirit.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Omytech Studio */}
+            <div className="bg-gradient-to-br from-cyan-900/60 to-blue-900/60 rounded-3xl shadow-xl p-8 flex flex-col items-center text-center border border-cyan-700/30 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-white">Studio</span>
+              </div>
+              <h3 className="text-2xl font-bold text-cyan-300 mb-2">Omytech Studio</h3>
+              <p className="text-gray-200 mb-2">We deliver world-class digital services to clients, from web and mobile development to branding and marketing. Your vision, our craft.</p>
+              <span className="inline-block mt-2 px-4 py-1 bg-cyan-700/30 text-cyan-200 rounded-full text-xs font-semibold mb-4">Digital Services</span>
+              <a href="https://studio.omytech.com" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-full font-semibold shadow hover:from-cyan-600 hover:to-blue-600 transition-all duration-200">Visit Studio</a>
+            </div>
+            {/* Omylabs */}
+            <div className="bg-gradient-to-br from-purple-900/60 to-pink-900/60 rounded-3xl shadow-xl p-8 flex flex-col items-center text-center border border-purple-700/30 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-white">Labs</span>
+              </div>
+              <h3 className="text-2xl font-bold text-purple-300 mb-2">Omylabs</h3>
+              <p className="text-gray-200 mb-2">Our innovation hub—where we build software products and SaaS solutions that shape the future. Ideas become reality here.</p>
+              <span className="inline-block mt-2 px-4 py-1 bg-purple-700/30 text-purple-200 rounded-full text-xs font-semibold mb-4">Software & SaaS</span>
+              <a href="https://labs.omytech.com" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold shadow hover:from-purple-600 hover:to-pink-600 transition-all duration-200">Visit Labs</a>
+            </div>
+            {/* OmyGen */}
+            <div className="bg-gradient-to-br from-green-900/60 to-emerald-900/60 rounded-3xl shadow-xl p-8 flex flex-col items-center text-center border border-green-700/30 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-white">Gen</span>
+              </div>
+              <h3 className="text-2xl font-bold text-green-300 mb-2">OmyGen</h3>
+              <p className="text-gray-200 mb-2">We mentor and empower the next generation of techies—nurturing talent, creativity, and innovation for a brighter digital future.</p>
+              <span className="inline-block mt-2 px-4 py-1 bg-green-700/30 text-green-200 rounded-full text-xs font-semibold mb-4">Mentorship</span>
+              <a href="https://gen.omytech.com" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-full font-semibold shadow hover:from-green-600 hover:to-emerald-600 transition-all duration-200">Visit OmyGen</a>
+            </div>
           </div>
         </div>
       </section>

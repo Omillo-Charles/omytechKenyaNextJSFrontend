@@ -20,7 +20,7 @@ const AuthCallback = () => {
         if (ADMIN_EMAILS.includes(email)) {
           navigate('/dashboard/admin', { replace: true });
         } else {
-          navigate('/create-project', { replace: true });
+          navigate('/create-project', { replace: true, state: { name: user.name || user.email } });
         }
       } catch (err) {
         navigate('/auth', { replace: true });

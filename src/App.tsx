@@ -21,10 +21,9 @@ import GDPRCompliance from './pages/GDPRCompliance';
 import OMYBOT from './components/OMYBOT';
 import Auth from './pages/Auth';
 import AuthCallback from './pages/AuthCallback';
-// Only import the new simple pages
 import AdminDashboard from './pages/dashboard/admin';
 import CreateProject from './pages/create-project';
-import RegisterProject from './pages/register-project';
+// Only import the new simple pages
 
 // Component to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -48,6 +47,8 @@ function App() {
           <Routes>
             <Route path="/auth" element={<Auth />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/dashboard/admin" element={<AdminDashboard />} />
+            <Route path="/create-project" element={<CreateProject />} />
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/web-development" element={<ServiceWebDevelopment />} />
@@ -64,9 +65,6 @@ function App() {
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/gdpr-compliance" element={<GDPRCompliance />} />
-            <Route path="/dashboard/admin" element={<AdminDashboard />} />
-            <Route path="/create-project" element={<CreateProject />} />
-            <Route path="/register-project" element={<RegisterProject />} />
           </Routes>
         </main>
         <Footer />

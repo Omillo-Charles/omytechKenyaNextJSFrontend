@@ -5,12 +5,12 @@ import {
   Phone, 
   MapPin, 
   Facebook, 
-  Twitter, 
   Linkedin, 
   Instagram,
   ArrowUp,
 } from 'lucide-react';
 import Logo from './Logo';
+import React from 'react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -50,10 +50,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', name: 'Facebook' },
-    { icon: Twitter, href: '#', name: 'Twitter' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578570897248&mibextid=rS40aB7S9Ucbxw6v', name: 'Facebook' },
+    { icon: 'x-twitter', href: 'https://x.com/omytech_kenya', name: 'X' },
     { icon: Linkedin, href: '#', name: 'LinkedIn' },
-    { icon: Instagram, href: '#', name: 'Instagram' }
+    { icon: Instagram, href: 'https://instagram.com/omytech_kenya', name: 'Instagram' }
   ];
 
   const currentYear = new Date;
@@ -160,19 +160,22 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <span className="text-gray-300 mr-2">Follow us:</span>
-            {socialLinks.map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center hover:bg-cyan-500 hover:border-cyan-400 transition-all duration-200"
-                  aria-label={social.name}
-                >
-                  <IconComponent className="w-5 h-5" />
-                </a>
-              );
-            })}
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center hover:bg-cyan-500 hover:border-cyan-400 transition-all duration-200"
+                aria-label={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {social.icon === 'x-twitter' ? (
+                  <i className="bi bi-twitter-x text-[20px]" />
+                ) : (
+                  React.createElement(social.icon, { className: 'w-5 h-5' })
+                )}
+              </a>
+            ))}
           </div>
 
           {/* Awards/Certifications */}

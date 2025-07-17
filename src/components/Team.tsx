@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import { Linkedin, Github, Mail } from 'lucide-react';
 
 const Team = () => {
   const team = [
@@ -117,9 +117,10 @@ const Team = () => {
                 </a>
                 <a
                   href={member.social.twitter}
-                  className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition-colors duration-200"
+                  className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-900 hover:text-white transition-colors duration-200"
+                  aria-label="X"
                 >
-                  <Twitter className="w-4 h-4" />
+                  <i className="bi bi-twitter-x text-[16px]" />
                 </a>
                 <a
                   href={member.social.github}

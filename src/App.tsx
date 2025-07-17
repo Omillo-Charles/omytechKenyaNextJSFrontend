@@ -38,39 +38,43 @@ const ScrollToTop = () => {
 };
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title = 'OMYTECH - Digital Innovation Agency';
+  }, [location]);
+
   return (
-    <Router>
-      <div className="min-h-screen bg-black">
-        <ScrollToTop />
-        <Header />
-        <main className="relative">
-          <Routes>
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/dashboard/admin" element={<AdminDashboard />} />
-            <Route path="/create-project" element={<CreateProject />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/web-development" element={<ServiceWebDevelopment />} />
-            <Route path="/services/mobile-app-development" element={<ServiceMobileAppDevelopment />} />
-            <Route path="/services/ui-ux-design" element={<ServiceUIDesign />} />
-            <Route path="/services/digital-marketing" element={<ServiceDigitalMarketing />} />
-            <Route path="/services/ecommerce" element={<ServiceEcommerce />} />
-            <Route path="/services/consulting" element={<ServiceConsulting />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/cookie-policy" element={<CookiePolicy />} />
-            <Route path="/gdpr-compliance" element={<GDPRCompliance />} />
-          </Routes>
-        </main>
-        <Footer />
-        <OMYBOT />
-      </div>
-    </Router>
+    <div className="min-h-screen bg-black">
+      <ScrollToTop />
+      <Header />
+      <main className="relative">
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/dashboard/admin" element={<AdminDashboard />} />
+          <Route path="/create-project" element={<CreateProject />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/web-development" element={<ServiceWebDevelopment />} />
+          <Route path="/services/mobile-app-development" element={<ServiceMobileAppDevelopment />} />
+          <Route path="/services/ui-ux-design" element={<ServiceUIDesign />} />
+          <Route path="/services/digital-marketing" element={<ServiceDigitalMarketing />} />
+          <Route path="/services/ecommerce" element={<ServiceEcommerce />} />
+          <Route path="/services/consulting" element={<ServiceConsulting />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/gdpr-compliance" element={<GDPRCompliance />} />
+        </Routes>
+      </main>
+      <Footer />
+      <OMYBOT />
+    </div>
   );
 }
 

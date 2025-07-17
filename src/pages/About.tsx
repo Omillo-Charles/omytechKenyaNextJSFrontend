@@ -1,6 +1,12 @@
 import React from 'react';
-import { Users, Award, Target, Heart, Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import { Users, Award, Target, Heart, Linkedin, Github, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+// Official Bootstrap X (Twitter) icon SVG
+const XTwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" {...props}>
+    <path d="M2.97 1.67c.457-.3.997-.47 1.57-.47h6.92c.573 0 1.113.17 1.57.47.457.3.84.73 1.09 1.25.25.52.36 1.12.29 1.7v8.66c.07.58-.04 1.18-.29 1.7-.25.52-.633.95-1.09 1.25-.457.3-.997.47-1.57.47H4.54c-.573 0-1.113-.17-1.57-.47a2.77 2.77 0 0 1-1.09-1.25 3.13 3.13 0 0 1-.29-1.7V4.62c-.07-.58.04-1.18.29-1.7.25-.52.633-.95 1.09-1.25Zm1.57.53c-.37 0-.73.11-1.03.32-.3.2-.54.5-.7.84-.16.34-.23.73-.18 1.11v6.06l2.7-2.7 2.7 2.7 2.7-2.7 2.7 2.7V4.47c.05-.38-.02-.77-.18-1.11a1.77 1.77 0 0 0-.7-.84 1.77 1.77 0 0 0-1.03-.32H4.54Zm8.49 8.49-2.7-2.7-2.7 2.7-2.7-2.7v3.84c-.05.38.02.77.18 1.11.16.34.4.64.7.84.3.21.66.32 1.03.32h6.92c.37 0 .73-.11 1.03-.32.3-.2.54-.5.7-.84.16-.34.23-.73.18-1.11V7.99l-2.7 2.7Z"/>
+  </svg>
+);
 
 const About = () => {
   const team = [
@@ -232,9 +238,10 @@ const About = () => {
                   </a>
                   <a
                     href={member.social.twitter}
-                    className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center hover:bg-cyan-500 hover:border-cyan-400 transition-all duration-200"
+                    className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center hover:bg-gray-900 hover:border-cyan-400 transition-all duration-200"
+                    aria-label="X"
                   >
-                    <Twitter className="w-4 h-4" />
+                    <i className="bi bi-twitter-x text-[16px]" />
                   </a>
                   <a
                     href={member.social.github}

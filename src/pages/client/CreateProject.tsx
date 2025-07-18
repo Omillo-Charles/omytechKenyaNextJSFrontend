@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createProject } from '../../utils/appwriteService';
 
 const PRESET_COLORS = [
   '#2563eb', // blue-600
@@ -26,6 +28,10 @@ const CreateProjectPage = () => {
   });
   const [showCustomPicker, setShowCustomPicker] = useState(false);
   const [customColor, setCustomColor] = useState('#000000');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -47,15 +53,28 @@ const CreateProjectPage = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Submission logic will go here
+    setLoading(true);
+    setError('');
+    setSuccess('');
+    try {
+      await createProject(form);
+      setSuccess('Project created successfully! Redirecting to dashboard...');
+      setTimeout(() => navigate('/client/dashboard'), 1800);
+    } catch (err: any) {
+      setError(err?.message || 'Failed to create project.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-8 px-2">
       <div className="w-full max-w-md mx-auto bg-gray-900 rounded-lg shadow-lg p-8 text-white">
         <h2 className="text-2xl font-bold mb-6 text-center">Create New Project</h2>
+        {success && <div className="mb-4 text-green-400 text-center font-semibold">{success}</div>}
+        {error && <div className="mb-4 text-red-400 text-center font-semibold">{error}</div>}
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Project Name */}
           <div>
@@ -69,6 +88,7 @@ const CreateProjectPage = () => {
               required
               className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-gray-800 text-white placeholder-gray-400"
               placeholder="Enter project name"
+              disabled={loading}
             />
           </div>
           {/* Phone Number */}
@@ -84,6 +104,7 @@ const CreateProjectPage = () => {
               pattern="[0-9\-\+\s\(\)]{7,}"
               className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-gray-800 text-white placeholder-gray-400"
               placeholder="Enter your phone number"
+              disabled={loading}
             />
           </div>
           {/* Description */}
@@ -98,6 +119,7 @@ const CreateProjectPage = () => {
               className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-gray-800 text-white placeholder-gray-400"
               placeholder="Describe your project"
               rows={4}
+              disabled={loading}
             />
           </div>
           {/* Budget and Deadline */}
@@ -115,6 +137,7 @@ const CreateProjectPage = () => {
                   min="0"
                   className="w-full pl-7 px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-gray-800 text-white placeholder-gray-400"
                   placeholder="e.g. 1000"
+                  disabled={loading}
                 />
               </div>
             </div>
@@ -127,6 +150,7 @@ const CreateProjectPage = () => {
                 value={form.deadline}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 bg-gray-800 text-white placeholder-gray-400"
+                disabled={loading}
               />
             </div>
           </div>
@@ -142,6 +166,7 @@ const CreateProjectPage = () => {
                   style={{ backgroundColor: color }}
                   onClick={() => handleAddColor(color)}
                   aria-label={`Add color ${color}`}
+                  disabled={loading}
                 />
               ))}
               <button
@@ -149,6 +174,7 @@ const CreateProjectPage = () => {
                 className="w-8 h-8 rounded-full border-2 border-dashed border-cyan-500 flex items-center justify-center text-cyan-400 bg-gray-800 hover:bg-gray-700 transition-colors"
                 onClick={() => setShowCustomPicker((v) => !v)}
                 aria-label="Add custom color"
+                disabled={loading}
               >
                 +
               </button>
@@ -161,11 +187,13 @@ const CreateProjectPage = () => {
                   onChange={e => setCustomColor(e.target.value)}
                   className="w-8 h-8 border-none bg-transparent cursor-pointer"
                   aria-label="Pick custom color"
+                  disabled={loading}
                 />
                 <button
                   type="button"
                   className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded hover:opacity-90 text-sm font-semibold shadow transition-colors"
                   onClick={() => { handleAddColor(customColor); setShowCustomPicker(false); }}
+                  disabled={loading}
                 >
                   Add
                 </button>
@@ -173,6 +201,7 @@ const CreateProjectPage = () => {
                   type="button"
                   className="px-2 py-1 text-gray-400 hover:text-red-400 text-sm"
                   onClick={() => setShowCustomPicker(false)}
+                  disabled={loading}
                 >
                   Cancel
                 </button>
@@ -190,6 +219,7 @@ const CreateProjectPage = () => {
                       title="Remove color"
                       aria-label="Remove color"
                       onClick={() => handleRemoveColor(color)}
+                      disabled={loading}
                     >
                       &times;
                     </button>
@@ -211,6 +241,7 @@ const CreateProjectPage = () => {
                 multiple
                 onChange={handleFileChange}
                 className="hidden"
+                disabled={loading}
               />
             </label>
             {form.files.length > 0 && (
@@ -228,8 +259,9 @@ const CreateProjectPage = () => {
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full font-semibold transition-all hover:opacity-90 shadow-lg"
+            disabled={loading}
           >
-            Create Project
+            {loading ? 'Creating...' : 'Create Project'}
           </button>
         </form>
       </div>

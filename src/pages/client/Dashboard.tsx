@@ -357,8 +357,8 @@ const ClientDashboard = () => {
       )}
       {/* Edit Project Modal */}
       {editProject && editForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 overflow-y-auto">
-          <div className="bg-gray-900 rounded-2xl shadow-2xl p-0 max-w-md w-full border border-gray-700 flex flex-col">
+        <div className="fixed inset-0 z-50 flex justify-center bg-black/60 pt-28">
+          <div className="bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full border border-gray-700 flex flex-col max-h-[70vh] overflow-y-auto">
             <div className="sticky top-0 bg-gray-900 rounded-t-2xl px-8 pt-8 pb-4 border-b border-gray-800">
               <h3 className="text-xl font-bold text-yellow-300">Edit Project</h3>
             </div>

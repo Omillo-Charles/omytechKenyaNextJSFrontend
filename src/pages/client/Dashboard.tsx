@@ -357,140 +357,143 @@ const ClientDashboard = () => {
       )}
       {/* Edit Project Modal */}
       {editProject && editForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-          <div className="bg-gray-900 rounded-xl shadow-xl p-8 max-w-md w-full border border-gray-700 text-white">
-            <h3 className="text-xl font-bold mb-4 text-yellow-300">Edit Project</h3>
-            {editError && <div className="mb-2 text-red-400 text-center font-semibold">{editError}</div>}
-            <form onSubmit={handleEditSubmit} className="space-y-4">
-              <div>
-                <label className="block text-gray-200 mb-1" htmlFor="edit-name">Project Name</label>
-                <input
-                  type="text"
-                  id="edit-name"
-                  name="name"
-                  value={editForm.name}
-                  onChange={handleEditChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Enter project name"
-                  disabled={editLoading}
-                />
-              </div>
-              <div>
-                <label className="block text-gray-200 mb-1" htmlFor="edit-phone">Phone Number</label>
-                <input
-                  type="tel"
-                  id="edit-phone"
-                  name="phone"
-                  value={editForm.phone}
-                  onChange={handleEditChange}
-                  required
-                  pattern="[0-9\-\+\s\(\)]{7,}"
-                  className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Enter your phone number"
-                  disabled={editLoading}
-                />
-              </div>
-              <div>
-                <label className="block text-gray-200 mb-1" htmlFor="edit-description">Description</label>
-                <textarea
-                  id="edit-description"
-                  name="description"
-                  value={editForm.description}
-                  onChange={handleEditChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
-                  placeholder="Describe your project"
-                  rows={3}
-                  disabled={editLoading}
-                />
-              </div>
-              <div className="flex flex-col md:flex-row md:space-x-4">
-                <div className="flex-1 mb-4 md:mb-0">
-                  <label className="block text-gray-200 mb-1" htmlFor="edit-budget">Budget <span className="text-xs text-gray-400">(in US Dollars)</span></label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                    <input
-                      type="number"
-                      id="edit-budget"
-                      name="budget"
-                      value={editForm.budget}
-                      onChange={handleEditChange}
-                      min="0"
-                      className="w-full pl-7 px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
-                      placeholder="e.g. 1000"
-                      disabled={editLoading}
-                    />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <label className="block text-gray-200 mb-1" htmlFor="edit-deadline">Deadline</label>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 overflow-y-auto">
+          <div className="bg-gray-900 rounded-2xl shadow-2xl p-0 max-w-md w-full border border-gray-700 flex flex-col">
+            <div className="sticky top-0 bg-gray-900 rounded-t-2xl px-8 pt-8 pb-4 border-b border-gray-800">
+              <h3 className="text-xl font-bold text-yellow-300">Edit Project</h3>
+            </div>
+            <div className="px-8 py-6">
+              {editError && <div className="mb-2 text-red-400 text-center font-semibold">{editError}</div>}
+              <form onSubmit={handleEditSubmit} className="space-y-5">
+                <div>
+                  <label className="block text-gray-200 mb-1" htmlFor="edit-name">Project Name</label>
                   <input
-                    type="date"
-                    id="edit-deadline"
-                    name="deadline"
-                    value={editForm.deadline}
+                    type="text"
+                    id="edit-name"
+                    name="name"
+                    value={editForm.name}
                     onChange={handleEditChange}
+                    required
                     className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
+                    placeholder="Enter project name"
                     disabled={editLoading}
                   />
                 </div>
-              </div>
-              {/* Color Picker - Swatch Grid */}
-              <div>
-                <label className="block text-gray-200 mb-1">Project Colors</label>
-                <div className="flex flex-wrap gap-2 items-center">
-                  {PRESET_COLORS.map((color) => (
-                    <button
-                      key={color}
-                      type="button"
-                      className={`w-8 h-8 rounded-full border-2 transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400 ${editForm.colors.includes(color) ? 'border-yellow-400 ring-2 ring-yellow-400' : 'border-gray-700'}`}
-                      style={{ backgroundColor: color }}
-                      onClick={() => handleEditColorAdd(color)}
-                      aria-label={`Add color ${color}`}
+                <div>
+                  <label className="block text-gray-200 mb-1" htmlFor="edit-phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="edit-phone"
+                    name="phone"
+                    value={editForm.phone}
+                    onChange={handleEditChange}
+                    required
+                    pattern="[0-9\-\+\s\(\)]{7,}"
+                    className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
+                    placeholder="Enter your phone number"
+                    disabled={editLoading}
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-200 mb-1" htmlFor="edit-description">Description</label>
+                  <textarea
+                    id="edit-description"
+                    name="description"
+                    value={editForm.description}
+                    onChange={handleEditChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
+                    placeholder="Describe your project"
+                    rows={3}
+                    disabled={editLoading}
+                  />
+                </div>
+                <div className="flex flex-col md:flex-row md:space-x-4 gap-4">
+                  <div className="flex-1">
+                    <label className="block text-gray-200 mb-1" htmlFor="edit-budget">Budget <span className="text-xs text-gray-400">(in US Dollars)</span></label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                      <input
+                        type="number"
+                        id="edit-budget"
+                        name="budget"
+                        value={editForm.budget}
+                        onChange={handleEditChange}
+                        min="0"
+                        className="w-full pl-7 px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
+                        placeholder="e.g. 1000"
+                        disabled={editLoading}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <label className="block text-gray-200 mb-1" htmlFor="edit-deadline">Deadline</label>
+                    <input
+                      type="date"
+                      id="edit-deadline"
+                      name="deadline"
+                      value={editForm.deadline}
+                      onChange={handleEditChange}
+                      className="w-full px-3 py-2 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-gray-800 text-white placeholder-gray-400"
                       disabled={editLoading}
                     />
-                  ))}
+                  </div>
                 </div>
-                {editForm.colors.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {editForm.colors.map((color: string) => (
-                      <div key={color} className="flex items-center gap-1 bg-gray-800 rounded-full px-3 py-1 border border-gray-700">
-                        <span className="w-4 h-4 rounded-full inline-block mr-1" style={{ backgroundColor: color }} />
-                        <span className="text-xs text-gray-200">{color}</span>
-                        <button
-                          type="button"
-                          className="ml-1 text-red-400 hover:text-red-600 text-lg px-1 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
-                          title="Remove color"
-                          aria-label="Remove color"
-                          onClick={() => handleEditColorRemove(color)}
-                          disabled={editLoading}
-                        >
-                          &times;
-                        </button>
-                      </div>
+                <div>
+                  <label className="block text-gray-200 mb-1">Project Colors</label>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {PRESET_COLORS.map((color) => (
+                      <button
+                        key={color}
+                        type="button"
+                        className={`w-8 h-8 rounded-full border-2 transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400 ${editForm.colors.includes(color) ? 'border-yellow-400 ring-2 ring-yellow-400' : 'border-gray-700'}`}
+                        style={{ backgroundColor: color }}
+                        onClick={() => handleEditColorAdd(color)}
+                        aria-label={`Add color ${color}`}
+                        disabled={editLoading}
+                      />
                     ))}
                   </div>
-                )}
-              </div>
-              <div className="flex justify-end gap-4 mt-6">
-                <button
-                  type="button"
-                  className="px-5 py-2 rounded-full bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors font-semibold"
-                  onClick={closeEditModal}
-                  disabled={editLoading}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 font-semibold shadow hover:opacity-90 transition-all"
-                  disabled={editLoading}
-                >
-                  {editLoading ? 'Saving...' : 'Save Changes'}
-                </button>
-              </div>
-            </form>
+                  {editForm.colors.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {editForm.colors.map((color: string) => (
+                        <div key={color} className="flex items-center gap-1 bg-gray-800 rounded-full px-3 py-1 border border-gray-700">
+                          <span className="w-4 h-4 rounded-full inline-block mr-1" style={{ backgroundColor: color }} />
+                          <span className="text-xs text-gray-200">{color}</span>
+                          <button
+                            type="button"
+                            className="ml-1 text-red-400 hover:text-red-600 text-lg px-1 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
+                            title="Remove color"
+                            aria-label="Remove color"
+                            onClick={() => handleEditColorRemove(color)}
+                            disabled={editLoading}
+                          >
+                            &times;
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="flex justify-end gap-4 mt-8 border-t border-gray-800 pt-6">
+                  <button
+                    type="button"
+                    className="px-5 py-2 rounded-full bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors font-semibold"
+                    onClick={closeEditModal}
+                    disabled={editLoading}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 font-semibold shadow hover:opacity-90 transition-all"
+                    disabled={editLoading}
+                  >
+                    {editLoading ? 'Saving...' : 'Save Changes'}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}

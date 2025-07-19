@@ -25,6 +25,7 @@ import AdminDashboardPage from './pages/dashboard/AdminDashboardPage';
 import CreateProject from './pages/create-project';
 import ClientCreateProject from './pages/client/CreateProject';
 import ClientDashboard from './pages/client/Dashboard';
+import Chat from './pages/Chat';
 // Only import the new simple pages
 
 // Component to handle scroll to top on route change
@@ -59,6 +60,7 @@ function App() {
           <Route path="/create-project" element={<CreateProject />} />
           <Route path="/client/create-project" element={<ClientCreateProject />} />
           <Route path="/client/dashboard" element={<ClientDashboard />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/web-development" element={<ServiceWebDevelopment />} />

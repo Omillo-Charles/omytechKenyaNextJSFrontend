@@ -343,7 +343,7 @@ export default function ClientDashboard() {
                     </button>
                     <button
                       className="px-3 py-1 text-xs rounded-full bg-blue-900/40 text-blue-300 font-semibold hover:bg-blue-800/60 transition-colors"
-                      onClick={() => navigate(`/client/chat/${project.adminId}`)}
+                      onClick={() => navigate(`/chat?projectId=${project.$id}&adminId=${project.adminId}`)}
                       disabled={!project.adminId}
                       title="Chat with Admin"
                     >

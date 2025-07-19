@@ -43,17 +43,11 @@ export default function AdminDashboardPage() {
     databases.listDocuments(
       DATABASE_ID,
       PROJECTS_COLLECTION_ID,
-      [
-        // Only projects assigned to this admin
-        // Query.equal('adminId', admin.$id) // If adminId is user ID
-        // But in your code, adminId is the admin's id from ADMINS, so match by email
-        // Query.equal('adminEmail', admin.email)
-        // We'll filter client-side for now for simplicity
-      ]
+      []
     )
       .then((res) => {
-        // Filter projects assigned to this admin (by email)
-        const assigned = res.documents.filter((p: any) => p.adminEmail === admin.email);
+        // Filter projects assigned to this admin (by user ID)
+        const assigned = res.documents.filter((p: any) => p.adminId === admin.$id);
         setProjects(assigned);
         setLoading(false);
       })
@@ -308,7 +302,7 @@ export default function AdminDashboardPage() {
                   <div className="flex gap-2 mb-2">
                     <button
                       className="px-3 py-1 text-xs rounded-full bg-blue-900/40 text-blue-300 font-semibold hover:bg-blue-800/60 transition-colors"
-                      onClick={() => navigate(`/admin/chat/${project.clientId}`)}
+                      onClick={() => navigate(`/chat?projectId=${project.$id}&clientId=${project.clientId}`)}
                       disabled={!project.clientId}
                       title="Chat with Client"
                     >

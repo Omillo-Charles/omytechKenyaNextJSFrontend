@@ -6,7 +6,7 @@ import { Query } from 'appwrite'; // Uncomment if you want to use queries
 export const DATABASE_ID = '687b60ec000956aae933';
 export const PROJECTS_COLLECTION_ID = '687b61a1002932c8d3f0';
 export const BUCKET_ID = '687b63f7001b241df161';
-const NOTIFICATIONS_COLLECTION_ID = '687a20ad00287fc85d46';
+export const NOTIFICATIONS_COLLECTION_ID = '687b6ec300367ae00486';
 
 // List of allowed admin emails
 const ADMIN_EMAILS = [
@@ -94,7 +94,7 @@ export async function createProject(form: {
   const message = `Project "${form.name}" created successfully on ${new Date().toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}.`;
   await Promise.all([
     sendNotification({
-      userId: user.$id,
+      userId: userId,
       message,
       projectId: project.$id,
     }),
@@ -112,9 +112,13 @@ export async function fetchUserNotifications() {
   const response = await databases.listDocuments(
     DATABASE_ID,
     NOTIFICATIONS_COLLECTION_ID,
-    [Query.equal('userId', user.$id)]
+    [
+      // Only fetch notifications for the logged-in user
+      // Query.equal('userId', user.$id)
+    ]
   );
-  return response.documents;
+  // Filter client-side for now
+  return response.documents.filter((n: any) => n.userId === user.$id);
 }
 
 export async function deleteProject(projectId: string) {
@@ -183,10 +187,50 @@ export async function updateProject(projectId: string, data: Partial<{
   status: string;
 }>) {
   // Use the exported DATABASE_ID and PROJECTS_COLLECTION_ID
-  return databases.updateDocument(
+  const updated = await databases.updateDocument(
     DATABASE_ID,
     PROJECTS_COLLECTION_ID,
     projectId,
     data
   );
+  // Send notifications for status change or edit
+  if (data.status) {
+    // Fetch the updated project to get clientId and adminId
+    const project = await databases.getDocument(
+      DATABASE_ID,
+      PROJECTS_COLLECTION_ID,
+      projectId
+    );
+    await Promise.all([
+      sendNotification({
+        userId: project.clientId,
+        message: `The status of your project "${project.name}" was changed to "${data.status}" by the admin.`,
+        projectId: projectId,
+      }),
+      sendNotification({
+        userId: project.adminId,
+        message: `You changed the status of project "${project.name}" to "${data.status}".`,
+        projectId: projectId,
+      })
+    ]);
+  } else if (Object.keys(data).length > 0) {
+    const project = await databases.getDocument(
+      DATABASE_ID,
+      PROJECTS_COLLECTION_ID,
+      projectId
+    );
+    await Promise.all([
+      sendNotification({
+        userId: project.clientId,
+        message: `Your project "${project.name}" was edited by the admin.`,
+        projectId: projectId,
+      }),
+      sendNotification({
+        userId: project.adminId,
+        message: `You edited the project "${project.name}".`,
+        projectId: projectId,
+      })
+    ]);
+  }
+  return updated;
 } 

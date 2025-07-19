@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { account } from '../../utils/appwrite';
-import { fetchUserProjects, deleteProject, updateProject } from '../../utils/appwriteService';
+import { fetchUserProjects, deleteProject, updateProject, fetchUserNotifications } from '../../utils/appwriteService';
 
 function formatDate(dateStr?: string) {
   if (!dateStr) return '';
@@ -33,6 +33,9 @@ export default function ClientDashboard() {
   const [editLoading, setEditLoading] = useState(false);
   const [editError, setEditError] = useState('');
   const [editSuccess, setEditSuccess] = useState('');
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const [notificationsLoading, setNotificationsLoading] = useState(true);
+  const [notificationsError, setNotificationsError] = useState('');
 
 
   useEffect(() => {
@@ -64,6 +67,19 @@ export default function ClientDashboard() {
       );
     }
   }, [search, projects]);
+
+  useEffect(() => {
+    setNotificationsLoading(true);
+    fetchUserNotifications()
+      .then((docs) => {
+        setNotifications(docs);
+        setNotificationsLoading(false);
+      })
+      .catch((err) => {
+        setNotificationsError('Failed to load notifications.');
+        setNotificationsLoading(false);
+      });
+  }, []);
 
   const handleDelete = async (projectId: string) => {
     setDeletingId(projectId);
@@ -135,6 +151,33 @@ export default function ClientDashboard() {
   return (
     <div className="min-h-screen bg-black pt-24 pb-8 px-2">
       <div className="w-full max-w-5xl mx-auto">
+        {/* Notifications Section */}
+        <div className="w-full max-w-2xl bg-gray-900 rounded-lg shadow-lg p-6 mb-8 mx-auto">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold text-cyan-400">Notifications</h2>
+            <span className="text-xs text-gray-400">{notifications.length} new</span>
+          </div>
+          {notificationsLoading ? (
+            <div className="text-gray-500 text-center">Loading notifications...</div>
+          ) : notificationsError ? (
+            <div className="text-red-400 text-center">{notificationsError}</div>
+          ) : notifications.length === 0 ? (
+            <div className="text-gray-500 text-center">No notifications</div>
+          ) : (
+            <ul className="divide-y divide-gray-800">
+              {notifications.map((n) => (
+                <li key={n.$id} className="py-2 flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  <span>{n.message}</span>
+                  {n.projectId && (
+                    <span className="ml-2 text-xs text-gray-400">(Project ID: {n.projectId})</span>
+                  )}
+                  {!n.read && <span className="ml-auto text-xs text-green-400">New</span>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         {/* Dashboard Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
@@ -297,6 +340,14 @@ export default function ClientDashboard() {
                       title="Edit project"
                     >
                       Edit
+                    </button>
+                    <button
+                      className="px-3 py-1 text-xs rounded-full bg-blue-900/40 text-blue-300 font-semibold hover:bg-blue-800/60 transition-colors"
+                      onClick={() => navigate(`/client/chat/${project.adminId}`)}
+                      disabled={!project.adminId}
+                      title="Chat with Admin"
+                    >
+                      Chat with Admin
                     </button>
                     <button
                       className="px-3 py-1 text-xs rounded-full bg-red-900/40 text-red-300 font-semibold hover:bg-red-800/60 transition-colors"

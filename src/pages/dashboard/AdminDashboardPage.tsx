@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { account, databases } from '../../utils/appwrite';
-import { DATABASE_ID, PROJECTS_COLLECTION_ID, deleteProject, updateProject } from '../../utils/appwriteService';
+import { DATABASE_ID, PROJECTS_COLLECTION_ID, deleteProject, updateProject, fetchUserNotifications } from '../../utils/appwriteService';
 
 function formatDate(dateStr?: string) {
   if (!dateStr) return '';
@@ -28,6 +28,9 @@ export default function AdminDashboardPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [statusUpdatingId, setStatusUpdatingId] = useState<string | null>(null);
+  const [notifications, setNotifications] = useState<any[]>([]);
+  const [notificationsLoading, setNotificationsLoading] = useState(true);
+  const [notificationsError, setNotificationsError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -73,6 +76,19 @@ export default function AdminDashboardPage() {
     }
   }, [search, projects]);
 
+  useEffect(() => {
+    setNotificationsLoading(true);
+    fetchUserNotifications()
+      .then((docs) => {
+        setNotifications(docs);
+        setNotificationsLoading(false);
+      })
+      .catch((err) => {
+        setNotificationsError('Failed to load notifications.');
+        setNotificationsLoading(false);
+      });
+  }, []);
+
   const handleDelete = async (projectId: string) => {
     setDeletingId(projectId);
     try {
@@ -106,6 +122,33 @@ export default function AdminDashboardPage() {
   return (
     <div className="min-h-screen bg-black pt-24 pb-8 px-2">
       <div className="w-full max-w-5xl mx-auto">
+        {/* Notifications Section */}
+        <div className="w-full max-w-2xl bg-gray-900 rounded-lg shadow-lg p-6 mb-8 mx-auto">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold text-purple-400">Notifications</h2>
+            <span className="text-xs text-gray-400">{notifications.length} new</span>
+          </div>
+          {notificationsLoading ? (
+            <div className="text-gray-500 text-center">Loading notifications...</div>
+          ) : notificationsError ? (
+            <div className="text-red-400 text-center">{notificationsError}</div>
+          ) : notifications.length === 0 ? (
+            <div className="text-gray-500 text-center">No notifications</div>
+          ) : (
+            <ul className="divide-y divide-gray-800">
+              {notifications.map((n) => (
+                <li key={n.$id} className="py-2 flex items-center gap-2">
+                  <span className="text-purple-400">•</span>
+                  <span>{n.message}</span>
+                  {n.projectId && (
+                    <span className="ml-2 text-xs text-gray-400">(Project ID: {n.projectId})</span>
+                  )}
+                  {!n.read && <span className="ml-auto text-xs text-green-400">New</span>}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
@@ -312,4 +355,4 @@ export default function AdminDashboardPage() {
       </div>
     </div>
   );
-} 
+}

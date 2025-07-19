@@ -233,4 +233,12 @@ export async function updateProject(projectId: string, data: Partial<{
     ]);
   }
   return updated;
+}
+
+export async function fetchAllProjects() {
+  const response = await databases.listDocuments(
+    DATABASE_ID,
+    PROJECTS_COLLECTION_ID
+  );
+  return response.documents;
 } 

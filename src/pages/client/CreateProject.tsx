@@ -101,7 +101,13 @@ export default function CreateProjectPage() {
           adminId: randomAdmin.id,
           adminName: randomAdmin.name,
           adminEmail: randomAdmin.email,
-        }
+        },
+        [
+          Permission.read(`user:${userId}`),
+          Permission.write(`user:${userId}`),
+          Permission.read(`user:${randomAdmin.id}`),
+          Permission.write(`user:${randomAdmin.id}`),
+        ]
       );
       setSuccess(`Project created successfully! Assigned admin: ${randomAdmin.name} (${randomAdmin.email})`);
       setForm({

@@ -104,11 +104,7 @@ export default function CreateProjectPage() {
         },
         [
           Permission.read(`user:${userId}`),
-          Permission.write(`user:${userId}`),
-          Permission.update(`user:${userId}`),
-          Permission.delete(`user:${userId}`),
           Permission.read(`user:${randomAdmin.id}`),
-          Permission.write(`user:${randomAdmin.id}`),
           Permission.update(`user:${randomAdmin.id}`),
           Permission.delete(`user:${randomAdmin.id}`),
         ]

@@ -341,14 +341,15 @@ export default function ClientDashboard() {
                     >
                       Edit
                     </button>
-                    <button
+                    <a
+                      href="https://wa.me/254745511354"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="px-3 py-1 text-xs rounded-full bg-blue-900/40 text-blue-300 font-semibold hover:bg-blue-800/60 transition-colors"
-                      onClick={() => navigate(`/chat?projectId=${project.$id}&adminId=${project.adminId}`)}
-                      disabled={!project.adminId}
-                      title="Chat with Admin"
+                      title="Chat with Admin on WhatsApp"
                     >
                       Chat with Admin
-                    </button>
+                    </a>
                     <button
                       className="px-3 py-1 text-xs rounded-full bg-red-900/40 text-red-300 font-semibold hover:bg-red-800/60 transition-colors"
                       onClick={() => setConfirmDeleteId(project.$id)}

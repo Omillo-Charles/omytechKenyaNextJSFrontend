@@ -29,6 +29,7 @@ export default function ClientDashboard() {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [notificationsLoading, setNotificationsLoading] = useState(true);
   const [notificationsError, setNotificationsError] = useState('');
+  const [expandedDesc, setExpandedDesc] = useState<{ [id: string]: boolean }>({});
 
 
   useEffect(() => {
@@ -197,9 +198,25 @@ export default function ClientDashboard() {
                     </span>
                   )}
                 </div>
-                {/* Description */}
+                {/* Description with Read more/Show less */}
                 {project.description && (
-                  <div className="text-gray-200 mb-2 text-base italic line-clamp-3">{project.description}</div>
+                  <div className="text-gray-200 mb-2 text-base italic">
+                    {project.description.length > 120 ? (
+                      <>
+                        {expandedDesc[project.$id]
+                          ? project.description
+                          : project.description.slice(0, 120) + '...'}
+                        <button
+                          className="ml-2 text-cyan-400 underline text-sm focus:outline-none"
+                          onClick={() => setExpandedDesc((prev) => ({ ...prev, [project.$id]: !prev[project.$id] }))}
+                        >
+                          {expandedDesc[project.$id] ? 'Show less' : 'Read more'}
+                        </button>
+                      </>
+                    ) : (
+                      project.description
+                    )}
+                  </div>
                 )}
                 {/* Info Section */}
                 <div className="flex flex-col gap-2 mb-2">

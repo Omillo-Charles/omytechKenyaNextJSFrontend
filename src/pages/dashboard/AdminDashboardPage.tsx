@@ -32,6 +32,7 @@ export default function AdminDashboardPage() {
   const [notificationsLoading, setNotificationsLoading] = useState(true);
   const [notificationsError, setNotificationsError] = useState('');
   const navigate = useNavigate();
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   useEffect(() => {
     account.get().then(setAdmin).catch(() => setAdmin(null));
@@ -143,7 +144,36 @@ export default function AdminDashboardPage() {
             </ul>
           )}
         </div>
-        {/* Header */}
+        {/* Terms & Revenue Sharing Button */}
+        {showTermsModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+            <div className="bg-gray-900 rounded-xl shadow-xl p-8 max-w-2xl w-full border border-gray-700 text-left relative">
+              <button
+                className="absolute top-4 right-4 text-gray-400 hover:text-red-400 text-2xl font-bold"
+                onClick={() => setShowTermsModal(false)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <h2 className="text-2xl font-bold text-purple-400 mb-4">Company Terms of Service</h2>
+              <div className="mb-6 max-h-48 overflow-y-auto pr-2">
+                {/* You can replace this with a dynamic import or fetch if needed */}
+                <p>See the <a href="/terms-of-service" className="text-cyan-400 underline" target="_blank" rel="noopener noreferrer">full Terms of Service</a>.</p>
+              </div>
+              <h2 className="text-2xl font-bold text-cyan-400 mb-4">Revenue Sharing Plan</h2>
+              <div className="text-gray-200 text-base leading-relaxed max-h-48 overflow-y-auto pr-2">
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Revenue is shared between the company and admins based on project type and contribution.</li>
+                  <li>Standard split: <span className="text-green-400 font-semibold">70% company / 30% admin</span> for most projects.</li>
+                  <li>For special projects or large clients, the split may be negotiated and documented in writing.</li>
+                  <li>Payouts are made monthly, with a detailed statement provided to each admin.</li>
+                  <li>All revenue sharing is subject to the company’s policies and compliance requirements.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* Header with Terms Button */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
             <h2 className="text-3xl font-extrabold text-purple-400 mb-1">
@@ -151,6 +181,13 @@ export default function AdminDashboardPage() {
             </h2>
             <p className="text-gray-400 text-sm">Here are your assigned projects. You can search, update status, or delete them.</p>
           </div>
+          <button
+            onClick={() => navigate('/admin/company-info')}
+            className="bg-gradient-to-r from-purple-600 to-cyan-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:opacity-90 transition-all flex items-center gap-2 w-full md:w-auto justify-center"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-3-3H5a3 3 0 00-3 3v2h5m2-10V4a2 2 0 012-2h2a2 2 0 012 2v6m-6 4h6" /></svg>
+            Company Terms & Revenue Sharing
+          </button>
         </div>
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
@@ -183,9 +220,15 @@ export default function AdminDashboardPage() {
         ) : error ? (
           <div className="text-center text-red-400 py-12 text-lg">{error}</div>
         ) : filteredProjects.length === 0 ? (
-          <div className="text-center text-gray-400 py-12 text-lg">
-            <img src="https://illustrations.popsy.co/gray/empty-state.svg" alt="No projects" className="mx-auto mb-4 w-40" />
-            No projects assigned to you yet.
+          <div className="flex flex-col items-center justify-center py-20 text-center bg-gradient-to-br from-purple-900/40 to-cyan-900/30 rounded-2xl shadow-inner border border-cyan-800/20">
+            <div className="mb-6 flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-purple-500/60 to-cyan-500/40 shadow-lg">
+              <svg className="w-12 h-12 text-cyan-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-2.21 0-4 1.79-4 4 0 2.21 1.79 4 4 4s4-1.79 4-4c0-2.21-1.79-4-4-4zm0 10c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" /></svg>
+            </div>
+            <h3 className="text-2xl font-bold text-cyan-300 mb-2">No Projects Yet</h3>
+            <p className="text-gray-300 text-base max-w-md mx-auto mb-2">You haven&apos;t been assigned any projects yet. When a project is assigned to you, it will appear here. Stay tuned for new opportunities!</p>
+            <div className="mt-4">
+              <span className="inline-block bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-6 py-2 rounded-full font-semibold shadow hover:opacity-90 transition-all">Enjoy your day, Admin 🚀</span>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

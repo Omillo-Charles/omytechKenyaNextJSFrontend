@@ -100,7 +100,7 @@ export default function ClientDashboard() {
               {notifications.map((n) => (
                 <li key={n.$id} className="py-2 flex items-center gap-2">
                   <span className="text-cyan-400">•</span>
-                  <span>{n.message}</span>
+                  <span className="text-white font-semibold">{n.message}</span>
                   {n.projectId && (
                     <span className="ml-2 text-xs text-gray-400">(Project ID: {n.projectId})</span>
                   )}

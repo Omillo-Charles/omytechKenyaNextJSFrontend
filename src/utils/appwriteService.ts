@@ -42,10 +42,12 @@ export async function createProject(form: {
   // 1. Get current user
   const user = await account.get();
   const userId = user.$id;
-  // Appwrite-recommended permissions: only the current user can read/write
+  // Appwrite-recommended permissions: client and admin can read/write
   const userPermissions = [
     Permission.read(`user:${userId}`),
     Permission.write(`user:${userId}`),
+    Permission.read('user:68809f307ab7b1c5faa6'), // admin user ID
+    Permission.write('user:68809f307ab7b1c5faa6'),
   ];
   console.log('user:', user);
   console.log('userPermissions:', userPermissions);
@@ -141,10 +143,12 @@ export async function deleteProject(projectId: string) {
 }
 
 export async function sendNotification({ userId, message, projectId }: { userId: string, message: string, projectId?: string }) {
-  // Appwrite-recommended permissions: only the notification user can read/write
+  // Appwrite-recommended permissions: only the notification user and admin can read/write
   const userPermissions = [
     Permission.read(`user:${userId}`),
     Permission.write(`user:${userId}`),
+    Permission.read('user:68809f307ab7b1c5faa6'), // admin user ID
+    Permission.write('user:68809f307ab7b1c5faa6'),
   ];
   return databases.createDocument(
     DATABASE_ID,
@@ -178,6 +182,7 @@ export async function updateProject(projectId: string, data: Partial<{
     data
   );
   // Send notifications for status change or edit
+  /*
   if (data.status) {
     // Fetch the updated project to get clientId and adminId
     const project = await databases.getDocument(
@@ -216,6 +221,7 @@ export async function updateProject(projectId: string, data: Partial<{
       })
     ]);
   }
+  */
   return updated;
 }
 

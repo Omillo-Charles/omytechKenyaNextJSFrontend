@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { account, databases } from '../../utils/appwrite';
-import { DATABASE_ID, PROJECTS_COLLECTION_ID, deleteProject, updateProject, fetchUserNotifications } from '../../utils/appwriteService';
+import { DATABASE_ID, PROJECTS_COLLECTION_ID, deleteProject, updateProject, fetchUserNotifications, fetchAllProjects } from '../../utils/appwriteService';
 
 function formatDate(dateStr?: string) {
   if (!dateStr) return '';
@@ -134,7 +134,7 @@ export default function AdminDashboardPage() {
               {notifications.map((n) => (
                 <li key={n.$id} className="py-2 flex items-center gap-2">
                   <span className="text-purple-400">•</span>
-                  <span>{n.message}</span>
+                  <span className="text-white font-semibold">{n.message}</span>
                   {n.projectId && (
                     <span className="ml-2 text-xs text-gray-400">(Project ID: {n.projectId})</span>
                   )}
@@ -269,10 +269,15 @@ export default function AdminDashboardPage() {
                   )}
                   <div className="flex flex-wrap gap-4 items-center text-sm mb-2">
                     {project.phone && (
-                      <div className="flex items-center gap-1 text-gray-400">
-                        <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 12a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm12-12a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 12a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-                        <span>{project.phone}</span>
-                      </div>
+                      <a
+                        href={`https://wa.me/${project.phone.replace(/[^\d]/g, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 text-xs rounded-full bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors"
+                        title="Chat with Client on WhatsApp"
+                      >
+                        WhatsApp Client
+                      </a>
                     )}
                     {project.budget !== undefined && project.budget !== null && project.budget !== '' && (
                       <div className="flex items-center gap-1 text-green-400 bg-green-900/30 px-2 py-1 rounded-full">
@@ -317,48 +322,35 @@ export default function AdminDashboardPage() {
                   )}
                 </div>
                 <div className="border-t border-gray-800 pt-4 flex flex-col md:items-end">
-                  {/* Status Update Actions */}
-                  <div className="flex gap-2 mb-2">
-                    <button
-                      className={`px-3 py-1 text-xs rounded-full font-semibold transition-colors ${project.status === 'Not Started' ? 'bg-gray-800 text-gray-300' : 'bg-gray-900 text-gray-400 hover:bg-gray-800'}`}
-                      onClick={() => handleStatusUpdate(project.$id, 'Not Started')}
-                      disabled={statusUpdatingId === project.$id || project.status === 'Not Started'}
-                    >
-                      Not Started
-                    </button>
-                    <button
-                      className={`px-3 py-1 text-xs rounded-full font-semibold transition-colors ${project.status === 'In Progress' ? 'bg-blue-900 text-blue-400' : 'bg-gray-900 text-blue-300 hover:bg-blue-900'}`}
-                      onClick={() => handleStatusUpdate(project.$id, 'In Progress')}
-                      disabled={statusUpdatingId === project.$id || project.status === 'In Progress'}
-                    >
-                      In Progress
-                    </button>
-                    <button
-                      className={`px-3 py-1 text-xs rounded-full font-semibold transition-colors ${project.status === 'Completed' ? 'bg-green-900 text-green-400' : 'bg-gray-900 text-green-300 hover:bg-green-900'}`}
-                      onClick={() => handleStatusUpdate(project.$id, 'Completed')}
-                      disabled={statusUpdatingId === project.$id || project.status === 'Completed'}
-                    >
-                      Completed
-                    </button>
+                  {/* Status Update Segmented Button Group */}
+                  <div className="flex w-full rounded-full overflow-hidden border border-gray-700 mb-4">
+                    {['Not Started', 'In Progress', 'Completed'].map(status => (
+                      <button
+                        key={status}
+                        className={`flex-1 px-4 py-2 text-xs font-semibold transition-colors
+                          ${project.status === status
+                            ? status === 'Completed'
+                              ? 'bg-green-600 text-white'
+                              : status === 'In Progress'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-gray-700 text-white'
+                            : 'bg-gray-900 text-gray-300 hover:bg-gray-800'}
+                        `}
+                        onClick={() => handleStatusUpdate(project.$id, status)}
+                        disabled={statusUpdatingId === project.$id || project.status === status}
+                      >
+                        {status}
+                      </button>
+                    ))}
                   </div>
-                  {/* Chat with Client Button */}
-                  <div className="flex gap-2 mb-2">
-                    <button
-                      className="px-3 py-1 text-xs rounded-full bg-blue-900/40 text-blue-300 font-semibold hover:bg-blue-800/60 transition-colors"
-                      onClick={() => navigate(`/chat?projectId=${project.$id}&clientId=${project.clientId}`)}
-                      disabled={!project.clientId}
-                      title="Chat with Client"
-                    >
-                      Chat with Client
-                    </button>
-                    <button
-                      className="px-3 py-1 text-xs rounded-full bg-red-900/40 text-red-300 font-semibold hover:bg-red-800/60 transition-colors"
-                      onClick={() => setConfirmDeleteId(project.$id)}
-                      disabled={deletingId === project.$id}
-                    >
-                      {deletingId === project.$id ? 'Deleting...' : 'Delete'}
-                    </button>
-                  </div>
+                  {/* Full-width Delete Button */}
+                  <button
+                    className="w-full px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-red-700 text-white font-semibold shadow hover:opacity-90 transition-all mt-2"
+                    onClick={() => setConfirmDeleteId(project.$id)}
+                    disabled={deletingId === project.$id}
+                  >
+                    {deletingId === project.$id ? 'Deleting...' : 'Delete Project'}
+                  </button>
                 </div>
               </div>
             ))}

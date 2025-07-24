@@ -47,9 +47,7 @@ export default function AdminDashboardPage() {
       []
     )
       .then((res) => {
-        // Filter projects assigned to this admin (by user ID)
-        const assigned = res.documents.filter((p: any) => p.adminId === admin.$id);
-        setProjects(assigned);
+        setProjects(res.documents);
         setLoading(false);
       })
       .catch(() => {
@@ -294,7 +292,7 @@ export default function AdminDashboardPage() {
                     {project.clientId && (
                       <div className="flex items-center gap-1 text-xs text-purple-300 bg-purple-900/30 px-2 py-1 rounded-full">
                         <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span>Client ID: {project.clientId}</span>
+                        <span>Client: {project.clientName || project.clientEmail || project.clientId}</span>
                       </div>
                     )}
                   </div>

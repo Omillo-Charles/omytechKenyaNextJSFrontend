@@ -231,8 +231,8 @@ const Header = () => {
 
       {/* Logout Confirmation Modal */}
       {showLogoutModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-white text-black rounded-2xl shadow-2xl p-8 w-full max-w-sm text-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 overflow-y-auto">
+          <div className="bg-white text-black rounded-2xl shadow-2xl p-8 w-full max-w-sm text-center pointer-events-auto">
             <h2 className="text-2xl font-bold mb-4">Confirm Logout</h2>
             <p className="mb-6">Are you sure you want to log out?</p>
             <div className="flex justify-center gap-4">

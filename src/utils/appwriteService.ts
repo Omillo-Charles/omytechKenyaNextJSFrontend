@@ -3,10 +3,10 @@ import { Permission, Role } from 'appwrite';
 import { Query } from 'appwrite'; // Uncomment if you want to use queries
 
 // TODO: Set your new Appwrite Database, Collection, Bucket, and Notification Collection IDs here after recreating them in the Appwrite UI
-export const DATABASE_ID = '687b60ec000956aae933';
-export const PROJECTS_COLLECTION_ID = '687b61a1002932c8d3f0';
-export const BUCKET_ID = '687b63f7001b241df161';
-export const NOTIFICATIONS_COLLECTION_ID = '687b6ec300367ae00486';
+export const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
+export const PROJECTS_COLLECTION_ID = import.meta.env.VITE_APPWRITE_PROJECTS_COLLECTION_ID;
+export const BUCKET_ID = import.meta.env.VITE_APPWRITE_BUCKET_ID;
+export const NOTIFICATIONS_COLLECTION_ID = import.meta.env.VITE_APPWRITE_NOTIFICATIONS_COLLECTION_ID;
 
 // List of allowed admin emails
 const ADMIN_EMAILS = [

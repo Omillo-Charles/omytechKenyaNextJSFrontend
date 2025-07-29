@@ -90,7 +90,7 @@ const OMYBOT = () => {
       };
       typeBotReply();
     } catch (e) {
-      setError('Something went wrong. Please try again.');
+      setError('Something went wrong. Please try again later.');
       setLoading(false);
     }
   };

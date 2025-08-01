@@ -31,6 +31,19 @@ const Header = () => {
       .catch(() => setUser(null));
   }, [location]);
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showLogoutModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLogoutModal]);
+
   const handleLogout = async () => {
     setShowLogoutModal(true);
   };
@@ -227,8 +240,18 @@ const Header = () => {
 
       {/* Logout Confirmation Modal */}
       {showLogoutModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-white text-black rounded-2xl shadow-2xl p-8 w-full max-w-sm text-center mx-4">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-60" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <div 
+            className="bg-white text-black rounded-2xl shadow-2xl p-8 w-full max-w-sm text-center mx-4" 
+            style={{ 
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              maxHeight: '90vh',
+              overflow: 'hidden'
+            }}
+          >
             <h2 className="text-2xl font-bold mb-4">Confirm Logout</h2>
             <p className="mb-6">Are you sure you want to log out?</p>
             <div className="flex justify-center gap-4">

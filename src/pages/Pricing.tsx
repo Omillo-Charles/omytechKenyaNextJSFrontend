@@ -1,8 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Check, Star, Zap, Crown, ArrowRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Pricing = () => {
+  const location = useLocation();
+  const paymentSectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  // Scroll to payment section if coming from client dashboard
+  useEffect(() => {
+    if (location.state?.scrollToPayment && paymentSectionRef.current) {
+      setTimeout(() => {
+        paymentSectionRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 500); // Small delay to ensure page is fully loaded
+    }
+  }, [location.state]);
+
   const plans = [
     {
       name: 'Starter',
@@ -82,7 +98,6 @@ const Pricing = () => {
   ];
 
   const [selectedAddOns, setSelectedAddOns] = useState<number[]>([]);
-  const navigate = useNavigate();
 
   return (
     <div className="pt-20">
@@ -209,8 +224,29 @@ const Pricing = () => {
       </section>
 
       {/* Payment Details Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" ref={paymentSectionRef}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Project Payment Banner */}
+          {location.state?.scrollToPayment && location.state?.projectName && (
+            <div className="mb-8 p-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Payment for Project</h3>
+                  <p className="text-cyan-100">{location.state.projectName}</p>
+                  <p className="text-sm text-cyan-200 mt-1">Project ID: {location.state.projectId}</p>
+                </div>
+                <div className="text-right">
+                  <button
+                    onClick={() => navigate('/client/dashboard')}
+                    className="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors text-sm"
+                  >
+                    Back to Dashboard
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Payment Methods</h2>
             <p className="text-xl text-gray-600">

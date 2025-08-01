@@ -36,6 +36,17 @@ export default function ClientDashboard() {
   const [editLoading, setEditLoading] = useState(false);
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
+  // Function to handle payment button click
+  const handleMakePayment = (project: any) => {
+    // Navigate to pricing page with payment section focus
+    navigate('/pricing', { 
+      state: { 
+        scrollToPayment: true,
+        projectId: project.$id,
+        projectName: project.name 
+      } 
+    });
+  };
 
   useEffect(() => {
     account.get().then(setUser).catch(() => setUser(null));
@@ -371,6 +382,7 @@ export default function ClientDashboard() {
                 </a>
                 {/* Make Payment Button */}
                 <button
+                  onClick={() => handleMakePayment(project)}
                   className={`w-full flex items-center justify-center gap-2 px-4 py-3 text-base rounded-full font-semibold transition-colors mt-2 shadow-lg shadow-cyan-500/10
                     ${project.paymentEnabled ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white hover:opacity-90' : 'bg-gray-700 text-gray-400 cursor-not-allowed'}`}
                   disabled={!project.paymentEnabled}

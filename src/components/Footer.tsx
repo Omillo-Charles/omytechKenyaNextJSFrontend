@@ -161,7 +161,7 @@ const Footer = () => {
         {/* Social Links & Awards */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           {/* Social Links */}
-          <div className="flex items-center space-x-4 mb-4 md:mb-0">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-4 md:justify-start md:mb-0">
             <span className="text-gray-300 mr-2">Follow us:</span>
             {socialLinks.map((social, index) => (
               <a

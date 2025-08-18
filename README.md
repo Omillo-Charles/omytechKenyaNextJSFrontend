@@ -42,13 +42,13 @@ OMYTECH is a creative tech agency focused on empowering businesses, startups, an
 
 ## 🌍 Website
 
-Visit us at: [https://omytech.vercel.app](https://omytech.vercel.app)
+Visit us at: [https://omytech.vercel.app](https://omytech.co.ke)
 
 ## 📧 Contact
 
 - **Email**: info@omytech.co.ke  
 - **Phone**: +254-715-367-859  
-- **Socials**: Coming soon!
+- **Socials**: @omytech_kenya
 
 ---
 

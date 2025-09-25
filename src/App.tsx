@@ -44,7 +44,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = 'OMYTECH - Digital Innovation Agency';
+    document.title = 'OMYTECH - Digital Infrastructure Company.';
   }, [location]);
 
   return (

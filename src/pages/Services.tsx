@@ -27,7 +27,7 @@ const Services = () => {
         "E-commerce Ready",
       ],
       color: "from-cyan-500 to-blue-500",
-      price: "Starting at KSh 9,999/ $99",
+      price: "Starting at KES 25,000/ $188",
     },
     {
       icon: Smartphone,
@@ -43,7 +43,7 @@ const Services = () => {
         "App Store Optimization",
       ],
       color: "from-purple-500 to-pink-500",
-      price: "Starting at KSh 19,999/ $199",
+      price: "Starting at KES 60,000/ $451",
     },
     {
       icon: Palette,
@@ -59,7 +59,7 @@ const Services = () => {
         "Interactive Design",
       ],
       color: "from-pink-500 to-rose-500",
-      price: "Starting at KSh 4,999/ $49",
+      price: "Starting at KES 15,000/ $113",
     },
     {
       icon: TrendingUp,
@@ -75,7 +75,7 @@ const Services = () => {
         "Email Marketing",
       ],
       color: "from-green-500 to-teal-500",
-      price: "Starting at KSh 5,999/ $59/month",
+      price: "Starting at KES 10,000/ $75/month",
     },
     {
       icon: Globe,
@@ -91,7 +91,7 @@ const Services = () => {
         "Analytics",
       ],
       color: "from-orange-500 to-red-500",
-      price: "Starting at KSh 14,999/ $149",
+      price: "Starting at KES 25,000/ $188",
     },
     {
       icon: Zap,
@@ -107,7 +107,7 @@ const Services = () => {
         "ROI Analysis",
       ],
       color: "from-indigo-500 to-blue-500",
-      price: "Starting at KSh 2,499/ $24/hour",
+      price: "Starting at KES 2,000/ $15/hour",
     },
   ];
 

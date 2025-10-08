@@ -1,60 +1,93 @@
-import React from 'react';
-import { Code, Smartphone, Palette, TrendingUp, Globe, Zap } from 'lucide-react';
+import React from "react";
+import {
+  Code,
+  Smartphone,
+  Palette,
+  TrendingUp,
+  Globe,
+  Zap,
+} from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Code,
-      title: 'Web Development',
-      description: 'Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.',
-      features: ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'Secure'],
-      color: 'from-blue-500 to-cyan-500'
+      title: "Web Development",
+      description:
+        "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js.",
+      features: [
+        "Responsive Design",
+        "SEO Optimized",
+        "Fast Loading",
+        "Secure",
+      ],
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Smartphone,
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
-      features: ['iOS & Android', 'React Native', 'Flutter', 'API Integration'],
-      color: 'from-purple-500 to-pink-500'
+      title: "Mobile App Development",
+      description:
+        "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+      features: ["iOS & Android", "React Native", "Flutter", "API Integration"],
+      color: "from-purple-500 to-pink-500",
     },
     {
       icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Beautiful, intuitive designs that engage users and drive conversions.',
-      features: ['User Research', 'Prototyping', 'Design Systems', 'Usability Testing'],
-      color: 'from-pink-500 to-rose-500'
+      title: "UI/UX Design",
+      description:
+        "Beautiful, intuitive designs that engage users and drive conversions.",
+      features: [
+        "User Research",
+        "Prototyping",
+        "Design Systems",
+        "Usability Testing",
+      ],
+      color: "from-pink-500 to-rose-500",
     },
     {
       icon: TrendingUp,
-      title: 'Digital Marketing',
-      description: 'Data-driven marketing strategies to grow your online presence and reach your target audience.',
-      features: ['SEO/SEM', 'Social Media', 'Content Marketing', 'Analytics'],
-      color: 'from-green-500 to-teal-500'
+      title: "Digital Marketing",
+      description:
+        "Data-driven marketing strategies to grow your online presence and reach your target audience.",
+      features: ["SEO/SEM", "Social Media", "Content Marketing", "Analytics"],
+      color: "from-green-500 to-teal-500",
     },
     {
       icon: Globe,
-      title: 'E-commerce Solutions',
-      description: 'Complete online stores with payment processing, inventory management, and customer analytics.',
-      features: ['Payment Gateway', 'Inventory System', 'Admin Dashboard', 'Mobile Optimized'],
-      color: 'from-orange-500 to-red-500'
+      title: "E-commerce Solutions",
+      description:
+        "Complete online stores with payment processing, inventory management, and customer analytics.",
+      features: [
+        "Payment Gateway",
+        "Inventory System",
+        "Admin Dashboard",
+        "Mobile Optimized",
+      ],
+      color: "from-orange-500 to-red-500",
     },
     {
       icon: Zap,
-      title: 'Consulting & Strategy',
-      description: 'Strategic guidance to help you make informed decisions about your digital transformation.',
-      features: ['Technology Audit', 'Digital Strategy', 'Process Optimization', 'Team Training'],
-      color: 'from-indigo-500 to-blue-500'
-    }
+      title: "Consulting & Strategy",
+      description:
+        "Strategic guidance to help you make informed decisions about your digital transformation.",
+      features: [
+        "Technology Audit",
+        "Digital Strategy",
+        "Process Optimization",
+        "Team Training",
+      ],
+      color: "from-indigo-500 to-blue-500",
+    },
   ];
 
   // Add a mapping from service title to real pricing (lowest tier)
   const servicePricing: Record<string, { ksh: string; usd: string }> = {
-    'Web Development': { ksh: 'KSh 9,999', usd: '~$75' },
-    'Mobile App Development': { ksh: 'KSh 24,999', usd: '~$188' },
-    'UI/UX Design': { ksh: 'KSh 4,999', usd: '~$38' },
-    'Digital Marketing': { ksh: 'KSh 4,999', usd: '~$38' },
-    'E-commerce Solutions': { ksh: 'KSh 12,999', usd: '~$98' },
-    'Consulting & Strategy': { ksh: 'KSh 1,499/mo', usd: '~$11/mo' },
+    "Web Development": { ksh: "KES 25,000", usd: "~$188" },
+    "Mobile App Development": { ksh: "KES 60,000", usd: "~$451" },
+    "UI/UX Design": { ksh: "KES 15,000", usd: "~$113" },
+    "Digital Marketing": { ksh: "KES 10,000/mo", usd: "~$75/mo" },
+    "E-commerce Solutions": { ksh: "KES 25,000", usd: "~$188" },
+    "Consulting & Strategy": { ksh: "KES 2,000/hr", usd: "~$15/hr" },
   };
 
   return (
@@ -69,7 +102,8 @@ const Services = () => {
             Complete Digital Solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From concept to launch, we provide end-to-end digital services that help businesses thrive in the digital age.
+            From concept to launch, we provide end-to-end digital services that
+            help businesses thrive in the digital age.
           </p>
         </div>
 
@@ -83,7 +117,9 @@ const Services = () => {
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
               >
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
 
@@ -98,15 +134,23 @@ const Services = () => {
                 {/* Pricing */}
                 <div className="mb-4">
                   <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold px-4 py-1 rounded-full">
-                    {servicePricing[service.title]?.ksh} <span className="text-gray-200 font-normal ml-1">({servicePricing[service.title]?.usd})</span>
+                    {servicePricing[service.title]?.ksh}{" "}
+                    <span className="text-gray-200 font-normal ml-1">
+                      ({servicePricing[service.title]?.usd})
+                    </span>
                   </span>
                 </div>
 
                 {/* Features */}
                 <div className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-2">
-                      <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full`}></div>
+                    <div
+                      key={featureIndex}
+                      className="flex items-center space-x-2"
+                    >
+                      <div
+                        className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full`}
+                      ></div>
                       <span className="text-sm text-gray-700">{feature}</span>
                     </div>
                   ))}
@@ -119,7 +163,9 @@ const Services = () => {
                     className="text-blue-600 font-semibold hover:text-purple-600 transition-colors duration-200 flex items-center space-x-2"
                   >
                     <span>Learn More</span>
-                    <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-200">
+                      →
+                    </span>
                   </a>
                 </div>
               </div>

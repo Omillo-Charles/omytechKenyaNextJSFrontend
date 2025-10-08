@@ -1,5 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Check, Star, Zap, Crown, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import {
+  Check,
+  Star,
+  Zap,
+  Crown,
+  ArrowRight,
+  Code,
+  Smartphone,
+  Palette,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Pricing = () => {
@@ -18,84 +27,150 @@ const Pricing = () => {
     }
   }, [location.state]);
 
-  const plans = [
+  const serviceCategories = [
     {
-      name: "Starter",
-      icon: Star,
-      price: 9999,
-      period: "project",
-      description:
-        "Perfect for small businesses and startups looking to establish their digital presence.",
-      features: [
-        "Custom Website Design",
-        "Responsive Development",
-        "Basic SEO Setup",
-        "Contact Form Integration",
-        "30 Days Support",
-        "Google Analytics Setup",
-        "Social Media Integration",
-        "Basic Performance Optimization",
-      ],
-      popular: false,
+      name: "Web Development",
+      icon: Code,
       color: "from-blue-500 to-cyan-500",
-      deliveryTime: "2-3 weeks",
+      bgColor: "bg-blue-50",
+      textColor: "text-blue-600",
+      services: [
+        {
+          name: "Frontend Development",
+          description: "Modern responsive websites using React/Next.js",
+          price: 25000,
+          features: [
+            "Responsive Design",
+            "Modern UI/UX",
+            "SEO Optimized",
+            "Fast Loading",
+          ],
+        },
+        {
+          name: "Backend Development",
+          description: "Secure APIs using Node.js, Firebase, or Appwrite",
+          price: 30000,
+          features: [
+            "RESTful APIs",
+            "Database Design",
+            "Authentication",
+            "Security",
+          ],
+        },
+        {
+          name: "Full Stack Package",
+          description: "Complete website (frontend + backend + hosting)",
+          price: 50000,
+          features: [
+            "Frontend + Backend",
+            "Database Setup",
+            "Hosting",
+            "SSL Certificate",
+          ],
+        },
+      ],
     },
     {
-      name: "Professional",
-      icon: Zap,
-      price: 24999,
-      period: "project",
-      description:
-        "Ideal for growing businesses that need advanced features and functionality.",
-      features: [
-        "Everything in Starter",
-        "E-commerce Integration",
-        "Advanced SEO",
-        "Content Management System",
-        "Email Marketing Setup",
-        "90 Days Support",
-        "Performance Optimization",
-        "Security Implementation",
-        "Database Integration",
-        "API Development",
-      ],
-      popular: true,
+      name: "Mobile App Development",
+      icon: Smartphone,
       color: "from-purple-500 to-pink-500",
-      deliveryTime: "4-6 weeks",
+      bgColor: "bg-purple-50",
+      textColor: "text-purple-600",
+      services: [
+        {
+          name: "Android Apps",
+          description: "Native Android apps with Firebase backend",
+          price: 60000,
+          features: [
+            "Native Performance",
+            "Firebase Integration",
+            "Play Store Ready",
+            "Push Notifications",
+          ],
+        },
+        {
+          name: "iOS Apps",
+          description: "Native Swift apps",
+          price: 70000,
+          features: [
+            "Swift Development",
+            "iOS Guidelines",
+            "App Store Ready",
+            "Core Data",
+          ],
+        },
+        {
+          name: "Cross-Platform Apps",
+          description: "React Native or Flutter apps",
+          price: 65000,
+          features: [
+            "Single Codebase",
+            "iOS & Android",
+            "Native Performance",
+            "Cost Effective",
+          ],
+        },
+      ],
     },
     {
-      name: "Enterprise",
-      icon: Crown,
-      price: 39999,
-      period: "project",
-      description:
-        "Comprehensive solution for large organizations with complex requirements.",
-      features: [
-        "Everything in Professional",
-        "Custom App Development",
-        "Advanced Analytics",
-        "Multi-language Support",
-        "Custom Integrations",
-        "6 Months Support",
-        "Dedicated Project Manager",
-        "Priority Support",
-        "Training & Documentation",
-        "Scalability Planning",
-        "Security Audit",
-        "Performance Monitoring",
-      ],
-      popular: false,
+      name: "Design & Consulting",
+      icon: Palette,
       color: "from-orange-500 to-red-500",
-      deliveryTime: "8-12 weeks",
+      bgColor: "bg-orange-50",
+      textColor: "text-orange-600",
+      services: [
+        {
+          name: "UI/UX Design",
+          description: "Custom designs in Figma or Adobe XD",
+          price: 15000,
+          features: [
+            "User Research",
+            "Wireframes",
+            "Prototypes",
+            "Design System",
+          ],
+        },
+        {
+          name: "SEO & Marketing",
+          description: "Boost visibility & rankings",
+          price: 10000,
+          period: "month",
+          features: [
+            "Keyword Research",
+            "Content Strategy",
+            "Analytics",
+            "Monthly Reports",
+          ],
+        },
+        {
+          name: "Maintenance & Support",
+          description: "Monthly updates, backups & optimization",
+          price: 5000,
+          period: "month",
+          features: [
+            "Regular Updates",
+            "Security Monitoring",
+            "Backups",
+            "Performance Optimization",
+          ],
+        },
+        {
+          name: "Tech Consulting",
+          description: "1-on-1 expert sessions",
+          price: 2000,
+          period: "hour",
+          features: [
+            "Architecture Review",
+            "Code Review",
+            "Best Practices",
+            "Technology Guidance",
+          ],
+        },
+      ],
     },
   ];
 
   const addOns = [
-    {
-      name: "Mobile App Development",
-      price: 24999,
-      description: "Native iOS and Android apps",
-    },
     {
       name: "Advanced Analytics Setup",
       price: 4999,
@@ -123,117 +198,134 @@ const Pricing = () => {
     },
   ];
 
-  const [selectedAddOns, setSelectedAddOns] = useState<number[]>([]);
-
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Simple, Transparent{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6">
+            <Star className="w-4 h-4" />
+            <span className="font-medium">Transparent Pricing</span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+            Simple, Clear{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent">
               Pricing
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Choose the perfect plan for your business needs. No hidden fees, no
-            surprises - just exceptional value.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+            Professional digital solutions with no hidden fees. Choose the
+            service that fits your needs and budget.
           </p>
-          <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
-            <Check className="w-4 h-4" />
-            <span className="font-medium">30-day money-back guarantee</span>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+              <Check className="w-4 h-4" />
+              <span className="font-medium">30-day money-back guarantee</span>
+            </div>
+            <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full">
+              <Crown className="w-4 h-4" />
+              <span className="font-medium">Premium support included</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
-      <section className="py-20 bg-white">
+      {/* Service Pricing Cards */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {plans.map((plan, index) => {
-              const IconComponent = plan.icon;
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Our Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose from our comprehensive range of digital services. All
+              prices are starting amounts and can be customized to your needs.
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {serviceCategories.map((category, categoryIndex) => {
+              const IconComponent = category.icon;
               return (
-                <div
-                  key={index}
-                  className={`relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
-                    plan.popular ? "ring-2 ring-purple-500 scale-105" : ""
-                  }`}
-                >
-                  {/* Popular Badge */}
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                        Most Popular
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="p-8">
-                    {/* Plan Header */}
-                    <div className="text-center mb-8">
-                      <div
-                        className={`w-16 h-16 bg-gradient-to-r ${plan.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}
-                      >
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {plan.name}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
-                        {plan.description}
-                      </p>
-                      <div className="text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full inline-block">
-                        Delivery: {plan.deliveryTime}
-                      </div>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="text-center mb-8">
-                      <div className="flex items-center justify-center">
-                        <span className="text-3xl font-bold text-gray-900">
-                          KSh
-                        </span>
-                        <span className="text-5xl font-bold text-gray-900">
-                          {plan.price.toLocaleString()}
-                        </span>
-                      </div>
-                      <div className="block text-xs text-gray-500 font-semibold border-b border-dashed border-gray-300 w-fit mx-auto mt-1 pb-0.5">
-                        (~${Math.round(plan.price / 133)})
-                      </div>
-                      <div className="text-gray-600 mt-2">
-                        per {plan.period}
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div className="space-y-4 mb-8">
-                      {plan.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="flex items-center space-x-3"
-                        >
-                          <div
-                            className={`w-5 h-5 bg-gradient-to-r ${plan.color} rounded-full flex items-center justify-center flex-shrink-0`}
-                          >
-                            <Check className="w-3 h-3 text-white" />
-                          </div>
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA Button */}
-                    <Link
-                      to="/contact"
-                      className={`block w-full py-4 px-6 rounded-full font-semibold text-center transition-all duration-200 ${
-                        plan.popular
-                          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-xl transform hover:scale-105"
-                          : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                      }`}
+                <div key={categoryIndex} className="relative">
+                  {/* Category Header */}
+                  <div className="text-center mb-12">
+                    <div
+                      className={`inline-flex items-center space-x-4 ${category.bgColor} px-6 py-3 rounded-2xl mb-6`}
                     >
-                      Get Started
-                    </Link>
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center`}
+                      >
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <h3
+                        className={`text-2xl font-bold ${category.textColor}`}
+                      >
+                        {category.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Services Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {category.services.map((service, serviceIndex) => (
+                      <div
+                        key={serviceIndex}
+                        className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 hover:-translate-y-1"
+                      >
+                        {/* Price Badge */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${category.bgColor} ${category.textColor}`}
+                          >
+                            Starting at
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl font-bold text-gray-900">
+                              KES {service.price.toLocaleString()}
+                            </div>
+                            {service.period && (
+                              <div className="text-sm text-gray-500">
+                                per {service.period}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Service Info */}
+                        <div className="mb-6">
+                          <h4 className="text-lg font-bold text-gray-900 mb-2">
+                            {service.name}
+                          </h4>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                            {service.description}
+                          </p>
+                        </div>
+
+                        {/* Features */}
+                        <div className="space-y-2 mb-6">
+                          {service.features.map((feature, featureIndex) => (
+                            <div
+                              key={featureIndex}
+                              className="flex items-center space-x-2"
+                            >
+                              <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                              <span className="text-sm text-gray-600">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* CTA Button */}
+                        <Link
+                          to="/contact"
+                          className={`block w-full py-3 px-4 rounded-xl font-semibold text-center transition-all duration-200 bg-gradient-to-r ${category.color} text-white hover:shadow-lg group-hover:scale-105`}
+                        >
+                          Get Started
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
               );
@@ -243,37 +335,51 @@ const Pricing = () => {
       </section>
 
       {/* Add-ons Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6">
+              <Crown className="w-4 h-4" />
+              <span className="font-medium">Premium Add-ons</span>
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Add-on Services
+              Enhance Your Project
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Enhance your project with additional services tailored to your
-              specific needs.
+              Take your project to the next level with our premium add-on
+              services.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {addOns.map((addon, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Star className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {addon.name}
                   </h3>
-                  <div className="text-2xl font-bold text-blue-600">
-                    KSh {addon.price.toLocaleString()}
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    KES {addon.price.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    (~${Math.round(addon.price / 133)})
                   </div>
                 </div>
-                <p className="text-gray-600 mb-4">{addon.description}</p>
-                <div className="block text-xs text-gray-500 font-semibold border-b border-dashed border-gray-300 w-fit mx-auto mt-1 pb-0.5">
-                  (~${Math.round(addon.price / 133)})
-                </div>
-                {/* Removed Add to Project button, price is now shown above */}
+                <p className="text-gray-600 text-center mb-6 leading-relaxed">
+                  {addon.description}
+                </p>
+                <Link
+                  to="/contact"
+                  className="block w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-200 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:shadow-lg group-hover:scale-105"
+                >
+                  Add to Project
+                </Link>
               </div>
             ))}
           </div>

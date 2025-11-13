@@ -154,26 +154,13 @@ body {
 
 .nav-auth {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
 }
 
-.nav-register {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-dark);
-  transition: color var(--transition-speed);
-  text-decoration: none;
-}
-
-.nav-register:hover {
-  color: var(--color-primary);
-}
-
 .nav-cta {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-  color: var(--color-white);
+  background: linear-gradient(90deg, #FFDD00, #FDB913);
+  color: #000000;
   padding: 0.6rem 1.5rem;
   border-radius: 8px;
   transition: transform var(--transition-speed),
@@ -181,12 +168,19 @@ body {
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 114, 206, 0.3);
+  box-shadow: 0 4px 15px rgba(253, 185, 19, 0.4);
+}
+
+.coffee-icon {
+  font-size: 1.25rem;
 }
 
 .hamburger {
@@ -296,20 +290,21 @@ body {
     box-sizing: border-box;
   }
 
-  .mobile-auth-link.register {
-    color: var(--color-dark);
-  }
-
-  .mobile-auth-link.login {
-    background: linear-gradient(
-      90deg,
-      var(--color-primary),
-      var(--color-accent)
-    );
-    color: var(--color-white) !important;
+  .mobile-auth-link.coffee {
+    background: linear-gradient(90deg, #FFDD00, #FDB913);
+    color: #000000 !important;
     margin: 0.5rem 1rem 1rem 1rem;
     border-radius: 0.5rem;
     text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .mobile-auth-link.coffee:hover {
+    box-shadow: 0 4px 15px rgba(253, 185, 19, 0.4);
   }
 
   .nav-auth {
@@ -318,17 +313,6 @@ body {
 
   .nav-links.active ~ .nav-auth {
     display: none;
-  }
-
-  .nav-register,
-  .nav-cta {
-    width: 100%;
-    text-align: center;
-    padding: 1rem 1.5rem;
-  }
-
-  .nav-register {
-    margin-bottom: 0.75rem;
   }
 }
 
@@ -358,7 +342,7 @@ body {
     padding: 1rem 1rem !important;
   }
 
-  .mobile-auth-link.login {
+  .mobile-auth-link.coffee {
     margin: 0.5rem 0.75rem 1rem 0.75rem;
   }
 }
@@ -385,7 +369,7 @@ body {
     padding: 0.875rem 0.75rem !important;
   }
 
-  .mobile-auth-link.login {
+  .mobile-auth-link.coffee {
     margin: 0.5rem 0.5rem 1rem 0.5rem;
   }
 }

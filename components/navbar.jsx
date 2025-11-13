@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { BiCoffee } from "react-icons/bi";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,20 +54,27 @@ export default function Navbar() {
             <Link href="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link>
           </li>
           <li className="mobile-auth-item">
-            <Link href="/register" onClick={() => setIsOpen(false)} className="mobile-auth-link register">Register</Link>
-          </li>
-          <li className="mobile-auth-item">
-            <Link href="/login" onClick={() => setIsOpen(false)} className="mobile-auth-link login">Login</Link>
+            <a 
+              href="https://buymeacoffee.com/omytech_kenya" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mobile-auth-link coffee"
+              onClick={() => setIsOpen(false)}
+            >
+              <BiCoffee className="coffee-icon" /> Buy Us Coffee
+            </a>
           </li>
         </ul>
 
         <div className={`nav-auth ${isOpen ? "active" : ""}`}>
-          <Link href="/register" className="nav-register" onClick={() => setIsOpen(false)}>
-            Register
-          </Link>
-          <Link href="/login" className="nav-cta" onClick={() => setIsOpen(false)}>
-            Login
-          </Link>
+          <a 
+            href="https://buymeacoffee.com/omytech_kenya" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="nav-cta"
+          >
+            <BiCoffee className="coffee-icon" /> Buy Us Coffee
+          </a>
         </div>
 
         <button

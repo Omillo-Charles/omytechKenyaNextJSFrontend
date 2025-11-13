@@ -1,62 +1,36 @@
-# OMYTECH 🚀
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-**Digital Innovation. Local Impact. Global Reach.**
+## Getting Started
 
-Welcome to **OMYTECH** – a dynamic digital solutions provider based in Kenya, dedicated to building modern, reliable, and user-focused web and mobile applications.
+First, run the development server:
 
-## 🌐 About Us
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-OMYTECH is a creative tech agency focused on empowering businesses, startups, and individuals through digital innovation. Whether you're looking for a clean business website, a powerful full-stack application, or professional tech support – we deliver with excellence.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-> "Our mission is to simplify technology and make it work for people."
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-## 💼 Services We Offer
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- ✅ **Web Development**
+## Learn More
 
-  - Business Websites
-  - E-commerce Platforms
-  - Chama Management Systems
-  - Blogs & Portfolios
+To learn more about Next.js, take a look at the following resources:
 
-- ✅ **Mobile App Development**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-  - React Native Apps (iOS + Android)
-  - Firebase-Integrated Apps
-  - Scalable and Fast Prototypes
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- ✅ **Tech Support & Automation**
+## Deploy on Vercel
 
-  - Systems Integration
-  - Workflow Automation (n8n, Zapier, etc.)
-  - Website Maintenance and Hosting
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- ✅ **Branding & Digital Strategy**
-  - UI/UX Design
-  - SEO Optimization
-  - Custom Domain & Email Setup
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React, Next.js, Tailwind CSS
-- **Backend**: Node.js
-- **Mobile**: React Native
-- **Tools**: Vercel, GitHub, Figma, n8n
-
-## 🌍 Website
-
-Visit us at: [https://omytech.co.ke](https://omytech.co.ke)
-
-## 📧 Contact
-
-- **Email**: info@omytech.co.ke
-- **Phone**: +254-715-367-859
-- **Socials**: @omytech_kenya
-
----
-
-## 🤝 Let’s Work Together
-
-Whether you're an entrepreneur, small business, or organization, OMYTECH is ready to bring your digital ideas to life. Reach out and let's build something amazing together.
-
-> **OMYTECH – Your Vision, Our Code.**
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

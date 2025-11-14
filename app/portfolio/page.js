@@ -3,7 +3,36 @@ import { FiFilter } from "react-icons/fi";
 
 export default function PortfolioPage() {
   const projects = [
-    // Projects will be added here
+    {
+      id: 1,
+      title: "Ena Coach Website Revamp",
+      description:
+        "Complete website redesign and development for Ena Coach, featuring modern UI/UX, responsive design, and enhanced user experience.",
+      category: "Web Development",
+      image: "/portfolioImages/ena.png",
+      link: "https://enacoach.vercel.app",
+      tags: ["Next.js", "React", "UI/UX Design", "Responsive"],
+    },
+    {
+      id: 2,
+      title: "Ebenezer Academy Website Development",
+      description:
+        "Full-stack website development for Ebenezer Academy, featuring course management, student portal, and modern educational platform.",
+      category: "Web Development",
+      image: "/portfolioImages/ebenezer.png",
+      link: "https://ebenezer-rosy.vercel.app",
+      tags: ["Next.js", "React", "Education", "Full-Stack"],
+    },
+    {
+      id: 3,
+      title: "New Testament Church Of God Kenya Website",
+      description:
+        "Modern church website development with event management, sermon archives, online giving, and community engagement features.",
+      category: "Web Development",
+      image: "/portfolioImages/newTestament.png",
+      link: "https://ntcogk.vercel.app",
+      tags: ["Next.js", "React", "CMS", "Community"],
+    },
   ];
 
   return (
@@ -31,9 +60,14 @@ export default function PortfolioPage() {
                   <div className="portfolio-project-image">
                     <img src={project.image} alt={project.title} />
                     <div className="portfolio-project-overlay">
-                      <button className="portfolio-view-project">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="portfolio-view-project"
+                      >
                         View Project
-                      </button>
+                      </a>
                     </div>
                   </div>
                   <div className="portfolio-project-content">

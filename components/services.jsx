@@ -73,8 +73,18 @@ export default function Services() {
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
                 <div className="service-buttons">
-                  <button className="service-btn-primary">Place Order</button>
-                  <button className="service-btn-secondary">Request Quote</button>
+                  <a 
+                    href={`/order?service=${encodeURIComponent(service.title)}`}
+                    className="service-btn-primary"
+                  >
+                    Place Order
+                  </a>
+                  <a 
+                    href={`/quote?service=${encodeURIComponent(service.title)}`}
+                    className="service-btn-secondary"
+                  >
+                    Request Quote
+                  </a>
                 </div>
               </motion.div>
             );

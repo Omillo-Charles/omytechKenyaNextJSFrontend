@@ -617,7 +617,15 @@ function OrderForm() {
 
 export default function OrderPage() {
   return (
-    <Suspense fallback={<div className="quote-page"><div className="quote-container"><p>Loading...</p></div></div>}>
+    <Suspense fallback={
+      <div className="quote-page">
+        <div className="quote-container">
+          <div style={{ padding: '2rem', textAlign: 'center' }}>
+            <p>Loading order form...</p>
+          </div>
+        </div>
+      </div>
+    }>
       <OrderForm />
     </Suspense>
   );

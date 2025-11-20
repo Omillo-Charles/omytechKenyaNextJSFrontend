@@ -3,6 +3,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FiCheck, FiShoppingCart } from 'react-icons/fi';
 
+export const dynamic = 'force-dynamic';
+
 function OrderForm() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service') || 'Web Development';

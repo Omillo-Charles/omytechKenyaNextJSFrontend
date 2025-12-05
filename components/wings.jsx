@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Brain, Settings, Rocket, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Wings() {
@@ -12,28 +12,28 @@ export default function Wings() {
 
   const wings = [
     {
-      icon: Brain,
       title: "OMYTECH STUDIO",
       subtitle: "Creative & Development Wing",
       description:
         "OMYTECH Studio handles web and app development, UI/UX design, and branding solutions. We bring ideas to life through design and technology that inspire.",
-      color: "#4ba3ff",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      accentColor: "#667eea",
     },
     {
-      icon: Settings,
       title: "OMYGEN",
       subtitle: "Innovation & Research Wing",
       description:
         "OMYGEN focuses on building next-generation products — from AI tools to automation systems. It's where ideas are tested, refined, and turned into real-world solutions.",
-      color: "#00e0ff",
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      accentColor: "#f5576c",
     },
     {
-      icon: Rocket,
       title: "OMYLABS",
       subtitle: "Experimentation & Product Wing",
       description:
         "OMYLABS is the experimental arm of OMYTECH. Here, we create prototypes, explore new business ideas, and collaborate on open-source projects for Africa's digital growth.",
-      color: "#7c3aed",
+      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      accentColor: "#00f2fe",
     },
   ];
 
@@ -59,7 +59,6 @@ export default function Wings() {
 
         <div className="wings-grid">
           {wings.map((wing, index) => {
-            const IconComponent = wing.icon;
             return (
               <motion.div
                 key={index}
@@ -69,21 +68,22 @@ export default function Wings() {
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
                 }
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-                whileHover={{ y: -10, scale: 1.02 }}
               >
-                <div
-                  className="wing-icon-wrapper"
-                  style={{ background: wing.color }}
-                >
-                  <IconComponent
-                    className="wing-icon"
-                    size={48}
-                    strokeWidth={1.5}
-                  />
+                <div className="wing-card-inner">
+                  <div
+                    className="wing-gradient-bar"
+                    style={{ background: wing.gradient }}
+                  ></div>
+                  <div className="wing-content">
+                    <h3 className="wing-title">{wing.title}</h3>
+                    <p className="wing-subtitle">{wing.subtitle}</p>
+                    <p className="wing-description">{wing.description}</p>
+                  </div>
+                  <div
+                    className="wing-accent-line"
+                    style={{ background: wing.accentColor }}
+                  ></div>
                 </div>
-                <h3 className="wing-title">{wing.title}</h3>
-                <p className="wing-subtitle">{wing.subtitle}</p>
-                <p className="wing-description">{wing.description}</p>
               </motion.div>
             );
           })}

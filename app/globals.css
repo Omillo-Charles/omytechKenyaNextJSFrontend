@@ -735,8 +735,12 @@ body {
 
 @media (max-width: 968px) {
   .about-section-futuristic {
-    padding: 4rem 1.5rem;
+    padding: 4rem 0;
     min-height: auto;
+  }
+
+  .about-container-futuristic {
+    padding: 0 1.5rem;
   }
 
   .about-glass-card {
@@ -751,7 +755,11 @@ body {
 
 @media (max-width: 640px) {
   .about-section-futuristic {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
+  }
+
+  .about-container-futuristic {
+    padding: 0 1rem;
   }
 
   .about-glass-card {
@@ -940,7 +948,11 @@ body {
 
 @media (max-width: 968px) {
   .services-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 0;
+  }
+
+  .services-container {
+    padding: 0 1.5rem;
   }
 
   .services-grid {
@@ -955,7 +967,11 @@ body {
 
 @media (max-width: 640px) {
   .services-section {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
+  }
+
+  .services-container {
+    padding: 0 1rem;
   }
 
   .service-card {
@@ -1130,7 +1146,11 @@ body {
 
 @media (max-width: 968px) {
   .testimonials-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 0;
+  }
+
+  .testimonials-container {
+    padding: 0 1.5rem;
   }
 
   .testimonials-grid {
@@ -1149,7 +1169,11 @@ body {
 
 @media (max-width: 640px) {
   .testimonials-section {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
+  }
+
+  .testimonials-container {
+    padding: 0 1rem;
   }
 
   .testimonial-card {
@@ -1391,8 +1415,12 @@ body {
 
 @media (max-width: 968px) {
   .wings-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 0;
     min-height: auto;
+  }
+
+  .wings-container {
+    padding: 0 1.5rem;
   }
 
   .wings-grid {
@@ -1411,7 +1439,11 @@ body {
 
 @media (max-width: 640px) {
   .wings-section {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
+  }
+
+  .wings-container {
+    padding: 0 1rem;
   }
 
   .wing-content {

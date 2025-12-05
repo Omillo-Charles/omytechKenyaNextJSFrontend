@@ -5398,6 +5398,41 @@ body {
     top: 70px;
   }
 
+  .portfolio-filter-wrapper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+
+  .portfolio-filter-wrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .portfolio-filter-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+
+  .portfolio-filter-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+
+  .portfolio-filter-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .portfolio-filter-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   .portfolio-projects-section {
     padding: 4rem 1.5rem;
   }
@@ -5440,8 +5475,8 @@ body {
   }
 
   .portfolio-filter-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 
   .portfolio-projects-section {

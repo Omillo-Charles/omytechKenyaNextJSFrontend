@@ -166,7 +166,7 @@ body {
 }
 
 .nav-cta {
-  background: linear-gradient(90deg, #FFDD00, #FDB913);
+  background: linear-gradient(90deg, #ffdd00, #fdb913);
   color: #000000;
   padding: 0.6rem 1.5rem;
   border-radius: 8px;
@@ -306,7 +306,7 @@ body {
   }
 
   .mobile-auth-link.coffee {
-    background: linear-gradient(90deg, #FFDD00, #FDB913);
+    background: linear-gradient(90deg, #ffdd00, #fdb913);
     color: #000000 !important;
     margin: 0.5rem 1rem 1rem 1rem;
     border-radius: 0.5rem;
@@ -3643,7 +3643,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(11, 28, 54, 0.8) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(11, 28, 54, 0.8) 100%
+  );
   display: flex;
   align-items: flex-end;
   padding: 2rem;
@@ -3854,7 +3858,11 @@ body {
 /* Blog Hero */
 .blog-hero {
   padding: 150px 0 80px;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(138, 43, 226, 0.1) 100%
+  );
   text-align: center;
 }
 
@@ -4211,7 +4219,11 @@ body {
 /* Newsletter Section */
 .blog-newsletter {
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(138, 43, 226, 0.1) 100%
+  );
 }
 
 .blog-newsletter-content {
@@ -4337,20 +4349,32 @@ body {
 /* Portfolio Hero */
 .portfolio-hero {
   padding: 100px 0 60px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
   position: relative;
   overflow: hidden;
 }
 
 .portfolio-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 30% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
   pointer-events: none;
 }
 
@@ -4412,7 +4436,11 @@ body {
   position: relative;
   height: 280px;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
 }
 
 .portfolio-project-image img {
@@ -4546,19 +4574,27 @@ body {
 /* Portfolio CTA */
 .portfolio-cta {
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
   position: relative;
   overflow: hidden;
 }
 
 .portfolio-cta::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -4849,7 +4885,11 @@ body {
 .quote-success-icon {
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -5006,7 +5046,7 @@ body {
   margin: 0;
 }
 
-.quote-budget-input[type=number] {
+.quote-budget-input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -5019,7 +5059,6 @@ body {
     width: 100%;
   }
 }
-
 
 /* Modern Portfolio Page Styles */
 .portfolio-page-modern {
@@ -5564,4 +5603,29 @@ body {
   .portfolio-cta-card {
     padding: 2.5rem 1.5rem;
   }
+}
+/* Contact Form Status Messages */
+.form-status {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-status-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

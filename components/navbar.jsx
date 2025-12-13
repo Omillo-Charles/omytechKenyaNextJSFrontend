@@ -62,13 +62,10 @@ export default function Navbar() {
           <li>
             <Link href="/#wings" onClick={() => setIsOpen(false)}>Wings</Link>
           </li>
-          <li>
-            <Link href="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link>
-          </li>
           <li className="mobile-auth-item">
-            <a 
-              href="https://buymeacoffee.com/omytech_kenya" 
-              target="_blank" 
+            <a
+              href="https://buymeacoffee.com/omytech_kenya"
+              target="_blank"
               rel="noopener noreferrer"
               className="mobile-auth-link coffee"
               onClick={() => setIsOpen(false)}
@@ -79,9 +76,9 @@ export default function Navbar() {
         </ul>
 
         <div className={`nav-auth ${isOpen ? "active" : ""}`}>
-          <a 
-            href="https://buymeacoffee.com/omytech_kenya" 
-            target="_blank" 
+          <a
+            href="https://buymeacoffee.com/omytech_kenya"
+            target="_blank"
             rel="noopener noreferrer"
             className="nav-cta"
           >

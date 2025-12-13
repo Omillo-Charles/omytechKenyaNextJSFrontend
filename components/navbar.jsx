@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BiCoffee } from "react-icons/bi";
@@ -12,18 +12,6 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
 
   return (
     <nav className="navbar">
@@ -44,84 +32,8 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <AnimatePresence>
-          {isOpen && (
-            <motion.ul
-              className="nav-links active"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-                duration: 0.3
-              }}
-            >
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.1 }}
-              >
-                <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-              </motion.li>
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.15 }}
-              >
-                <Link href="/#about" onClick={() => setIsOpen(false)}>About</Link>
-              </motion.li>
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-              </motion.li>
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.25 }}
-              >
-                <Link href="/#services" onClick={() => setIsOpen(false)}>Services</Link>
-              </motion.li>
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Link href="/#testimonials" onClick={() => setIsOpen(false)}>Testimonials</Link>
-              </motion.li>
-              <motion.li
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.35 }}
-              >
-                <Link href="/#wings" onClick={() => setIsOpen(false)}>Wings</Link>
-              </motion.li>
-              <motion.li
-                className="mobile-auth-item"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                <a
-                  href="https://buymeacoffee.com/omytech_kenya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mobile-auth-link coffee"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <BiCoffee className="coffee-icon" /> Buy Us Coffee
-                </a>
-              </motion.li>
-            </motion.ul>
-          )}
-        </AnimatePresence>
-
         {/* Desktop nav-links for larger screens */}
-        <ul className="nav-links desktop-only">
+        <ul className="nav-links desktop-nav">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -163,6 +75,81 @@ export default function Navbar() {
           <span className={isOpen ? "open" : ""}></span>
         </button>
       </div>
+
+      {/* Mobile nav-links positioned below header */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            className="nav-links mobile-nav"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut"
+            }}
+          >
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+            </motion.li>
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.15 }}
+            >
+              <Link href="/#about" onClick={() => setIsOpen(false)}>About</Link>
+            </motion.li>
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+            </motion.li>
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.25 }}
+            >
+              <Link href="/#services" onClick={() => setIsOpen(false)}>Services</Link>
+            </motion.li>
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link href="/#testimonials" onClick={() => setIsOpen(false)}>Testimonials</Link>
+            </motion.li>
+            <motion.li
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.35 }}
+            >
+              <Link href="/#wings" onClick={() => setIsOpen(false)}>Wings</Link>
+            </motion.li>
+            <motion.li
+              className="mobile-auth-item"
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <a
+                href="https://buymeacoffee.com/omytech_kenya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-auth-link coffee"
+                onClick={() => setIsOpen(false)}
+              >
+                <BiCoffee className="coffee-icon" /> Buy Us Coffee
+              </a>
+            </motion.li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

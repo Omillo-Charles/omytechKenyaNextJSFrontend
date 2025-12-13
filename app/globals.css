@@ -222,9 +222,14 @@ body {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Desktop-only navigation */
-.desktop-only {
+/* Desktop navigation */
+.desktop-nav {
   display: flex !important;
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  display: none !important;
 }
 
 @media (max-width: 1024px) {
@@ -246,17 +251,15 @@ body {
   }
 
   /* Hide desktop navigation on mobile */
-  .desktop-only {
+  .desktop-nav {
     display: none !important;
   }
 
-  .nav-links:not(.desktop-only) {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    max-width: 100%;
+  /* Show and style mobile navigation */
+  .mobile-nav {
+    display: flex !important;
+    position: relative;
+    width: 100%;
     background-color: var(--color-white);
     flex-direction: column;
     gap: 0;
@@ -265,15 +268,10 @@ body {
     box-shadow: 0 4px 10px rgba(11, 28, 54, 0.1);
     z-index: 999;
     box-sizing: border-box;
-    height: calc(100vh - 80px);
-    height: calc(100dvh - 80px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 1rem;
+    overflow: hidden;
   }
 
-  .nav-links li {
+  .mobile-nav li {
     padding: 0;
     width: 100%;
     max-width: 100%;
@@ -282,11 +280,11 @@ body {
     margin: 0;
   }
 
-  .nav-links li:last-child {
+  .mobile-nav li:last-child {
     border-bottom: 1px solid #f0f0f0;
   }
 
-  .nav-links li a {
+  .mobile-nav li a {
     display: block;
     padding: 1.25rem 1.5rem;
     width: 100%;
@@ -332,7 +330,7 @@ body {
     display: none;
   }
 
-  .nav-links.active ~ .nav-auth {
+  .mobile-nav ~ .nav-auth {
     display: none;
   }
 }
@@ -354,16 +352,7 @@ body {
     padding: 0.4rem;
   }
 
-  .nav-links {
-    top: 70px;
-  }
-
-  .nav-links.active {
-    max-height: calc(100vh - 70px);
-    max-height: calc(100dvh - 70px);
-  }
-
-  .nav-links li a {
+  .mobile-nav li a {
     padding: 1rem 1rem;
     font-size: 0.95rem;
   }
@@ -390,16 +379,7 @@ body {
     font-size: 0.65rem;
   }
 
-  .nav-links {
-    top: 65px;
-  }
-
-  .nav-links.active {
-    max-height: calc(100vh - 65px);
-    max-height: calc(100dvh - 65px);
-  }
-
-  .nav-links li a {
+  .mobile-nav li a {
     padding: 0.875rem 0.75rem;
     font-size: 0.9rem;
   }

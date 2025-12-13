@@ -222,6 +222,11 @@ body {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* Desktop-only navigation */
+.desktop-only {
+  display: flex !important;
+}
+
 @media (max-width: 1024px) {
   .nav-container {
     grid-template-columns: auto 1fr;
@@ -240,7 +245,12 @@ body {
     display: none !important;
   }
 
-  .nav-links {
+  /* Hide desktop navigation on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .nav-links:not(.desktop-only) {
     position: fixed;
     top: 80px;
     left: 0;
@@ -253,16 +263,10 @@ body {
     padding: 0;
     margin: 0;
     box-shadow: 0 4px 10px rgba(11, 28, 54, 0.1);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
     z-index: 999;
     box-sizing: border-box;
-  }
-
-  .nav-links.active {
-    max-height: calc(100vh - 80px);
-    max-height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;

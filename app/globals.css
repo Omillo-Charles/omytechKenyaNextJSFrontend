@@ -68,6 +68,7 @@ body {
   top: 0;
   z-index: 1000;
   transition: all var(--transition-speed);
+  width: 100%;
 }
 
 .nav-container {
@@ -258,7 +259,10 @@ body {
   /* Show and style mobile navigation */
   .mobile-nav {
     display: flex !important;
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
     background-color: var(--color-white);
     flex-direction: column;

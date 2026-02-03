@@ -6,7 +6,7 @@ import Image from "next/image";
 import { 
   BiCoffee, BiMenu, BiX, BiChevronDown, BiSearch, 
   BiCodeAlt, BiMobileAlt, BiBarChartAlt2, BiRocket,
-  BiSupport, BiLineChart, BiServer, BiLayer,
+  BiLineChart, BiServer, BiLayer,
   BiEnvelope, BiPhone
 } from "react-icons/bi";
 import {
@@ -232,7 +232,6 @@ export default function Navbar() {
       subItems: [
         { name: ".keja", href: "/products", icon: <BiServer />, desc: "Rental Management System." },
         { name: ".soko", href: "/products", icon: <BiLayer />, desc: "Multivendor E-commerce Platform." },
-        { name: "Support Hub", href: "/support", icon: <BiSupport />, desc: "Dedicated maintenance and support." },
       ]
     },
     { name: "About Us", href: "/about" },
@@ -432,7 +431,7 @@ export default function Navbar() {
                                 bgcolor: "rgba(255, 255, 255, 0.03)", 
                                 borderRadius: "20px",
                                 display: "flex", 
-                                justifyContent: "space-between", 
+                                justifyContent: "center", 
                                 alignItems: "center",
                                 border: "1px solid rgba(255, 255, 255, 0.05)"
                               }}
@@ -443,19 +442,6 @@ export default function Navbar() {
                                   System Status: <Box component="span" sx={{ color: "#10b981" }}>Operational</Box>
                                 </Typography>
                               </Stack>
-                              <Button 
-                                size="small" 
-                                variant="text" 
-                                sx={{ 
-                                  fontWeight: 800, 
-                                  textTransform: "none",
-                                  color: "#0072ce",
-                                  "&:hover": { bgcolor: "transparent", transform: "translateX(3px)" },
-                                  transition: "all 0.2s"
-                                }}
-                              >
-                                Support Center &rarr;
-                              </Button>
                             </MotionBox>
                           </MotionPaper>
                         </MotionBox>

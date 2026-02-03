@@ -17,7 +17,6 @@ export default function Footer() {
   const footerLinks = [
     { name: "About", href: "/about" },
     { name: "Wings", href: "/wings" },
-    { name: "Support", href: "/support" },
     { name: "Contact", href: "/contact" },
   ];
 

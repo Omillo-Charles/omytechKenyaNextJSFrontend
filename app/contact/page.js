@@ -30,7 +30,6 @@ import {
   FaInstagram,
   FaLinkedin,
   FaGithub,
-  FaWhatsapp,
 } from "react-icons/fa6";
 
 const MotionBox = motion.create(Box);
@@ -155,7 +154,6 @@ export default function ContactPage() {
     { icon: <FaInstagram size={20} />, label: "instagram", link: "https://instagram.com/omytech_kenya" },
     { icon: <FaLinkedin size={20} />, label: "linkedin", link: "https://linkedin.com/company/omytech-kenya" },
     { icon: <FaGithub size={20} />, label: "github", link: "https://github.com/omytech-kenya" },
-    { icon: <FaWhatsapp size={20} />, label: "whatsapp", link: "https://wa.me/254715367859" },
   ];
 
   return (

@@ -1,8 +1,4 @@
 import Hero from "@/components/hero";
-import About from "@/components/about";
-import Services from "@/components/services";
-import Testimonials from "@/components/testimonials";
-import Wings from "@/components/wings";
 
 export const metadata = {
   title: "Home",
@@ -17,10 +13,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <About />
-      <Services />
-      <Testimonials />
-      <Wings />
     </main>
   );
 }

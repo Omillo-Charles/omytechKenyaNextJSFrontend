@@ -23,11 +23,15 @@ import {
   Send as SendIcon,
   Terminal as TerminalIcon,
   Code as CodeIcon,
-  GitHub as GitHubIcon,
-  LinkedIn as LinkedInIcon,
-  Twitter as TwitterIcon,
-  WhatsApp as WhatsAppIcon
 } from "@mui/icons-material";
+import {
+  FaXTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
@@ -146,10 +150,12 @@ export default function ContactPage() {
   ];
 
   const socialLinks = [
-    { icon: <WhatsAppIcon />, label: "whatsapp", link: "https://wa.me/254715367859" },
-    { icon: <LinkedInIcon />, label: "linkedin", link: "https://linkedin.com/company/omytech" },
-    { icon: <TwitterIcon />, label: "twitter", link: "https://twitter.com/omytech" },
-    { icon: <GitHubIcon />, label: "github", link: "https://github.com/omytech" },
+    { icon: <FaFacebook size={20} />, label: "facebook", link: "https://facebook.com/omytech_kenya" },
+    { icon: <FaXTwitter size={20} />, label: "twitter", link: "https://x.com/omytech_kenya" },
+    { icon: <FaInstagram size={20} />, label: "instagram", link: "https://instagram.com/omytech_kenya" },
+    { icon: <FaLinkedin size={20} />, label: "linkedin", link: "https://linkedin.com/company/omytech-kenya" },
+    { icon: <FaGithub size={20} />, label: "github", link: "https://github.com/omytech-kenya" },
+    { icon: <FaWhatsapp size={20} />, label: "whatsapp", link: "https://wa.me/254715367859" },
   ];
 
   return (

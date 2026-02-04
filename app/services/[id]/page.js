@@ -259,7 +259,7 @@ export default function ServiceDetailPage() {
       sx={{ 
         minHeight: "100vh",
         bgcolor: "#080c14",
-        pt: { xs: 4, md: 8 },
+        pt: { xs: 1, md: 2 },
         pb: 12,
         position: "relative",
         overflow: "hidden"
@@ -283,7 +283,7 @@ export default function ServiceDetailPage() {
           startIcon={<ArrowBackIcon />}
           sx={{ 
             color: "rgba(255,255,255,0.5)", 
-            mb: 4, 
+            mb: 2, 
             textTransform: "none", 
             "&:hover": { color: protocol.color } 
           }}

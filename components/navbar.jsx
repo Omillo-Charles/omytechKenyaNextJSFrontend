@@ -513,13 +513,13 @@ export default function Navbar() {
       </StickyContainer>
 
       {/* Spacer to prevent content jump since header is fixed */}
-      <Box sx={{ height: { xs: "140px", md: scrolled ? "105px" : "135px" }, transition: "height 0.3s ease", mb: "-8px" }} />
+      <Box sx={{ height: { xs: "140px", md: scrolled ? "110px" : "140px" }, transition: "height 0.3s ease", mb: "-8px" }} />
 
       {/* 3rd Navbar: Category Bar */}
       <CategoryBar>
         <Container maxWidth="xl">
           <Stack direction="row" spacing={4} alignItems="center">
-            <Typography variant="caption" sx={{ fontWeight: 800, color: "#0f172a", textTransform: "uppercase", letterSpacing: 1 }}>
+            <Typography variant="caption" sx={{ fontWeight: 800, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: 1 }}>
               Trending:
             </Typography>
             {[

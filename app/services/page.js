@@ -134,7 +134,7 @@ export default function ServicesPage() {
       sx={{ 
         minHeight: "100vh",
         bgcolor: "#080c14",
-        pt: { xs: 4, md: 6 },
+        pt: { xs: 2, md: 3 },
         pb: 12,
         position: "relative",
         overflow: "hidden"

@@ -220,10 +220,12 @@ export default function Navbar() {
       name: "Services", 
       href: "/services",
       subItems: [
-        { name: "Software Engineering", href: "/services", icon: <BiCodeAlt />, desc: "Web, Mobile & Custom Solutions." },
-        { name: "Cloud & DevOps", href: "/services", icon: <BiServer />, desc: "Scalable Infrastructure & Cloud." },
-        { name: "UI/UX Design", href: "/services", icon: <BiLayer />, desc: "User-centric Digital Experiences." },
-        { name: "Cybersecurity", href: "/services", icon: <BiRocket />, desc: "Secure & Hardened Systems." },
+        { name: "Software Engineering", href: "/services/software-engineering", icon: <BiCodeAlt />, desc: "Web, Mobile & Custom Solutions." },
+        { name: "Cloud & Infrastructure", href: "/services/cloud-infrastructure", icon: <BiServer />, desc: "Scalable Infrastructure & Cloud." },
+        { name: "UI/UX Design", href: "/services/ui-ux-design", icon: <BiLayer />, desc: "User-centric Digital Experiences." },
+        { name: "Cybersecurity", href: "/services/cybersecurity", icon: <BiRocket />, desc: "Secure & Hardened Systems." },
+        { name: "AI & Data Science", href: "/services/ai-data-science", icon: <BiBarChartAlt2 />, desc: "Intelligent AI & Data Solutions." },
+        { name: "Digital Strategy", href: "/services/digital-strategy", icon: <BiLineChart />, desc: "Strategic Digital Growth." },
       ]
     },
     { 
@@ -481,6 +483,8 @@ export default function Navbar() {
                 <Button
                   variant="contained"
                   disableElevation
+                  component={Link}
+                  href="/quote"
                   sx={{ 
                     bgcolor: "#0072ce", 
                     color: "white", 
@@ -696,6 +700,9 @@ export default function Navbar() {
                   fullWidth
                   variant="contained"
                   size="medium"
+                  component={Link}
+                  href="/quote"
+                  onClick={toggleMenu}
                   sx={{ 
                     bgcolor: "#0072ce", 
                     color: "white", 

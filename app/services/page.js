@@ -20,6 +20,7 @@ import {
   Lightbulb as StrategyIcon,
   ArrowForward as ArrowForwardIcon
 } from "@mui/icons-material";
+import Link from "next/link";
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
@@ -41,6 +42,7 @@ const TerminalContainer = styled(MotionBox)(({ theme }) => ({
 
 const services = [
   {
+    id: "software-engineering",
     title: "Software Engineering",
     description: "High-performance web and mobile applications built with modern frameworks for scale and speed.",
     icon: <CodeIcon />,
@@ -54,6 +56,7 @@ const services = [
     ]
   },
   {
+    id: "cloud-infrastructure",
     title: "Cloud & Infrastructure",
     description: "Scalable, secure, and reliable cloud solutions to power your digital ecosystem with 99.9% uptime.",
     icon: <StorageIcon />,
@@ -67,6 +70,7 @@ const services = [
     ]
   },
   {
+    id: "ui-ux-design",
     title: "UI/UX Design",
     description: "User-centric interfaces that blend aesthetic beauty with seamless functionality for maximum engagement.",
     icon: <DesignIcon />,
@@ -80,6 +84,7 @@ const services = [
     ]
   },
   {
+    id: "cybersecurity",
     title: "Cybersecurity",
     description: "Enterprise-grade security audits and system hardening to protect your data and digital assets.",
     icon: <SecurityIcon />,
@@ -93,6 +98,7 @@ const services = [
     ]
   },
   {
+    id: "ai-data-science",
     title: "AI & Data Science",
     description: "Custom AI models and data analytics that turn raw information into actionable business intelligence.",
     icon: <AiIcon />,
@@ -106,6 +112,7 @@ const services = [
     ]
   },
   {
+    id: "digital-strategy",
     title: "Digital Strategy",
     description: "Comprehensive roadmaps for digital growth, focusing on market penetration and user acquisition.",
     icon: <StrategyIcon />,
@@ -270,6 +277,8 @@ export default function ServicesPage() {
                   <Box sx={{ mt: 4 }}>
                     <Button
                       variant="text"
+                      component={Link}
+                      href={`/services/${service.id}`}
                       endIcon={<ArrowForwardIcon />}
                       sx={{ 
                         color: service.color,
@@ -286,7 +295,7 @@ export default function ServicesPage() {
                         }
                       }}
                     >
-                      {`view_${service.title.toLowerCase().replace(/\s+/g, '_')}_protocol`}
+                      {`view_${service.id.replace(/-/g, '_')}_protocol`}
                     </Button>
                   </Box>
                 </Box>

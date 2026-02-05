@@ -272,7 +272,7 @@ export default function Hero() {
           >
             <Button
               component={Link}
-              href="/quote"
+              href="/contact"
               variant="contained"
               size="large"
               sx={{ 

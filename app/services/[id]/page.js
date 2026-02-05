@@ -383,7 +383,7 @@ export default function ServiceDetailPage() {
                       fullWidth 
                       variant="contained" 
                       component={Link}
-                      href="/quote"
+                      href="/contact"
                       sx={{ 
                         bgcolor: protocol.color, 
                         color: "white", 

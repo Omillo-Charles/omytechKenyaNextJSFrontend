@@ -115,31 +115,17 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    try {
-      const response = await fetch('https://contactapi.omytech.co.ke/api/contact/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus({ type: 'success', message: result.message || 'Transmission successful. Connection established.' });
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus({ type: 'error', message: result.message || 'Transmission failed. Packet loss detected.' });
-      }
-    } catch (error) {
-      setSubmitStatus({ type: 'error', message: 'Connection timeout. Network unreachable.' });
-    } finally {
+    // Simulate API call
+    setTimeout(() => {
+      setSubmitStatus({ type: 'success', message: 'Transmission successful. Connection established.' });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       setIsSubmitting(false);
-    }
+    }, 1500);
   };
 
   const contactInfo = [

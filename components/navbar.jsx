@@ -484,7 +484,7 @@ export default function Navbar() {
                   variant="contained"
                   disableElevation
                   component={Link}
-                  href="/quote"
+                  href="/contact"
                   sx={{ 
                     bgcolor: "#0072ce", 
                     color: "white", 
@@ -701,7 +701,7 @@ export default function Navbar() {
                   variant="contained"
                   size="medium"
                   component={Link}
-                  href="/quote"
+                  href="/contact"
                   onClick={toggleMenu}
                   sx={{ 
                     bgcolor: "#0072ce", 

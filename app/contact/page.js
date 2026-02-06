@@ -6,12 +6,9 @@ import {
   Typography, 
   Stack, 
   Grid, 
-  TextField,
   Button,
   IconButton,
   styled,
-  Alert,
-  CircularProgress,
   useTheme,
   useMediaQuery
 } from "@mui/material";
@@ -71,32 +68,6 @@ const TerminalHeader = ({ title, icon }) => (
   </Box>
 );
 
-const StyledTextField = styled(TextField)({
-  '& .MuiOutlinedInput-root': {
-    color: '#10b981', // Terminal green
-    fontFamily: "'Fira Code', monospace",
-    fontSize: '0.85rem',
-    '& fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.1)',
-      borderRadius: '4px',
-    },
-    '&:hover fieldset': {
-      borderColor: 'rgba(59, 130, 246, 0.5)',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#3b82f6',
-    },
-  },
-  '& .MuiInputLabel-root': {
-    color: 'rgba(255, 255, 255, 0.3)',
-    fontFamily: "'Fira Code', monospace",
-    fontSize: '0.8rem',
-    '&.Mui-focused': {
-      color: '#3b82f6',
-    },
-  },
-});
-
 export default function ContactPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -105,64 +76,6 @@ export default function ContactPage() {
   React.useEffect(() => {
     setMounted(true);
   }, []);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const response = await fetch("https://omytechapi.vercel.app/api/v1/contacts/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus({ 
-          type: 'success', 
-          message: 'Transmission successful. Connection established.' 
-        });
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus({ 
-          type: 'error', 
-          message: data.message || 'Transmission failed. Protocol error.' 
-        });
-      }
-    } catch (error) {
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Network error. Connection timed out.' 
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const contactInfo = [
     { icon: <MailIcon fontSize="small" />, label: "mail", value: "info@omytech.co.ke", link: "mailto:info@omytech.co.ke", cmd: "ping mail.omytech.co.ke" },
@@ -330,7 +243,7 @@ export default function ContactPage() {
             </Stack>
           </Grid>
 
-          {/* Main Form */}
+          {/* Main Content Area */}
           <Grid item xs={12} md={8} sx={{ 
             display: "flex",
             width: "100%",
@@ -349,126 +262,34 @@ export default function ContactPage() {
               }}
             >
               <TerminalHeader title="omytech_comms_v1.0.4" icon={<CodeIcon fontSize="small" />} />
-              <Box sx={{ p: { xs: 2, sm: 4, md: 6 }, flexGrow: 1 }}>
-                <form onSubmit={handleSubmit}>
-                  <Stack spacing={3}>
-                    <Box sx={{ display: "flex", gap: 2, flexDirection: { xs: "column", sm: "row" } }}>
-                      <StyledTextField
-                        fullWidth
-                        label="Full Name"
-                        placeholder="e.g. John Doe"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        variant="outlined"
-                        size={isMobile ? "small" : "medium"}
-                      />
-                      <StyledTextField
-                        fullWidth
-                        label="Email Address"
-                        placeholder="e.g. john@example.com"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        variant="outlined"
-                        size={isMobile ? "small" : "medium"}
-                      />
-                    </Box>
-                    <Box sx={{ display: "flex", gap: 2, flexDirection: { xs: "column", sm: "row" } }}>
-                      <StyledTextField
-                        fullWidth
-                        label="Phone Number"
-                        placeholder="e.g. +254 700 000 000"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        variant="outlined"
-                        size={isMobile ? "small" : "medium"}
-                      />
-                      <StyledTextField
-                        fullWidth
-                        label="Subject"
-                        placeholder="How can we help you?"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        variant="outlined"
-                        size={isMobile ? "small" : "medium"}
-                      />
-                    </Box>
-                    <StyledTextField
-                      fullWidth
-                      multiline
-                      rows={isMobile ? 5 : 8}
-                      label="Your Message"
-                      placeholder="Tell us about your project or inquiry..."
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
+              <Box sx={{ p: { xs: 2, sm: 4, md: 6 }, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <Typography variant="h4" sx={{ color: 'white', fontWeight: 900, mb: 2, fontFamily: "'Fira Code', monospace" }}>
+                  COMMUNICATION_CHANNELS
+                </Typography>
+                <Typography sx={{ color: 'rgba(255,255,255,0.6)', mb: 4, maxWidth: '600px', fontFamily: "'Fira Code', monospace" }}>
+                  Direct contact protocols are active. Please use the sidebar credentials to establish a secure link with our team via email or phone.
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center' }}>
+                  {contactInfo.map((info, i) => (
+                    <Button
+                      key={i}
                       variant="outlined"
-                    />
-
-                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: 2, flexDirection: { xs: "column", sm: "row" }, gap: 2 }}>
-                      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Fira Code', monospace", order: { xs: 2, sm: 1 } }}>
-                        SYSTEM_AUTH: VERIFIED
-                      </Typography>
-                      <Button
-                        type="submit"
-                        variant="outlined"
-                        disabled={isSubmitting}
-                        fullWidth={isMobile}
-                        sx={{
-                          borderColor: "#3b82f6",
-                          color: "#3b82f6",
-                          px: 4,
-                          py: 1.5,
-                          borderRadius: "12px",
-                          fontFamily: "'Fira Code', monospace",
-                          fontWeight: 700,
-                          order: { xs: 1, sm: 2 },
-                          "&:hover": {
-                            bgcolor: "rgba(59, 130, 246, 0.1)",
-                            borderColor: "#3b82f6",
-                            transform: "translateY(-2px)"
-                          },
-                          transition: "all 0.3s ease"
-                        }}
-                      >
-                        {isSubmitting ? <CircularProgress size={20} color="inherit" /> : "EXECUTE --SEND"}
-                      </Button>
-                    </Box>
-
-                    <AnimatePresence>
-                      {submitStatus && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                        >
-                          <Alert 
-                            severity={submitStatus.type}
-                            sx={{ 
-                              bgcolor: "rgba(15, 23, 42, 0.8)",
-                              color: submitStatus.type === 'success' ? '#10b981' : '#ef4444',
-                              border: `1px solid ${submitStatus.type === 'success' ? '#10b981' : '#ef4444'}`,
-                              borderRadius: "12px",
-                              fontFamily: "'Fira Code', monospace",
-                              fontSize: "0.8rem",
-                              mt: 2
-                            }}
-                          >
-                            {submitStatus.message}
-                          </Alert>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </Stack>
-                </form>
+                      component="a"
+                      href={info.link}
+                      startIcon={info.icon}
+                      sx={{
+                        borderColor: 'rgba(59, 130, 246, 0.3)',
+                        color: '#3b82f6',
+                        borderRadius: '12px',
+                        textTransform: 'none',
+                        fontFamily: "'Fira Code', monospace",
+                        "&:hover": { borderColor: '#3b82f6', bgcolor: 'rgba(59, 130, 246, 0.05)' }
+                      }}
+                    >
+                      {info.label.toUpperCase()}
+                    </Button>
+                  ))}
+                </Box>
               </Box>
               <Box sx={{ bgcolor: "rgba(255,255,255,0.02)", px: 2, py: 1 }}>
                 <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.2)", fontSize: "0.6rem" }}>

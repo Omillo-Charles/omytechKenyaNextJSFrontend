@@ -100,6 +100,11 @@ const StyledTextField = styled(TextField)({
 export default function ContactPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -115,17 +120,48 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitStatus({ type: 'success', message: 'Transmission successful. Connection established.' });
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    try {
+      const response = await fetch("https://omytechapi.vercel.app/api/v1/contacts/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Transmission successful. Connection established.' 
+        });
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus({ 
+          type: 'error', 
+          message: data.message || 'Transmission failed. Protocol error.' 
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Network error. Connection timed out.' 
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
@@ -141,6 +177,8 @@ export default function ContactPage() {
     { icon: <FaLinkedin size={20} />, label: "linkedin", link: "https://linkedin.com/company/omytech-kenya" },
     { icon: <FaGithub size={20} />, label: "github", link: "https://github.com/omytech-kenya" },
   ];
+
+  if (!mounted) return null;
 
   return (
     <Box 

@@ -241,8 +241,12 @@ export default function Navbar() {
     { name: "Buy Us Coffee", href: "https://buymeacoffee.com/omytech_kenya", isExternal: true, icon: <BiCoffee /> },
   ];
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <Box sx={{ flexGrow: 1 }} suppressHydrationWarning>
+    <Box sx={{ flexGrow: 1 }}>
       <StickyContainer scrolled={scrolled}>
         {/* 1st Navbar: Utility Top Bar */}
         <TopBar>
@@ -496,7 +500,7 @@ export default function Navbar() {
                     "&:hover": { bgcolor: "#005ea8" }
                   }}
                 >
-                  Get a Quote
+                  Contact Us
                 </Button>
               </Stack>
 
@@ -714,7 +718,7 @@ export default function Navbar() {
                     boxShadow: "0 10px 20px rgba(0, 114, 206, 0.2)"
                   }}
                 >
-                  Get a Quote
+                  Contact Us
                 </Button>
               </Box>
             </motion.div>

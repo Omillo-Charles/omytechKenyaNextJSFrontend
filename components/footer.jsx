@@ -35,7 +35,7 @@ export default function Footer() {
           <Link href="/" className="footer-brand-simple">
             <div className="footer-logo-box">
               <Image
-                src="/newOmytechLogo.png"
+                src="/omytechlogo.png"
                 alt="OMYTECH Logo"
                 width={32}
                 height={32}

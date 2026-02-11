@@ -91,8 +91,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/newOmytechLogo.png" />
+        <link rel="icon" href="/omytechlogo.png" />
+        <link rel="apple-touch-icon" href="/omytechlogo.png" />
         <meta name="theme-color" content="#007bff" />
         <meta
           name="viewport"

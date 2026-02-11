@@ -308,7 +308,7 @@ export default function Navbar() {
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                   boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)"
                 }}>
-                  <Image src="/newOmytechLogo.png" alt="OMYTECH" width={32} height={32} />
+                  <Image src="/omytechlogo.png" alt="OMYTECH" width={32} height={32} />
                 </Box>
                 <Box>
                   <Typography variant="h6" sx={{ fontWeight: 900, color: "#ffffff", lineHeight: 1, letterSpacing: -0.5, fontFamily: "'Fira Code', monospace" }}>
@@ -595,7 +595,7 @@ export default function Navbar() {
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Box sx={{ bgcolor: "rgba(255,255,255,0.05)", p: 0.8, borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <Image src="/newOmytechLogo.png" alt="OMYTECH" width={24} height={24} />
+                    <Image src="/omytechlogo.png" alt="OMYTECH" width={24} height={24} />
                   </Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "white", fontFamily: "'Fira Code', monospace" }}>OMYTECH</Typography>
                 </Box>

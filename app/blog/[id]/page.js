@@ -65,12 +65,6 @@ const TerminalHeader = ({ title, icon }) => (
   </Box>
 );
 
-const getDynamicDate = (daysAgo) => {
-  const date = new Date();
-  date.setDate(date.getDate() - daysAgo);
-  return date.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
-};
-
 const blogPosts = [
   {
     id: 1,
@@ -88,7 +82,7 @@ const blogPosts = [
       <p>We are moving toward a future where autonomous AI agents can handle end-to-end feature development under human supervision. This allows engineering teams to focus on innovation and solving complex business problems rather than implementation details.</p>
     `,
     author: "Charles Omillo",
-    date: getDynamicDate(0), // Today
+    date: "Feb 14, 2024",
     category: "Artificial Intelligence",
     readTime: "8 min read",
     tags: ["AI", "LLM", "Coding"],
@@ -98,16 +92,19 @@ const blogPosts = [
     id: 2,
     title: "Edge Computing: The Future of Distributed Systems",
     content: `
-      <p>As the demand for real-time processing grows, traditional cloud architectures are reaching their limits. Edge computing is emerging as the solution for low-latency, high-bandwidth applications.</p>
+      <p>As the number of IoT devices and high-speed applications grows, traditional cloud architectures are facing challenges with latency and bandwidth. Edge computing is emerging as the critical solution.</p>
       
-      <h3>Why Edge Matters</h3>
-      <p>By moving computation closer to the data source—be it an IoT device, a smartphone, or a local server—we reduce the distance data must travel. This is critical for autonomous vehicles, industrial automation, and immersive gaming.</p>
+      <h3>1. Bringing Compute Closer to Data</h3>
+      <p>By processing data at the "edge" of the network—closer to where it's generated—we can achieve near-instantaneous response times. This is vital for applications like autonomous vehicles and industrial automation.</p>
       
-      <h3>The Hybrid Approach</h3>
-      <p>The future isn't "Edge vs. Cloud," but rather a seamless continuum. Critical real-time decisions happen at the edge, while heavy processing and long-term storage remain in the centralized cloud.</p>
+      <h3>2. Reducing Bandwidth Costs</h3>
+      <p>Instead of sending massive amounts of raw data to a central cloud, edge devices can filter and process data locally, only sending the necessary insights to the core. This significantly reduces network congestion and storage costs.</p>
+      
+      <h3>3. Enhanced Privacy and Security</h3>
+      <p>Processing sensitive data locally rather than transmitting it across the internet improves privacy and reduces the attack surface for potential breaches.</p>
     `,
     author: "Tech Team",
-    date: getDynamicDate(2), // 2 days ago
+    date: "Feb 12, 2024",
     category: "Cloud Architecture",
     readTime: "6 min read",
     tags: ["Edge", "IoT", "Cloud"],
@@ -117,16 +114,19 @@ const blogPosts = [
     id: 3,
     title: "Securing Your Next.js Applications",
     content: `
-      <p>Security is not a feature; it's a foundation. With Next.js 14, developers have more power than ever, but also new responsibilities to keep user data safe.</p>
+      <p>Security should never be an afterthought. With Next.js 14, we have more tools than ever to build robust, secure web applications from the ground up.</p>
       
-      <h3>Server Components and Data Safety</h3>
-      <p>React Server Components (RSC) change how we handle sensitive data. Learn how to use 'server-only' packages and secure data fetching patterns to prevent accidental leaks to the client.</p>
+      <h3>1. Leveraging Server Actions Safely</h3>
+      <p>Server Actions provide a powerful way to handle data mutations, but they must be implemented with proper authorization and input validation to prevent common vulnerabilities.</p>
       
-      <h3>Modern Authentication</h3>
-      <p>Implementing robust authentication using NextAuth.js (Auth.js) and integrating with modern providers. We explore session management, JWT security, and multi-factor authentication strategies.</p>
+      <h3>2. Implementing Content Security Policy (CSP)</h3>
+      <p>A strong CSP is one of the most effective defenses against Cross-Site Scripting (XSS). We'll explore how to configure CSP headers in Next.js middleware and layouts.</p>
+      
+      <h3>3. Robust Authentication Patterns</h3>
+      <p>From Auth.js to custom JWT solutions, choosing the right authentication pattern and ensuring secure session management is critical for protecting user data.</p>
     `,
     author: "Security Expert",
-    date: getDynamicDate(5), // 5 days ago
+    date: "Feb 09, 2024",
     category: "Cybersecurity",
     readTime: "10 min read",
     tags: ["Next.js", "Security", "WebDev"],
@@ -136,16 +136,19 @@ const blogPosts = [
     id: 4,
     title: "The Evolution of UI/UX in the AI Era",
     content: `
-      <p>Generative AI is not just changing how we build; it's changing what we build. Interfaces are becoming more fluid, personalized, and proactive.</p>
+      <p>Artificial Intelligence is not just changing how we build software, but how users interact with it. We are entering a new era of personalized, generative user interfaces.</p>
       
-      <h3>Generative Interfaces</h3>
-      <p>Imagine a UI that morphs based on the user's intent. Instead of static dashboards, we are building dynamic experiences that present the right information at the right time using AI-driven insights.</p>
+      <h3>1. Beyond Static Layouts</h3>
+      <p>The future of UI is dynamic. Interfaces will adapt in real-time to user behavior, intent, and context, providing a truly bespoke experience for every individual.</p>
       
-      <h3>Accessibility First</h3>
-      <p>AI is making the web more accessible than ever. From automated alt-text to real-time voice-to-interface interactions, we are breaking down barriers for all users.</p>
+      <h3>2. Conversational Interfaces</h3>
+      <p>Natural language is becoming a primary mode of interaction. Designing intuitive, helpful, and accessible conversational flows is now a core competency for modern UI/UX designers.</p>
+      
+      <h3>3. AI-Driven Personalization</h3>
+      <p>From predictive navigation to content recommendation, AI allows us to anticipate user needs and surface the right information at the right time, reducing cognitive load.</p>
     `,
     author: "Design Lead",
-    date: getDynamicDate(7), // 7 days ago
+    date: "Feb 07, 2024",
     category: "Design",
     readTime: "7 min read",
     tags: ["UI/UX", "Design", "AI"],
@@ -155,16 +158,19 @@ const blogPosts = [
     id: 5,
     title: "Rust vs Go: Choosing the Right Tool for Systems",
     content: `
-      <p>The debate between Rust and Go continues. Both are excellent languages, but they serve different purposes in the modern stack.</p>
+      <p>The debate between Rust and Go is perennial in the systems programming world. Both languages offer unique strengths, and the choice often depends on the specific project requirements.</p>
       
-      <h3>Rust: The Power of Safety</h3>
-      <p>Rust offers memory safety without a garbage collector. It's the go-to for performance-critical systems, browser engines, and anywhere you need absolute control over resources.</p>
+      <h3>1. Performance and Safety with Rust</h3>
+      <p>Rust's ownership model provides memory safety without a garbage collector, making it ideal for performance-critical systems where safety is paramount.</p>
       
-      <h3>Go: The Power of Simplicity</h3>
-      <p>Go's philosophy of simplicity and built-in concurrency (goroutines) makes it the king of cloud-native development and microservices. It's built for developer productivity and massive scale.</p>
+      <h3>2. Productivity and Simplicity with Go</h3>
+      <p>Go's simplicity, built-in concurrency primitives (goroutines), and fast compilation times make it a favorite for building scalable backend services and microservices quickly.</p>
+      
+      <h3>3. Making the Decision</h3>
+      <p>We compare the two languages across several dimensions: ecosystem, learning curve, community support, and performance benchmarks to help you make an informed choice.</p>
     `,
     author: "Backend Specialist",
-    date: getDynamicDate(10), // 10 days ago
+    date: "Feb 04, 2024",
     category: "Backend Development",
     readTime: "12 min read",
     tags: ["Rust", "Go", "Backend"],
@@ -174,58 +180,23 @@ const blogPosts = [
     id: 6,
     title: "Scaling Microservices with Kubernetes",
     content: `
-      <p>Kubernetes has become the operating system of the cloud. But scaling microservices effectively requires more than just deploying a cluster.</p>
+      <p>Kubernetes has become the de facto standard for container orchestration. But scaling microservices effectively in a K8s environment requires careful planning and optimization.</p>
       
-      <h3>Resource Optimization</h3>
-      <p>Understanding requests and limits, Horizontal Pod Autoscaling (HPA), and how to optimize your resource usage to save costs while maintaining performance.</p>
+      <h3>1. Horizontal Pod Autoscaling (HPA)</h3>
+      <p>Learn how to configure HPA to automatically scale your pods based on CPU utilization, memory, or custom metrics to handle fluctuating traffic loads.</p>
       
-      <h3>Observability</h3>
-      <p>You can't manage what you can't measure. Integrating Prometheus, Grafana, and Jaeger for full-stack visibility into your distributed systems.</p>
+      <h3>2. Resource Management and Quotas</h3>
+      <p>Setting proper resource requests and limits is crucial for ensuring cluster stability and preventing noisy neighbors from impacting your services.</p>
+      
+      <h3>3. Service Mesh for Observability</h3>
+      <p>Implementing a service mesh like Istio or Linkerd can provide deep visibility into your microservices communications, making it easier to debug and optimize performance at scale.</p>
     `,
     author: "DevOps Team",
-    date: getDynamicDate(14), // 14 days ago
+    date: "Jan 31, 2024",
     category: "DevOps",
     readTime: "9 min read",
     tags: ["K8s", "Scale", "Microservices"],
     icon: <ComputerIcon fontSize="small" />
-  },
-  {
-    id: 7,
-    title: "The Impact of Web3 on Data Privacy",
-    content: `
-      <p>Web3 promises a decentralized internet where users own their data. But how does this translate to actual privacy and security?</p>
-      
-      <h3>Self-Sovereign Identity</h3>
-      <p>Moving away from centralized logins. Using wallets and decentralized identifiers (DIDs) to give users full control over their digital persona.</p>
-      
-      <h3>Zero-Knowledge Proofs</h3>
-      <p>The magic of ZK-proofs: proving something is true without revealing the data itself. This is the future of private transactions and identity verification.</p>
-    `,
-    author: "Web3 Researcher",
-    date: getDynamicDate(20), // 20 days ago
-    category: "Web3",
-    readTime: "11 min read",
-    tags: ["Web3", "Privacy", "Blockchain"],
-    icon: <TerminalIcon fontSize="small" />
-  },
-  {
-    id: 8,
-    title: "Optimizing Web Performance in 2024",
-    content: `
-      <p>Performance is a competitive advantage. Users expect instant interactions, and search engines reward speed.</p>
-      
-      <h3>Beyond Core Web Vitals</h3>
-      <p>While LCP and FID are important, we dive into Interaction to Next Paint (INP) and how to optimize for the next generation of performance metrics.</p>
-      
-      <h3>Streaming and Partial Hydration</h3>
-      <p>Leveraging Next.js streaming and selective hydration to get content to users faster than ever before. Every millisecond counts.</p>
-    `,
-    author: "Frontend Lead",
-    date: getDynamicDate(25), // 25 days ago
-    category: "Frontend",
-    readTime: "8 min read",
-    tags: ["Performance", "Web", "Optimization"],
-    icon: <TrendIcon fontSize="small" />
   }
 ];
 

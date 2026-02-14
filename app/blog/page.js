@@ -76,19 +76,13 @@ const TerminalHeader = ({ title, icon }) => (
   </Box>
 );
 
-const getDynamicDate = (daysAgo) => {
-  const date = new Date();
-  date.setDate(date.getDate() - daysAgo);
-  return date.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
-};
-
 const blogPosts = [
   {
     id: 1,
     title: "The Rise of AI in Modern Software Development",
     excerpt: "Exploring how Large Language Models are transforming the way developers write, test, and deploy code in 2024 and beyond.",
     author: "Charles Omillo",
-    date: getDynamicDate(0), // Today
+    date: "Feb 14, 2024",
     category: "Artificial Intelligence",
     readTime: "8 min read",
     tags: ["AI", "LLM", "Coding"],
@@ -99,7 +93,7 @@ const blogPosts = [
     title: "Edge Computing: The Future of Distributed Systems",
     excerpt: "Why shifting processing power closer to the data source is becoming critical for low-latency applications and IoT ecosystems.",
     author: "Tech Team",
-    date: getDynamicDate(2), // 2 days ago
+    date: "Feb 12, 2024",
     category: "Cloud Architecture",
     readTime: "6 min read",
     tags: ["Edge", "IoT", "Cloud"],
@@ -110,7 +104,7 @@ const blogPosts = [
     title: "Securing Your Next.js Applications",
     excerpt: "A deep dive into security best practices for Next.js 14, including Server Actions, CSP headers, and robust authentication patterns.",
     author: "Security Expert",
-    date: getDynamicDate(5), // 5 days ago
+    date: "Feb 09, 2024",
     category: "Cybersecurity",
     readTime: "10 min read",
     tags: ["Next.js", "Security", "WebDev"],
@@ -121,7 +115,7 @@ const blogPosts = [
     title: "The Evolution of UI/UX in the AI Era",
     excerpt: "How generative interfaces and personalized user experiences are redefining the boundaries of digital product design.",
     author: "Design Lead",
-    date: getDynamicDate(7), // 7 days ago
+    date: "Feb 07, 2024",
     category: "Design",
     readTime: "7 min read",
     tags: ["UI/UX", "Design", "AI"],
@@ -132,7 +126,7 @@ const blogPosts = [
     title: "Rust vs Go: Choosing the Right Tool for Systems",
     excerpt: "A comprehensive comparison of Rust and Go for backend services, focusing on performance, safety, and developer productivity.",
     author: "Backend Specialist",
-    date: getDynamicDate(10), // 10 days ago
+    date: "Feb 04, 2024",
     category: "Backend Development",
     readTime: "12 min read",
     tags: ["Rust", "Go", "Backend"],
@@ -143,7 +137,7 @@ const blogPosts = [
     title: "Scaling Microservices with Kubernetes",
     excerpt: "Lessons learned from managing high-traffic microservices architectures and optimizing resource allocation in K8s clusters.",
     author: "DevOps Team",
-    date: getDynamicDate(14), // 14 days ago
+    date: "Jan 31, 2024",
     category: "DevOps",
     readTime: "9 min read",
     tags: ["K8s", "Scale", "Microservices"],

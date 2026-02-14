@@ -91,7 +91,16 @@ export default function ContactPage() {
     { icon: <FaGithub size={20} />, label: "github", link: "https://github.com/omytech-kenya" },
   ];
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <Box 
+        sx={{ 
+          minHeight: "100vh",
+          backgroundColor: "#080c14",
+        }}
+      />
+    );
+  }
 
   return (
     <Box 

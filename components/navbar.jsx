@@ -76,9 +76,7 @@ const CategoryBar = styled(Box)(({ theme }) => ({
   backdropFilter: "blur(10px)",
   borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
   padding: "10px 0",
-  [theme.breakpoints.down("md")]: {
-    display: "none"
-  }
+  display: "none", // Hidden to favor hamburger menu consistency
 }));
 
 const CategoryLink = styled(Link)({
@@ -517,7 +515,7 @@ export default function Navbar() {
       </StickyContainer>
 
       {/* Spacer to prevent content jump since header is fixed */}
-      <Box sx={{ height: { xs: "140px", md: scrolled ? "110px" : "140px" }, transition: "height 0.3s ease", mb: "-8px" }} />
+      <Box sx={{ height: scrolled ? "110px" : "130px", transition: "height 0.3s ease", mb: "-8px" }} />
 
       {/* 3rd Navbar: Category Bar */}
       <CategoryBar>

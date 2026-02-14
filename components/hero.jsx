@@ -143,6 +143,17 @@ export default function Hero() {
     { text: "System Ready. How can we build together today?", type: "response", color: "#3b82f6" },
   ];
 
+  if (!mounted) {
+    return (
+      <Box 
+        sx={{ 
+          minHeight: "100vh",
+          backgroundColor: "#080c14",
+        }}
+      />
+    );
+  }
+
   return (
     <Box 
       component="section" 

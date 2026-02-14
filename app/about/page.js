@@ -61,6 +61,12 @@ const TerminalHeader = ({ title, icon }) => (
 
 export default function AboutPage() {
   const theme = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const coreValues = [
@@ -83,6 +89,17 @@ export default function AboutPage() {
       cmd: "shodan scan --deep"
     }
   ];
+
+  if (!mounted) {
+    return (
+      <Box 
+        sx={{ 
+          minHeight: "100vh",
+          backgroundColor: "#020617",
+        }}
+      />
+    );
+  }
 
   return (
     <Box 

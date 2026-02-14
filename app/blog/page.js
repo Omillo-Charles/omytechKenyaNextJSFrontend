@@ -148,7 +148,7 @@ const blogPosts = [
     title: "The Impact of Web3 on Data Privacy",
     excerpt: "Understanding how decentralized protocols and blockchain technology are reshaping our understanding of digital ownership.",
     author: "Web3 Researcher",
-    date: getDynamicDate(20), // 20 days ago
+    date: "Jan 25, 2024",
     category: "Web3",
     readTime: "11 min read",
     tags: ["Web3", "Privacy", "Blockchain"],
@@ -159,7 +159,7 @@ const blogPosts = [
     title: "Optimizing Web Performance in 2024",
     excerpt: "Going beyond Core Web Vitals: Modern techniques for faster rendering, efficient asset loading, and improved interactivity.",
     author: "Frontend Lead",
-    date: getDynamicDate(25), // 25 days ago
+    date: "Jan 20, 2024",
     category: "Frontend",
     readTime: "8 min read",
     tags: ["Performance", "Web", "Optimization"],

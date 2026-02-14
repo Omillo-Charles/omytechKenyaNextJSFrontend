@@ -263,7 +263,18 @@ export default function ContactPage() {
             >
               <TerminalHeader title="omytech_comms_v1.0.4" icon={<CodeIcon fontSize="small" />} />
               <Box sx={{ p: { xs: 2, sm: 4, md: 6 }, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <Typography variant="h4" sx={{ color: 'white', fontWeight: 900, mb: 2, fontFamily: "'Fira Code', monospace" }}>
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    color: 'white', 
+                    fontWeight: 900, 
+                    mb: 2, 
+                    fontFamily: "'Fira Code', monospace",
+                    fontSize: { xs: '1.25rem', sm: '1.75rem', md: '2.125rem' },
+                    wordBreak: 'break-word',
+                    width: '100%'
+                  }}
+                >
                   COMMUNICATION_CHANNELS
                 </Typography>
                 <Typography sx={{ color: 'rgba(255,255,255,0.6)', mb: 4, maxWidth: '600px', fontFamily: "'Fira Code', monospace" }}>

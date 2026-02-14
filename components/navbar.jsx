@@ -320,8 +320,8 @@ export default function Navbar() {
                 </Box>
               </Link>
 
-              {/* Desktop Navigation Links */}
-              <Box sx={{ flexGrow: 1, display: { xs: "none", lg: "flex" }, justifyContent: "center", gap: 1 }} ref={dropdownRef}>
+              {/* Desktop Navigation Links - HIDDEN to favor hamburger menu consistency */}
+              <Box sx={{ flexGrow: 1, display: "none", justifyContent: "center", gap: 1 }} ref={dropdownRef}>
                 {navLinks.map((link) => (
                   <Box key={link.name} sx={{ position: "relative" }}>
                     {link.subItems ? (
@@ -457,8 +457,8 @@ export default function Navbar() {
                 ))}
               </Box>
 
-              {/* Action Buttons */}
-              <Stack direction="row" spacing={2} alignItems="center" sx={{ display: { xs: "none", lg: "flex" } }}>
+              {/* Action Buttons - HIDDEN to favor hamburger menu consistency */}
+              <Stack direction="row" spacing={2} alignItems="center" sx={{ display: "none" }}>
                 <IconButton sx={{ color: "#ffffff", "&:hover": { bgcolor: "rgba(255, 255, 255, 0.05)" } }}>
                   <BiSearch size={22} />
                 </IconButton>
@@ -504,10 +504,10 @@ export default function Navbar() {
                 </Button>
               </Stack>
 
-              {/* Mobile Toggle */}
+              {/* Universal Toggle - Always Visible */}
               <IconButton 
                 onClick={toggleMenu}
-                sx={{ display: { lg: "none" }, ml: "auto", color: "#ffffff", bgcolor: "rgba(255, 255, 255, 0.05)", borderRadius: "12px" }}
+                sx={{ display: "flex", ml: "auto", color: "#ffffff", bgcolor: "rgba(255, 255, 255, 0.05)", borderRadius: "12px" }}
               >
                 {isOpen ? <BiX size={24} /> : <BiMenu size={24} />}
               </IconButton>

@@ -119,7 +119,11 @@ const AnimatedLine = styled(Box)(({ color }) => ({
 
 export default function Hero() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const projects = [
     { name: "Kijiji Cloud", category: "Infrastructure", status: "Active", icon: <StorageIcon />, color: "#3b82f6", latency: "12ms", uptime: "99.9%" },

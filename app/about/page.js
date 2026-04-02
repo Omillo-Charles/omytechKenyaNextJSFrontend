@@ -1,290 +1,281 @@
 "use client";
 
 import React from "react";
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  Grid, 
-  styled,
-  useTheme,
-  useMediaQuery,
-  Avatar
-} from "@mui/material";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
-  Terminal as TerminalIcon,
   Code as CodeIcon,
   Groups as GroupsIcon,
   RocketLaunch as RocketIcon,
-  Hub as HubIcon,
-  Security as SecurityIcon
+  Security as SecurityIcon,
+  Lightbulb as InnovationIcon,
+  Favorite as HeartIcon,
+  ArrowForward as ArrowIcon
 } from "@mui/icons-material";
 
-const MotionBox = motion.create(Box);
+const values = [
+  {
+    icon: <CodeIcon />,
+    title: "Technical Excellence",
+    description: "We build with precision, leveraging modern stacks and clean architecture to deliver robust solutions.",
+    color: "#3b82f6"
+  },
+  {
+    icon: <InnovationIcon />,
+    title: "Innovation First",
+    description: "We stay ahead of the curve, constantly exploring new technologies and methodologies to solve complex problems.",
+    color: "#f59e0b"
+  },
+  {
+    icon: <GroupsIcon />,
+    title: "Collaborative Spirit",
+    description: "Working as partners with our clients, we bridge the gap between complex problems and digital success.",
+    color: "#10b981"
+  },
+  {
+    icon: <SecurityIcon />,
+    title: "Security Focused",
+    description: "Every line of code is written with security in mind, ensuring your data and users remain protected.",
+    color: "#ef4444"
+  },
+  {
+    icon: <RocketIcon />,
+    title: "Growth Mindset",
+    description: "We're committed to continuous learning and improvement, both for ourselves and our clients.",
+    color: "#06b6d4"
+  },
+  {
+    icon: <HeartIcon />,
+    title: "African Pride",
+    description: "Building world-class solutions from Kenya, showcasing African talent and innovation to the global stage.",
+    color: "#ec4899"
+  }
+];
 
-const TerminalContainer = styled(MotionBox)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "rgba(15, 23, 42, 0.8)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  border: "1px solid rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(20px)",
-  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-  fontFamily: "'Fira Code', monospace",
-  position: "relative",
-}));
-
-const TerminalHeader = ({ title, icon }) => (
-  <Box sx={{ 
-    bgcolor: "#1e293b", 
-    px: 2, 
-    py: 1, 
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)", 
-    display: "flex", 
-    justifyContent: "space-between", 
-    alignItems: "center" 
-  }}>
-    <Stack direction="row" spacing={1}>
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#ff5f56" }} />
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#ffbd2e" }} />
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#27c93f" }} />
-    </Stack>
-    <Stack direction="row" spacing={1} alignItems="center">
-      <Box sx={{ color: "rgba(255,255,255,0.4)", display: "flex", fontSize: "0.9rem" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: "0.7rem" }}>
-        {title}
-      </Typography>
-    </Stack>
-  </Box>
-);
+const stats = [
+  { label: "Projects Delivered", value: "200+", color: "#3b82f6" },
+  { label: "Happy Clients", value: "50+", color: "#10b981" },
+  { label: "Years Experience", value: "5+", color: "#f59e0b" },
+  { label: "Team Members", value: "15+", color: "#06b6d4" }
+];
 
 export default function AboutPage() {
-  const theme = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-  const coreValues = [
-    {
-      icon: <CodeIcon sx={{ color: "#3b82f6" }} />,
-      title: "Technical Excellence",
-      desc: "We build with precision, leveraging modern stacks and clean architecture to deliver robust solutions.",
-      cmd: "git log --oneline -n 1"
-    },
-    {
-      icon: <HubIcon sx={{ color: "#10b981" }} />,
-      title: "Collaborative Innovation",
-      desc: "Working as partners with our clients, we bridge the gap between complex problems and digital success.",
-      cmd: "npm run collaborate"
-    },
-    {
-      icon: <SecurityIcon sx={{ color: "#facc15" }} />,
-      title: "Security First",
-      desc: "Every line of code is written with security in mind, ensuring your data and users remain protected.",
-      cmd: "shodan scan --deep"
-    }
-  ];
-
-  if (!mounted) {
-    return (
-      <Box 
-        sx={{ 
-          minHeight: "100vh",
-          backgroundColor: "#020617",
-        }}
-      />
-    );
-  }
-
   return (
-    <Box 
-      component="section" 
-      sx={{ 
-        minHeight: "100vh",
-        bgcolor: "#020617",
-        pt: { xs: 4, md: 8 },
-        pb: 12,
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-      {/* Scanline Effect */}
-      <Box sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        background: "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))",
-        zIndex: 10,
-        backgroundSize: "100% 2px, 3px 100%",
-        pointerEvents: "none"
-      }} />
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" />
 
-      <Box sx={{ position: "relative", zIndex: 1, width: "100%", px: { xs: 2, sm: 3, md: 6 } }}>
-        <Grid 
-          container 
-          spacing={{ xs: 3, md: 4 }} 
-          sx={{ 
-            alignItems: "stretch",
-            width: "100%",
-            margin: 0
-          }}
-        >
-          {/* Mission Statement */}
-          <Grid item xs={12} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 } }}>
-            <TerminalContainer
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              sx={{ borderRadius: "24px", width: "100%" }}
-            >
-              <TerminalHeader title="mission_control" icon={<RocketIcon fontSize="small" />} />
-              <Box sx={{ p: { xs: 3, md: 6 } }}>
-                <Typography 
-                  variant="h4" 
-                  sx={{ 
-                    color: "white", 
-                    fontWeight: 900, 
-                    mb: 3, 
-                    fontFamily: "'Fira Code', monospace",
-                    fontSize: { xs: "1.75rem", md: "2.5rem" }
-                  }}
-                >
-                  WHO_WE_ARE
-                </Typography>
-                <Typography 
-                  variant="body1" 
-                  sx={{ 
-                    color: "rgba(255,255,255,0.7)", 
-                    lineHeight: 1.8, 
-                    mb: 4,
-                    fontSize: { xs: "1rem", md: "1.1rem" }
-                  }}
-                >
-                  At <Box component="span" sx={{ color: "#3b82f6", fontWeight: 700 }}>OMYTECH KENYA</Box>, we are more than just a software agency. 
-                  We are a collective of engineers, designers, and strategists dedicated to 
-                  transforming ambitious ideas into powerful digital realities.
-                </Typography>
-                <Box 
-                  sx={{ 
-                    p: 2, 
-                    bgcolor: "rgba(16, 185, 129, 0.05)", 
-                    borderRadius: "12px", 
-                    border: "1px solid rgba(16, 185, 129, 0.2)" 
-                  }}
-                >
-                  <Typography sx={{ color: "#10b981", fontFamily: "'Fira Code', monospace", fontSize: "0.85rem" }}>
-                    ➜ root@omytech:~# cat vision.txt<br/>
-                    "To empower Kenyan and global businesses through innovative, secure, and scalable technology solutions."
-                  </Typography>
-                </Box>
-              </Box>
-            </TerminalContainer>
-          </Grid>
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6"
+          >
+            About OMYTECH
+          </motion.div>
 
-          {/* Core Values Grid */}
-          {coreValues.map((value, i) => (
-            <Grid item xs={12} md={4} key={i} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 } }}>
-              <TerminalContainer
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + (i * 0.1) }}
-                sx={{ height: "100%", borderRadius: "20px", width: "100%" }}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
+            <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
+              Building the Future
+            </span>
+            <span className="block bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent pb-2">
+              of African Tech
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light mb-12"
+            style={{ lineHeight: '2', overflow: 'visible' }}
+          >
+            We are a collective of engineers, designers, and strategists dedicated to 
+            transforming ambitious ideas into powerful digital realities. Based in Nairobi, 
+            serving the world.
+          </motion.p>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+          >
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div 
+                  className="text-3xl md:text-4xl font-bold mb-2"
+                  style={{ color: stat.color }}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="relative px-6 py-20">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Our Mission
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              To empower Kenyan and global businesses through innovative, secure, and 
+              scalable technology solutions that drive growth and create lasting impact.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="relative px-6 py-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-gray-400 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              The principles that guide everything we do
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group"
               >
-                <TerminalHeader title="core_value" icon={value.icon} />
-                <Box sx={{ p: 3 }}>
-                  <Typography variant="subtitle2" sx={{ color: "rgba(255,255,255,0.3)", mb: 1, fontSize: "0.6rem" }}>
-                    ➜ {value.cmd}
-                  </Typography>
-                  <Typography variant="h6" sx={{ color: "white", fontWeight: 800, mb: 2, fontSize: "1.1rem" }}>
-                    {value.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
-                    {value.desc}
-                  </Typography>
-                </Box>
-              </TerminalContainer>
-            </Grid>
-          ))}
-
-          {/* Stats Card */}
-          <Grid item xs={12} md={6} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 } }}>
-            <TerminalContainer
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              sx={{ borderRadius: "24px", height: "100%", width: "100%" }}
-            >
-              <TerminalHeader title="system_stats" icon={<TerminalIcon fontSize="small" />} />
-              <Box sx={{ p: 4 }}>
-                <Grid container spacing={3}>
-                  {[
-                    { label: "UPTIME", value: "99.9%", color: "#10b981" },
-                    { label: "PROJECTS", value: "50+", color: "#3b82f6" },
-                    { label: "ENGINEERS", value: "12", color: "#facc15" },
-                    { label: "CLIENT_SAT", value: "100%", color: "#ec4899" }
-                  ].map((stat, i) => (
-                    <Grid item xs={6} key={i}>
-                      <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.7rem", fontWeight: 800, mb: 0.5 }}>
-                        {stat.label}
-                      </Typography>
-                      <Typography sx={{ color: stat.color, fontSize: { xs: "1.2rem", md: "1.5rem" }, fontWeight: 900, fontFamily: "'Fira Code', monospace" }}>
-                        {stat.value}
-                      </Typography>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
-              <Box sx={{ bgcolor: "rgba(255,255,255,0.02)", p: 2, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.2)", fontSize: "0.6rem" }}>
-                  LOAD_AVERAGE: 0.42 0.38 0.35
-                </Typography>
-              </Box>
-            </TerminalContainer>
-          </Grid>
-
-          {/* Community Card */}
-          <Grid item xs={12} md={6} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 }, pb: { xs: 3, md: 0 } }}>
-            <TerminalContainer
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              sx={{ borderRadius: "24px", height: "100%", width: "100%" }}
-            >
-              <TerminalHeader title="community_outreach" icon={<GroupsIcon fontSize="small" />} />
-              <Box sx={{ p: 4 }}>
-                <Typography sx={{ color: "white", fontWeight: 800, mb: 2 }}>Join Our Journey</Typography>
-                <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", mb: 3 }}>
-                  We're always looking for talented individuals and ambitious partners. Let's build the future together.
-                </Typography>
-                <Box 
-                  component="a" 
-                  href="/contact"
-                  sx={{ 
-                    display: "block",
-                    p: 2, 
-                    textAlign: "center",
-                    bgcolor: "rgba(59, 130, 246, 0.1)", 
-                    color: "#3b82f6",
-                    borderRadius: "12px",
-                    border: "1px solid rgba(59, 130, 246, 0.3)",
-                    textDecoration: "none",
-                    fontWeight: 700,
-                    transition: "all 0.2s",
-                    "&:hover": { bgcolor: "rgba(59, 130, 246, 0.2)", transform: "translateY(-2px)" }
+                <div 
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                  style={{ 
+                    backgroundColor: `${value.color}15`,
+                    color: value.color
                   }}
                 >
-                  CONNECT_NOW
-                </Box>
-              </Box>
-            </TerminalContainer>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+                  {React.cloneElement(value.icon, { className: "w-7 h-7" })}
+                </div>
+
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {value.title}
+                </h3>
+
+                <p className="text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="relative px-6 py-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-gray-400 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              Talented individuals passionate about technology
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
+          >
+            <div className="flex justify-center -space-x-4 mb-6">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div 
+                  key={i}
+                  className="w-16 h-16 rounded-full border-4 border-[#0A0A0A]"
+                  style={{ 
+                    background: `linear-gradient(135deg, ${['#3b82f6', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'][i-1]} 0%, ${['#1e40af', '#059669', '#d97706', '#0891b2', '#be185d'][i-1]} 100%)`
+                  }}
+                />
+              ))}
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">
+              15+ Talented Professionals
+            </h3>
+            <p className="text-gray-400 mb-6" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              Engineers, designers, and strategists working together to create exceptional digital experiences
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+            >
+              Join Our Team
+              <ArrowIcon className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Work Together?
+              </h2>
+              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                Let's discuss how we can help transform your business with technology
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
+                Get in Touch
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

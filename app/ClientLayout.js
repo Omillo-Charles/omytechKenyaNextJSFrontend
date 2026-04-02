@@ -7,18 +7,18 @@ import Footer from "@/components/footer";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "var(--font-webly-sleek), sans-serif",
-    h1: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    h2: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    h3: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    h4: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    h5: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    h6: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    button: { fontFamily: "var(--font-webly-sleek), sans-serif", textTransform: "none" },
-    body1: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    body2: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    caption: { fontFamily: "var(--font-webly-sleek), sans-serif" },
-    overline: { fontFamily: "var(--font-webly-sleek), sans-serif" },
+    fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    h1: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    h2: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    h3: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    h4: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    h5: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    h6: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    button: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", textTransform: "none" },
+    body1: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    body2: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    caption: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
+    overline: { fontFamily: "var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" },
   },
 });
 

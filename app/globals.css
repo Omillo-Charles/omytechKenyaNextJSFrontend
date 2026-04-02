@@ -8,18 +8,29 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ubuntu);
   --color-primary: #0072ce;
   --color-accent: #00aeef;
   --color-dark: #0b1c36;
   --color-light: #f5f7fa;
+  
+  /* Custom animations */
+  --animate-pulse: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -32,7 +43,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-webly-sleek), Arial, Helvetica, sans-serif;
+  font-family: var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
   max-width: 100vw;
   margin: 0;
@@ -40,16 +51,8 @@ body {
 }
 
 * {
-  font-family: var(--font-webly-sleek), Arial, Helvetica, sans-serif;
+  font-family: var(--font-ubuntu), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing: border-box;
-}
-
-/* Custom Font */
-@font-face {
-  font-family: "Webly Sleek";
-  src: url("/fonts/weblysleekuisb.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 /* Custom Variables */
@@ -59,8 +62,8 @@ body {
   --color-dark: #0b1c36;
   --color-light: #f5f7fa;
   --color-white: #ffffff;
-  --font-heading: var(--font-webly-sleek), "Poppins", sans-serif;
-  --font-body: var(--font-webly-sleek), "Inter", sans-serif;
+  --font-heading: var(--font-ubuntu), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-ubuntu), -apple-system, BlinkMacSystemFont, sans-serif;
   --transition-speed: 0.3s;
 }
 

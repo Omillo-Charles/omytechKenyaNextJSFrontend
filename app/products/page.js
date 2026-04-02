@@ -1,323 +1,244 @@
 "use client";
 
 import React from "react";
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  Grid, 
-  styled,
-  Button,
-  useTheme,
-  useMediaQuery,
-  Chip
-} from "@mui/material";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
-  Terminal as TerminalIcon,
   HomeWork as HomeIcon,
   Storefront as StoreIcon,
-  ArrowForward as ArrowForwardIcon,
+  ArrowForward as ArrowIcon,
   CheckCircle as CheckIcon,
-  Settings as SettingsIcon,
-  Speed as SpeedIcon,
-  Security as SecurityIcon
+  GitHub as GitHubIcon
 } from "@mui/icons-material";
-
-const MotionBox = motion.create(Box);
-
-const TerminalContainer = styled(MotionBox)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "rgba(15, 23, 42, 0.8)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  border: "1px solid rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(20px)",
-  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-  fontFamily: "'Fira Code', monospace",
-  position: "relative",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column"
-}));
-
-const TerminalHeader = ({ title, icon, color }) => (
-  <Box sx={{ 
-    bgcolor: "#1e293b", 
-    px: { xs: 2, sm: 2.5 }, 
-    py: { xs: 1, sm: 1.5 }, 
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)", 
-    display: "flex", 
-    justifyContent: "space-between", 
-    alignItems: "center" 
-  }}>
-    <Stack direction="row" spacing={1}>
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#ff5f56" }} />
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#ffbd2e" }} />
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#27c93f" }} />
-    </Stack>
-    <Stack direction="row" spacing={1} alignItems="center">
-      <Box sx={{ color: color || "rgba(255,255,255,0.4)", display: "flex", fontSize: "1rem" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 1 }}>
-        {title}
-      </Typography>
-    </Stack>
-  </Box>
-);
 
 const products = [
   {
     id: "keja",
     name: ".keja",
     tagline: "Rental Management System",
-    description: "A comprehensive solution for property owners and managers to automate rent collection, tenant management, and maintenance requests.",
+    description: "A comprehensive solution for property owners and managers to automate rent collection, tenant management, and maintenance requests. Built for the African market.",
     icon: <HomeIcon />,
-    color: "#10b981", // Emerald
+    color: "#10b981",
     githubUrl: "https://github.com/Omillo-Charles/.keja",
+    status: "Active Development",
     features: [
       "Automated Rent Invoicing",
       "Tenant Portal & Communication",
       "Maintenance Tracking",
       "Financial Reporting",
-      "Property Analytics"
+      "Property Analytics",
+      "Mobile-First Design"
     ],
-    terminalLines: [
-      { text: "omytech init --product keja", type: "command" },
-      { text: "Connecting to property database...", type: "response", color: "#64748b" },
-      { text: "Syncing tenant ledger [v2.4.0]...", type: "response", color: "#10b981" },
-      { text: "Optimizing collection protocols...", type: "response", color: "#3b82f6" },
-      { text: "Status: Management Suite Active", type: "response", color: "#ffffff" },
+    highlights: [
+      { label: "Properties", value: "500+" },
+      { label: "Active Users", value: "2K+" },
+      { label: "Uptime", value: "99.9%" }
     ]
   },
   {
     id: "soko",
     name: ".soko",
     tagline: "Multivendor E-commerce Platform",
-    description: "A scalable marketplace engine that empowers multiple vendors to sell their products while providing a seamless shopping experience for customers.",
+    description: "A scalable marketplace engine that empowers multiple vendors to sell their products while providing a seamless shopping experience for customers across Africa.",
     icon: <StoreIcon />,
-    color: "#3b82f6", // Blue
+    color: "#3b82f6",
     githubUrl: "https://github.com/Omillo-Charles/.soko",
+    status: "Beta Release",
     features: [
       "Vendor Dashboard & Management",
       "Secure Payment Integration",
       "Inventory & Order Tracking",
       "Customer Reviews & Ratings",
-      "Advanced Search & Filters"
+      "Advanced Search & Filters",
+      "Multi-Currency Support"
     ],
-    terminalLines: [
-      { text: "omytech init --product soko", type: "command" },
-      { text: "Booting multivendor engine...", type: "response", color: "#64748b" },
-      { text: "Initializing merchant gateways...", type: "response", color: "#3b82f6" },
-      { text: "Caching product catalog...", type: "response", color: "#8b5cf6" },
-      { text: "Status: Marketplace Engine Online", type: "response", color: "#ffffff" },
+    highlights: [
+      { label: "Vendors", value: "150+" },
+      { label: "Products", value: "5K+" },
+      { label: "Transactions", value: "10K+" }
     ]
   }
 ];
 
 export default function ProductsPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
-    <Box 
-      component="section" 
-      sx={{ 
-        minHeight: "100vh",
-        bgcolor: "#020617",
-        pt: { xs: 4, md: 8 },
-        pb: 12,
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-      {/* Scanline Effect */}
-      <Box sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        background: "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))",
-        zIndex: 10,
-        backgroundSize: "100% 2px, 3px 100%",
-        pointerEvents: "none"
-      }} />
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px]" />
 
-      <Box sx={{ position: "relative", zIndex: 1, width: "100%", px: { xs: 2, sm: 3, md: 6 } }}>
-        <Stack spacing={6}>
-          {/* Header Section */}
-          <Box sx={{ textAlign: "center", mb: 4 }}>
-            <Typography 
-              variant="h2" 
-              sx={{ 
-                color: "white", 
-                fontWeight: 900, 
-                mb: 2, 
-                fontFamily: "'Fira Code', monospace",
-                fontSize: { xs: "2.5rem", md: "4rem" }
-              }}
-            >
-              OUR_PRODUCTS
-            </Typography>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: "rgba(255,255,255,0.6)", 
-                maxWidth: "800px", 
-                mx: "auto",
-                fontSize: { xs: "1rem", md: "1.2rem" }
-              }}
-            >
-              Enterprise-grade solutions built to solve real-world challenges. 
-              Our products combine technical excellence with intuitive user experiences.
-            </Typography>
-          </Box>
-
-          {/* Products Grid */}
-          <Grid 
-            container 
-            spacing={{ xs: 3, md: 4 }} 
-            sx={{ 
-              alignItems: "stretch",
-              width: "100%",
-              margin: 0
-            }}
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-semibold mb-6"
           >
-            {products.map((product, index) => (
-              <Grid item xs={12} md={6} key={product.id} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 } }}>
-                <TerminalContainer
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  <TerminalHeader title={`product::${product.id}`} icon={product.icon} color={product.color} />
-                  
-                  <Box sx={{ p: { xs: 3, md: 5 }, flexGrow: 1 }}>
-                    <Stack spacing={4}>
-                      <Box>
-                        <Typography 
-                          variant="h3" 
-                          sx={{ 
-                            color: product.color, 
-                            fontWeight: 900, 
-                            fontFamily: "'Fira Code', monospace",
-                            fontSize: { xs: "2.5rem", md: "3.5rem" },
-                            mb: 1
-                          }}
-                        >
-                          {product.name}
-                        </Typography>
-                        <Typography 
-                          variant="h6" 
-                          sx={{ 
-                            color: "white", 
-                            fontWeight: 700, 
-                            opacity: 0.9,
-                            mb: 2
-                          }}
-                        >
-                          {product.tagline}
-                        </Typography>
-                        <Typography 
-                          variant="body1" 
-                          sx={{ 
-                            color: "rgba(255,255,255,0.7)", 
-                            lineHeight: 1.7,
-                            fontSize: "1rem"
-                          }}
-                        >
-                          {product.description}
-                        </Typography>
-                      </Box>
+            Our Products
+          </motion.div>
 
-                      {/* Features List */}
-                      <Box>
-                        <Typography 
-                          sx={{ 
-                            color: "rgba(255,255,255,0.3)", 
-                            fontSize: "0.75rem", 
-                            fontWeight: 800, 
-                            letterSpacing: 2, 
-                            mb: 2,
-                            textTransform: "uppercase"
-                          }}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
+            <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
+              Built for Africa,
+            </span>
+            <span className="block bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent pb-2">
+              Powered by Innovation
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            style={{ lineHeight: '2', overflow: 'visible' }}
+          >
+            Enterprise-grade solutions designed to solve real-world challenges in property management and e-commerce
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-7xl mx-auto space-y-12">
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="relative"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Left Column - Info */}
+                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-semibold mb-4">
+                    {product.status}
+                  </div>
+
+                  <div 
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
+                    style={{ 
+                      backgroundColor: `${product.color}15`,
+                      color: product.color
+                    }}
+                  >
+                    {React.cloneElement(product.icon, { className: "w-8 h-8" })}
+                  </div>
+
+                  <h2 
+                    className="text-5xl md:text-6xl font-bold mb-3"
+                    style={{ color: product.color }}
+                  >
+                    {product.name}
+                  </h2>
+
+                  <h3 className="text-2xl font-semibold text-white mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
+                    {product.tagline}
+                  </h3>
+
+                  <p className="text-gray-400 text-lg mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                    {product.description}
+                  </p>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-4 mb-8">
+                    {product.highlights.map((stat, i) => (
+                      <div key={i} className="text-center">
+                        <div 
+                          className="text-2xl font-bold mb-1"
+                          style={{ color: product.color }}
                         >
-                          [ KEY_FEATURES ]
-                        </Typography>
-                        <Grid container spacing={2}>
-                          {product.features.map((feature, i) => (
-                            <Grid item xs={12} sm={6} key={i}>
-                              <Stack direction="row" spacing={1.5} alignItems="center">
-                                <CheckIcon sx={{ color: product.color, fontSize: "1.1rem" }} />
-                                <Typography sx={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem" }}>
-                                  {feature}
-                                </Typography>
-                              </Stack>
-                            </Grid>
-                          ))}
-                        </Grid>
-                      </Box>
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-gray-500">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
 
-                      {/* Terminal Simulation */}
-                      <Box 
-                        sx={{ 
-                          bgcolor: "rgba(0,0,0,0.3)", 
-                          p: 2, 
-                          borderRadius: "12px", 
-                          border: "1px solid rgba(255,255,255,0.05)",
-                          fontFamily: "'Fira Code', monospace"
-                        }}
-                      >
-                        <Stack spacing={1}>
-                          {product.terminalLines.map((line, i) => (
-                            <Typography 
-                              key={i} 
-                              sx={{ 
-                                color: line.color || "white", 
-                                fontSize: "0.8rem",
-                                opacity: line.type === "command" ? 1 : 0.8
-                              }}
-                            >
-                              {line.type === "command" ? "➜ " : "  "}{line.text}
-                            </Typography>
-                          ))}
-                        </Stack>
-                      </Box>
+                  {/* Buttons */}
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href={product.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                    >
+                      <GitHubIcon className="w-5 h-5" />
+                      View on GitHub
+                    </a>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+                    >
+                      Request Demo
+                      <ArrowIcon className="w-5 h-5" />
+                    </Link>
+                  </div>
+                </div>
 
-                      <Button 
-                        variant="outlined"
-                        component="a"
-                        href={product.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        endIcon={<ArrowForwardIcon />}
-                        sx={{ 
-                          color: product.color, 
-                          borderColor: `${product.color}44`,
-                          borderRadius: "12px",
-                          py: 1.5,
-                          textTransform: "none",
-                          fontWeight: 700,
-                          fontSize: "1rem",
-                          "&:hover": {
-                            borderColor: product.color,
-                            bgcolor: `${product.color}11`,
-                            transform: "translateX(5px)"
-                          },
-                          transition: "all 0.2s"
-                        }}
-                      >
-                        View Product Repository
-                      </Button>
-                    </Stack>
-                  </Box>
-                </TerminalContainer>
-              </Grid>
-            ))}
-          </Grid>
-        </Stack>
-      </Box>
-    </Box>
+                {/* Right Column - Features */}
+                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                  <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+                    <h4 className="text-xl font-bold text-white mb-6">Key Features</h4>
+                    <div className="space-y-4">
+                      {product.features.map((feature, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckIcon 
+                            className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                            style={{ color: product.color }}
+                          />
+                          <span className="text-gray-300" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Need a Custom Solution?
+              </h2>
+              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                We can build tailored products specifically for your business needs
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
+                Let's Talk
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

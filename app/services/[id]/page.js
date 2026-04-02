@@ -1,18 +1,9 @@
 "use client";
 
 import React from "react";
-import { useParams, useRouter } from "next/navigation";
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  Container, 
-  Button,
-  styled,
-  Grid,
-  Paper
-} from "@mui/material";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
   Code as CodeIcon, 
   Storage as StorageIcon, 
@@ -21,387 +12,397 @@ import {
   AutoGraph as AiIcon, 
   Lightbulb as StrategyIcon,
   ArrowBack as ArrowBackIcon,
-  Terminal as TerminalIcon,
-  CheckCircle as CheckCircleIcon,
-  Bolt as BoltIcon,
-  CloudQueue as CloudIcon,
-  Shield as ShieldIcon,
-  Psychology as PsychologyIcon,
-  AdsClick as StrategyDetailIcon
+  CheckCircle as CheckIcon,
+  ArrowForward as ArrowIcon
 } from "@mui/icons-material";
-import Link from "next/link";
-
-const MotionBox = motion.create(Box);
-
-const TerminalContainer = styled(MotionBox)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "rgba(15, 23, 42, 0.8)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  border: "1px solid rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(20px)",
-  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-  fontFamily: "'Fira Code', monospace",
-  position: "relative",
-  marginBottom: "2rem"
-}));
-
-const TerminalHeader = ({ title, icon, color }) => (
-  <Box sx={{ 
-    bgcolor: "#1e293b", 
-    px: 3, 
-    py: 2, 
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)", 
-    display: "flex", 
-    justifyContent: "space-between", 
-    alignItems: "center" 
-  }}>
-    <Stack direction="row" spacing={1.5}>
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#ff5f56" }} />
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#ffbd2e" }} />
-      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#27c93f" }} />
-    </Stack>
-    <Stack direction="row" spacing={1.5} alignItems="center">
-      <Box sx={{ color: color, display: "flex", fontSize: "1.2rem" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: 1.5 }}>
-        {title}
-      </Typography>
-    </Stack>
-  </Box>
-);
 
 const serviceProtocols = {
   "software-engineering": {
-    title: "Software Engineering Protocol",
+    title: "Software Engineering",
+    tagline: "Build High-Performance Applications",
     icon: <CodeIcon />,
     color: "#3b82f6",
     overview: "Our engineering protocol focuses on delivering high-performance, scalable, and maintainable software solutions using cutting-edge technology stacks.",
-    stages: [
+    features: [
       {
-        id: "ARCH_01",
         name: "Architecture Design",
-        details: "Defining microservices architecture, database schemas, and system integration points using UML and modern design patterns.",
-        icon: <BoltIcon />
+        description: "Defining microservices architecture, database schemas, and system integration points using modern design patterns."
       },
       {
-        id: "DEV_02",
         name: "Agile Development",
-        details: "Iterative development cycles with continuous integration and delivery (CI/CD) pipelines to ensure rapid and reliable feature deployment.",
-        icon: <CodeIcon />
+        description: "Iterative development cycles with continuous integration and delivery (CI/CD) pipelines for rapid deployment."
       },
       {
-        id: "QA_03",
         name: "Quality Assurance",
-        details: "Automated unit testing, integration testing, and performance benchmarking to maintain zero-defect standards.",
-        icon: <CheckCircleIcon />
+        description: "Automated testing and performance benchmarking to maintain zero-defect standards."
       }
     ],
-    techStack: ["Next.js", "React Native", "Node.js", "Go", "PostgreSQL", "Redis"]
+    techStack: ["Next.js", "React Native", "Node.js", "Go", "PostgreSQL", "Redis"],
+    benefits: [
+      "Scalable architecture",
+      "Fast time-to-market",
+      "Maintainable codebase",
+      "Cross-platform support"
+    ]
   },
   "cloud-infrastructure": {
-    title: "Cloud Infrastructure Protocol",
+    title: "Cloud & Infrastructure",
+    tagline: "Scale Your Digital Ecosystem",
     icon: <StorageIcon />,
-    color: "#8b5cf6",
+    color: "#06b6d4",
     overview: "We architect resilient cloud environments that scale dynamically with your business needs while ensuring maximum security and uptime.",
-    stages: [
+    features: [
       {
-        id: "INFRA_01",
         name: "Infrastructure as Code",
-        details: "Automated provisioning of cloud resources using Terraform and CloudFormation for consistency and speed.",
-        icon: <CloudIcon />
+        description: "Automated provisioning of cloud resources using Terraform and CloudFormation for consistency and speed."
       },
       {
-        id: "ORCH_02",
         name: "Container Orchestration",
-        details: "Deploying and managing containerized applications with Kubernetes (K8s) for optimal resource utilization.",
-        icon: <StorageIcon />
+        description: "Deploying and managing containerized applications with Kubernetes for optimal resource utilization."
       },
       {
-        id: "MON_03",
         name: "Observability",
-        details: "Real-time monitoring and logging using Prometheus and Grafana to ensure system health and performance.",
-        icon: <BoltIcon />
+        description: "Real-time monitoring and logging to ensure system health and performance."
       }
     ],
-    techStack: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Nginx"]
+    techStack: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Nginx"],
+    benefits: [
+      "99.9% uptime guarantee",
+      "Auto-scaling capabilities",
+      "Cost optimization",
+      "24/7 monitoring"
+    ]
   },
   "ui-ux-design": {
-    title: "Experience Design Protocol",
+    title: "UI/UX Design",
+    tagline: "Create Delightful User Experiences",
     icon: <DesignIcon />,
     color: "#f59e0b",
     overview: "A data-driven design protocol that transforms user behavior insights into intuitive and aesthetically pleasing digital experiences.",
-    stages: [
+    features: [
       {
-        id: "DISC_01",
         name: "User Discovery",
-        details: "In-depth user research, persona creation, and user journey mapping to identify core needs and pain points.",
-        icon: <PsychologyIcon />
+        description: "In-depth user research, persona creation, and user journey mapping to identify core needs and pain points."
       },
       {
-        id: "PROTO_02",
         name: "Interactive Prototyping",
-        details: "Creating low and high-fidelity wireframes and interactive prototypes for early feedback and validation.",
-        icon: <DesignIcon />
+        description: "Creating high-fidelity wireframes and interactive prototypes for early feedback and validation."
       },
       {
-        id: "TEST_03",
         name: "Usability Testing",
-        details: "Iterative testing with real users to refine navigation, accessibility, and overall user satisfaction.",
-        icon: <CheckCircleIcon />
+        description: "Iterative testing with real users to refine navigation, accessibility, and overall satisfaction."
       }
     ],
-    techStack: ["Figma", "Adobe XD", "Framer", "Storybook", "Tailwind CSS"]
+    techStack: ["Figma", "Adobe XD", "Framer", "Storybook", "Tailwind CSS"],
+    benefits: [
+      "User-centered design",
+      "Increased engagement",
+      "Better conversion rates",
+      "Accessible interfaces"
+    ]
   },
   "cybersecurity": {
-    title: "Security Hardening Protocol",
+    title: "Cybersecurity",
+    tagline: "Protect Your Digital Assets",
     icon: <SecurityIcon />,
     color: "#ef4444",
     overview: "Our security protocol implements a multi-layered defense strategy to protect digital assets from evolving cyber threats.",
-    stages: [
+    features: [
       {
-        id: "AUDIT_01",
         name: "Vulnerability Assessment",
-        details: "Comprehensive system audits and penetration testing to identify and remediate security weaknesses.",
-        icon: <ShieldIcon />
+        description: "Comprehensive system audits and penetration testing to identify and remediate security weaknesses."
       },
       {
-        id: "ENCR_02",
         name: "Data Protection",
-        details: "Implementing advanced encryption standards (AES-256) and zero-trust authentication frameworks.",
-        icon: <SecurityIcon />
+        description: "Implementing advanced encryption standards (AES-256) and zero-trust authentication frameworks."
       },
       {
-        id: "COMP_03",
         name: "Compliance Alignment",
-        details: "Ensuring systems meet international security standards including GDPR, HIPAA, and ISO 27001.",
-        icon: <CheckCircleIcon />
+        description: "Ensuring systems meet international security standards including GDPR, HIPAA, and ISO 27001."
       }
     ],
-    techStack: ["Kali Linux", "Wireshark", "OpenSSL", "Vault", "Auth0"]
+    techStack: ["Kali Linux", "Wireshark", "OpenSSL", "Vault", "Auth0"],
+    benefits: [
+      "Enterprise-grade security",
+      "Compliance ready",
+      "Threat prevention",
+      "Regular audits"
+    ]
   },
   "ai-data-science": {
-    title: "Intelligence Protocol",
+    title: "AI & Data Science",
+    tagline: "Turn Data Into Intelligence",
     icon: <AiIcon />,
     color: "#10b981",
     overview: "Leveraging machine learning and advanced analytics to extract actionable intelligence from complex datasets.",
-    stages: [
+    features: [
       {
-        id: "DATA_01",
         name: "Data Engineering",
-        details: "Building robust data pipelines and cleaning massive datasets for high-quality model training.",
-        icon: <BoltIcon />
+        description: "Building robust data pipelines and cleaning massive datasets for high-quality model training."
       },
       {
-        id: "ML_02",
         name: "Model Development",
-        details: "Developing custom neural networks and predictive models tailored to specific business objectives.",
-        icon: <AiIcon />
+        description: "Developing custom neural networks and predictive models tailored to specific business objectives."
       },
       {
-        id: "INS_03",
         name: "Insight Integration",
-        details: "Deploying AI models into production environments and creating real-time intelligence dashboards.",
-        icon: <CheckCircleIcon />
+        description: "Deploying AI models into production environments and creating real-time intelligence dashboards."
       }
     ],
-    techStack: ["Python", "PyTorch", "TensorFlow", "Pandas", "Apache Spark"]
+    techStack: ["Python", "PyTorch", "TensorFlow", "Pandas", "Apache Spark"],
+    benefits: [
+      "Predictive analytics",
+      "Automated insights",
+      "Custom AI models",
+      "Real-time processing"
+    ]
   },
   "digital-strategy": {
-    title: "Strategic Growth Protocol",
+    title: "Digital Strategy",
+    tagline: "Drive Strategic Growth",
     icon: <StrategyIcon />,
     color: "#06b6d4",
     overview: "A comprehensive roadmap for digital transformation and market dominance through data-backed strategies.",
-    stages: [
+    features: [
       {
-        id: "ANAL_01",
         name: "Market Analysis",
-        details: "Competitive benchmarking and trend analysis to identify high-impact growth opportunities.",
-        icon: <StrategyDetailIcon />
+        description: "Competitive benchmarking and trend analysis to identify high-impact growth opportunities."
       },
       {
-        id: "PLAN_02",
         name: "Roadmap Planning",
-        details: "Defining clear KPIs, milestones, and technology choices to achieve long-term business goals.",
-        icon: <StrategyIcon />
+        description: "Defining clear KPIs, milestones, and technology choices to achieve long-term business goals."
       },
       {
-        id: "EXEC_03",
         name: "Performance Tracking",
-        details: "Continuous monitoring of strategy execution and iterative adjustments based on real-world data.",
-        icon: <BoltIcon />
+        description: "Continuous monitoring of strategy execution and iterative adjustments based on real-world data."
       }
     ],
-    techStack: ["Google Analytics", "Mixpanel", "Semrush", "Jira", "Tableau"]
+    techStack: ["Google Analytics", "Mixpanel", "Semrush", "Jira", "Tableau"],
+    benefits: [
+      "Data-driven decisions",
+      "Market insights",
+      "Growth optimization",
+      "ROI tracking"
+    ]
   }
 };
 
 export default function ServiceDetailPage() {
   const params = useParams();
-  const router = useRouter();
   const id = params.id;
-  
-  const protocol = serviceProtocols[id];
+  const service = serviceProtocols[id];
 
-  if (!protocol) {
+  if (!service) {
     return (
-      <Box sx={{ minHeight: "100vh", bgcolor: "#080c14", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
-        <Stack spacing={3} alignItems="center">
-          <Typography variant="h4" sx={{ fontFamily: "'Fira Code', monospace" }}>Protocol Not Found</Typography>
-          <Button variant="outlined" component={Link} href="/services" startIcon={<ArrowBackIcon />}>Back to Services</Button>
-        </Stack>
-      </Box>
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-white mb-4">Service Not Found</h1>
+          <Link href="/services" className="text-blue-400 hover:text-blue-300">
+            Back to Services
+          </Link>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Box 
-      component="section" 
-      sx={{ 
-        minHeight: "100vh",
-        bgcolor: "#080c14",
-        pt: { xs: 1, md: 2 },
-        pb: 12,
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-      {/* Background Elements */}
-      <Box 
-        sx={{ 
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0)",
-          backgroundSize: "30px 30px",
-          zIndex: 0
-        }} 
-      />
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div 
+          className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-[120px]"
+          style={{ backgroundColor: `${service.color}20` }}
+        />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Button 
-          component={Link} 
-          href="/services" 
-          startIcon={<ArrowBackIcon />}
-          sx={{ 
-            color: "rgba(255,255,255,0.5)", 
-            mb: 2, 
-            textTransform: "none", 
-            "&:hover": { color: protocol.color } 
-          }}
-        >
-          Return to Hub
-        </Button>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Back Button */}
+          <Link 
+            href="/services"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+          >
+            <ArrowBackIcon className="w-5 h-5" />
+            Back to Services
+          </Link>
 
-        <TerminalContainer
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <TerminalHeader title={`SYSTEM::PROTOCOL::${id.toUpperCase()}`} icon={protocol.icon} color={protocol.color} />
-          <Box sx={{ p: { xs: 3, md: 6 } }}>
-            <Grid container spacing={6}>
-              <Grid item xs={12} md={7}>
-                <Typography variant="h2" sx={{ color: "white", fontWeight: 900, mb: 3, fontSize: { xs: "2.5rem", md: "4rem" }, lineHeight: 1.1 }}>
-                  {protocol.title}
-                </Typography>
-                <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: "1.1rem", lineHeight: 1.8, mb: 4 }}>
-                  {protocol.overview}
-                </Typography>
-                
-                <Stack spacing={3}>
-                  {protocol.stages.map((stage, idx) => (
-                    <Box 
-                      key={stage.id}
-                      sx={{ 
-                        p: 3, 
-                        bgcolor: "rgba(255,255,255,0.02)", 
-                        borderRadius: "16px",
-                        border: "1px solid rgba(255,255,255,0.05)",
-                        transition: "all 0.3s",
-                        "&:hover": { bgcolor: "rgba(255,255,255,0.04)", borderColor: protocol.color }
-                      }}
-                    >
-                      <Stack direction="row" spacing={3} alignItems="flex-start">
-                        <Box sx={{ 
-                          color: protocol.color, 
-                          bgcolor: "rgba(0,0,0,0.3)", 
-                          p: 1.5, 
-                          borderRadius: "12px",
-                          display: "flex"
-                        }}>
-                          {stage.icon}
-                        </Box>
-                        <Box>
-                          <Typography variant="caption" sx={{ color: protocol.color, fontWeight: 800, letterSpacing: 1 }}>
-                            {stage.id}
-                          </Typography>
-                          <Typography variant="h6" sx={{ color: "white", fontWeight: 700, mb: 1 }}>
-                            {stage.name}
-                          </Typography>
-                          <Typography sx={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
-                            {stage.details}
-                          </Typography>
-                        </Box>
-                      </Stack>
-                    </Box>
-                  ))}
-                </Stack>
-              </Grid>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Icon */}
+              <div 
+                className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+                style={{ 
+                  backgroundColor: `${service.color}15`,
+                  color: service.color
+                }}
+              >
+                {React.cloneElement(service.icon, { className: "w-10 h-10" })}
+              </div>
 
-              <Grid item xs={12} md={5}>
-                <Box sx={{ position: "sticky", top: 100 }}>
-                  <Typography variant="h6" sx={{ color: "white", fontWeight: 800, mb: 3, display: "flex", alignItems: "center", gap: 1.5 }}>
-                    <TerminalIcon sx={{ color: protocol.color }} /> Tech Stack
-                  </Typography>
-                  <Grid container spacing={2}>
-                    {protocol.techStack.map((tech) => (
-                      <Grid item xs={6} key={tech}>
-                        <Box sx={{ 
-                          p: 2, 
-                          bgcolor: "rgba(0,0,0,0.2)", 
-                          borderRadius: "12px", 
-                          border: "1px solid rgba(255,255,255,0.05)",
-                          textAlign: "center",
-                          color: "rgba(255,255,255,0.6)",
-                          fontSize: "0.85rem",
-                          fontWeight: 600,
-                          fontFamily: "'Fira Code', monospace"
-                        }}>
-                          {tech}
-                        </Box>
-                      </Grid>
-                    ))}
-                  </Grid>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                {service.title}
+              </h1>
+              
+              <p 
+                className="text-2xl font-semibold mb-6"
+                style={{ color: service.color, lineHeight: '1.4', overflow: 'visible' }}
+              >
+                {service.tagline}
+              </p>
 
-                  <Box sx={{ mt: 6, p: 4, bgcolor: `${protocol.color}15`, borderRadius: "24px", border: `1px solid ${protocol.color}30` }}>
-                    <Typography variant="h6" sx={{ color: protocol.color, fontWeight: 800, mb: 2 }}>
-                      Ready to Implement?
-                    </Typography>
-                    <Typography sx={{ color: "rgba(255,255,255,0.7)", mb: 3, fontSize: "0.9rem" }}>
-                      Our team is ready to deploy this protocol for your business. Let's discuss your requirements.
-                    </Typography>
-                    <Button 
-                      fullWidth 
-                      variant="contained" 
-                      component={Link}
-                      href="/contact"
-                      sx={{ 
-                        bgcolor: protocol.color, 
-                        color: "white", 
-                        fontWeight: 800, 
-                        borderRadius: "12px",
-                        py: 1.5,
-                        "&:hover": { bgcolor: protocol.color, filter: "brightness(1.1)" }
-                      }}
-                    >
-                      Request Implementation
-                    </Button>
-                  </Box>
-                </Box>
-              </Grid>
-            </Grid>
-          </Box>
-        </TerminalContainer>
-      </Container>
-    </Box>
+              <p className="text-lg text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                {service.overview}
+              </p>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
+                Get Started
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </motion.div>
+
+            {/* Right Column - Benefits */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6">Key Benefits</h3>
+              <div className="space-y-4">
+                {service.benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckIcon 
+                      className="w-6 h-6 flex-shrink-0 mt-0.5" 
+                      style={{ color: service.color }}
+                    />
+                    <span className="text-gray-300 text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                      {benefit}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="relative px-6 py-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-12 text-center"
+          >
+            How We Work
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {service.features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+              >
+                <div 
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl font-bold"
+                  style={{ 
+                    backgroundColor: `${service.color}15`,
+                    color: service.color
+                  }}
+                >
+                  {index + 1}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{feature.name}</h3>
+                <p className="text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="relative px-6 py-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Technology Stack
+            </h2>
+            <p className="text-gray-400 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              We use industry-leading tools and technologies
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-4"
+          >
+            {service.techStack.map((tech, index) => (
+              <div
+                key={index}
+                className="px-6 py-3 bg-white/[0.05] border border-white/10 rounded-full text-gray-300 font-medium hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
+              >
+                {tech}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
+            style={{ 
+              background: `linear-gradient(135deg, ${service.color}15, ${service.color}05)`,
+              border: `1px solid ${service.color}30`
+            }}
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Get Started?
+              </h2>
+              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                Let's discuss how we can help you achieve your goals with {service.title.toLowerCase()}
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
+                Contact Us
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

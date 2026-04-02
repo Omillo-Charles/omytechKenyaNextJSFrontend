@@ -1,4 +1,5 @@
 import Hero from "@/components/hero";
+import LogoCarousel from "@/components/LogoCarousel";
 
 export const metadata = {
   title: "Home",
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <LogoCarousel />
     </main>
   );
 }

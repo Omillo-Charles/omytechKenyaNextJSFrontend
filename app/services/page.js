@@ -1,16 +1,8 @@
 "use client";
 
 import React from "react";
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  Grid, 
-  Paper,
-  Button,
-  styled
-} from "@mui/material";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
   Code as CodeIcon, 
   Storage as StorageIcon, 
@@ -18,27 +10,8 @@ import {
   Security as SecurityIcon, 
   AutoGraph as AiIcon, 
   Lightbulb as StrategyIcon,
-  ArrowForward as ArrowForwardIcon
+  ArrowForward as ArrowIcon
 } from "@mui/icons-material";
-import Link from "next/link";
-
-const MotionBox = motion.create(Box);
-const MotionTypography = motion.create(Typography);
-
-const TerminalContainer = styled(MotionBox)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "rgba(15, 23, 42, 0.8)",
-  borderRadius: "20px",
-  overflow: "hidden",
-  border: "1px solid rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(20px)",
-  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-  fontFamily: "'Fira Code', monospace",
-  position: "relative",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column"
-}));
 
 const services = [
   {
@@ -47,27 +20,15 @@ const services = [
     description: "High-performance web and mobile applications built with modern frameworks for scale and speed.",
     icon: <CodeIcon />,
     color: "#3b82f6",
-    terminalLines: [
-      { text: "omytech deploy --web --mobile", type: "command" },
-      { text: "Compiling high-performance assets...", type: "response", color: "#64748b" },
-      { text: "Optimizing React & Next.js components...", type: "response", color: "#3b82f6" },
-      { text: "Integrating Flutter for cross-platform...", type: "response", color: "#10b981" },
-      { text: "Status: Deployment Ready [100%]", type: "response", color: "#ffffff" },
-    ]
+    features: ["Web Development", "Mobile Apps", "API Integration"]
   },
   {
     id: "cloud-infrastructure",
     title: "Cloud & Infrastructure",
     description: "Scalable, secure, and reliable cloud solutions to power your digital ecosystem with 99.9% uptime.",
     icon: <StorageIcon />,
-    color: "#8b5cf6",
-    terminalLines: [
-      { text: "omytech cloud --init --region-ke", type: "command" },
-      { text: "Provisioning AWS/Azure edge nodes...", type: "response", color: "#64748b" },
-      { text: "Configuring Kubernetes clusters...", type: "response", color: "#8b5cf6" },
-      { text: "Establishing secure VPN tunnels...", type: "response", color: "#10b981" },
-      { text: "Status: Infrastructure Scaled", type: "response", color: "#ffffff" },
-    ]
+    color: "#06b6d4",
+    features: ["AWS/Azure Setup", "DevOps", "Server Management"]
   },
   {
     id: "ui-ux-design",
@@ -75,13 +36,7 @@ const services = [
     description: "User-centric interfaces that blend aesthetic beauty with seamless functionality for maximum engagement.",
     icon: <DesignIcon />,
     color: "#f59e0b",
-    terminalLines: [
-      { text: "omytech design --render --prototype", type: "command" },
-      { text: "Analyzing user behavior patterns...", type: "response", color: "#64748b" },
-      { text: "Generating high-fidelity mockups...", type: "response", color: "#f59e0b" },
-      { text: "Executing interactive prototypes...", type: "response", color: "#10b981" },
-      { text: "Status: UX Optimized", type: "response", color: "#ffffff" },
-    ]
+    features: ["Interface Design", "User Research", "Prototyping"]
   },
   {
     id: "cybersecurity",
@@ -89,13 +44,7 @@ const services = [
     description: "Enterprise-grade security audits and system hardening to protect your data and digital assets.",
     icon: <SecurityIcon />,
     color: "#ef4444",
-    terminalLines: [
-      { text: "omytech scan --security --audit", type: "command" },
-      { text: "Scanning for vulnerabilities...", type: "response", color: "#64748b" },
-      { text: "Encrypting database protocols...", type: "response", color: "#ef4444" },
-      { text: "Implementing zero-trust auth...", type: "response", color: "#10b981" },
-      { text: "Status: System Hardened", type: "response", color: "#ffffff" },
-    ]
+    features: ["Security Audits", "Penetration Testing", "Compliance"]
   },
   {
     id: "ai-data-science",
@@ -103,13 +52,7 @@ const services = [
     description: "Custom AI models and data analytics that turn raw information into actionable business intelligence.",
     icon: <AiIcon />,
     color: "#10b981",
-    terminalLines: [
-      { text: "omytech ai --train --predict", type: "command" },
-      { text: "Processing large-scale datasets...", type: "response", color: "#64748b" },
-      { text: "Training neural networks...", type: "response", color: "#10b981" },
-      { text: "Generating predictive insights...", type: "response", color: "#3b82f6" },
-      { text: "Status: Model Converged", type: "response", color: "#ffffff" },
-    ]
+    features: ["Machine Learning", "Data Analytics", "Predictive Models"]
   },
   {
     id: "digital-strategy",
@@ -117,193 +60,144 @@ const services = [
     description: "Comprehensive roadmaps for digital growth, focusing on market penetration and user acquisition.",
     icon: <StrategyIcon />,
     color: "#06b6d4",
-    terminalLines: [
-      { text: "omytech strategy --analyze --growth", type: "command" },
-      { text: "Mapping market trends...", type: "response", color: "#64748b" },
-      { text: "Optimizing SEO performance...", type: "performance", color: "#06b6d4" },
-      { text: "Generating conversion reports...", type: "response", color: "#10b981" },
-      { text: "Status: Strategy Active", type: "response", color: "#ffffff" },
-    ]
+    features: ["SEO Optimization", "Growth Strategy", "Market Analysis"]
   }
 ];
 
 export default function ServicesPage() {
   return (
-    <Box 
-      component="section" 
-      sx={{ 
-        minHeight: "100vh",
-        bgcolor: "#080c14",
-        pt: { xs: 2, md: 3 },
-        pb: 12,
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-      {/* Background Elements */}
-      <Box 
-        sx={{ 
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0)",
-          backgroundSize: "30px 30px",
-          zIndex: 0
-        }} 
-      />
-      
-      <Box sx={{ position: "relative", zIndex: 1, width: "100%", px: { xs: 2, sm: 3, md: 6 } }}>
-        <Grid 
-          container 
-          spacing={{ xs: 3, md: 4 }} 
-          sx={{ 
-            alignItems: "stretch",
-            width: "100%",
-            margin: 0
-          }}
-        >
-          {services.map((service, index) => (
-            <Grid 
-              item 
-              xs={12} 
-              md={6} 
-              key={index} 
-              sx={{ 
-                display: "flex",
-                width: "100%",
-                px: { xs: 0, md: 2 }
-              }}
-            >
-              <TerminalContainer
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6"
+          >
+            Our Services
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
+            <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
+              AI Solutions That Take
+            </span>
+            <span className="block bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent pb-2">
+              Your Business to the Next Level
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            style={{ lineHeight: '2', overflow: 'visible' }}
+          >
+            We design, develop, and implement automation tools that help you work smarter, not harder
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                sx={{ 
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  borderRadius: { xs: "16px", sm: "24px" },
-                  border: "1px solid rgba(255, 255, 255, 0.08)"
-                }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
               >
-                {/* Terminal Header */}
-                <Box sx={{ 
-                  bgcolor: "rgba(255,255,255,0.03)", 
-                  px: { xs: 2, sm: 2.5 }, 
-                  py: { xs: 1, sm: 1.5 }, 
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.05)", 
-                  display: "flex", 
-                  justifyContent: "space-between", 
-                  alignItems: "center" 
-                }}>
-                  <Stack direction="row" spacing={1}>
-                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#ef4444", opacity: 0.8 }} />
-                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#f59e0b", opacity: 0.8 }} />
-                    <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#10b981", opacity: 0.8 }} />
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Box sx={{ color: service.color, display: "flex", fontSize: { xs: "0.9rem", sm: "1.1rem" } }}>{service.icon}</Box>
-                    <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.3)", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", fontSize: { xs: "0.6rem", sm: "0.75rem" } }}>
-                      {service.title}
-                    </Typography>
-                  </Stack>
-                </Box>
-
-                {/* Terminal Body */}
-                <Box sx={{ p: { xs: 2, sm: 3 }, flexGrow: 1, bgcolor: "rgba(15, 23, 42, 0.4)", display: "flex", flexDirection: "column" }}>
-                  <Stack spacing={2} sx={{ flexGrow: 1 }}>
-                    {/* Human Readable Description */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 + (index * 0.1) }}
-                    >
-                      <Box sx={{ mb: { xs: 2, sm: 3 } }}>
-                        <Typography 
-                          sx={{ 
-                            color: service.color, 
-                            fontSize: "0.65rem", 
-                            fontWeight: 800, 
-                            letterSpacing: 2, 
-                            mb: 1,
-                            opacity: 0.8,
-                            textTransform: "uppercase"
-                          }}
-                        >
-                          [ SERVICE_OVERVIEW ]
-                        </Typography>
-                        <Typography 
-                          sx={{ 
-                            color: "rgba(255,255,255,0.8)", 
-                            fontSize: { xs: "0.85rem", sm: "0.9rem" },
-                            lineHeight: 1.6,
-                            fontWeight: 400,
-                            fontFamily: "inherit"
-                          }}
-                        >
-                          {service.description}
-                        </Typography>
-                      </Box>
-                    </motion.div>
-
-                    {/* Terminal Commands */}
-                    <Stack spacing={1}>
-                      {service.terminalLines.map((line, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.5 + (i * 0.1) }}
-                        >
-                          <Typography 
-                            sx={{ 
-                              fontFamily: "'Fira Code', monospace",
-                              fontSize: { xs: "0.7rem", sm: "0.75rem" },
-                              color: line.color || (line.type === "command" ? "#3b82f6" : "rgba(255,255,255,0.6)"),
-                              display: "flex",
-                              gap: 1
-                            }}
-                          >
-                            <Box component="span" sx={{ opacity: 0.5 }}>{line.type === "command" ? "➜" : "↳"}</Box>
-                            {line.text}
-                          </Typography>
-                        </motion.div>
-                      ))}
-                    </Stack>
-                  </Stack>
-
-                  {/* CTA Button */}
-                  <Box sx={{ mt: 4 }}>
-                    <Button
-                      variant="text"
-                      component={Link}
-                      href={`/services/${service.id}`}
-                      endIcon={<ArrowForwardIcon />}
-                      sx={{ 
-                        color: service.color,
-                        textTransform: "none",
-                        fontFamily: "'Fira Code', monospace",
-                        fontSize: "0.8rem",
-                        fontWeight: 700,
-                        px: 0,
-                        "&:hover": {
-                          bgcolor: "transparent",
-                          opacity: 0.8,
-                          transform: "translateX(5px)",
-                          transition: "all 0.3s ease"
-                        }
+                <Link href={`/services/${service.id}`}>
+                  <div className="relative h-full bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+                    {/* Icon */}
+                    <div 
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                      style={{ 
+                        backgroundColor: `${service.color}15`,
+                        color: service.color
                       }}
                     >
-                      {`view_${service.id.replace(/-/g, '_')}_protocol`}
-                    </Button>
-                  </Box>
-                </Box>
-              </TerminalContainer>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Box>
+                      {React.cloneElement(service.icon, { className: "w-7 h-7" })}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {service.features.map((feature, i) => (
+                        <span 
+                          key={i}
+                          className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400 border border-white/10"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3" style={{ color: service.color }}>
+                      Learn More
+                      <ArrowIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Transform Your Business?
+              </h2>
+              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                Let's discuss how we can help you achieve your goals
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+              >
+                Get Started
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,70 +1,15 @@
 "use client";
 
 import React from "react";
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  Grid, 
-  styled,
-  Button,
-  useTheme,
-  useMediaQuery,
-  Chip
-} from "@mui/material";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
-  Terminal as TerminalIcon,
   Brush as BrushIcon,
   Science as ScienceIcon,
   AutoAwesome as AiIcon,
-  ArrowForward as ArrowForwardIcon,
-  CheckCircle as CheckIcon,
-  Settings as SettingsIcon,
-  Speed as SpeedIcon,
-  Security as SecurityIcon
+  ArrowForward as ArrowIcon,
+  CheckCircle as CheckIcon
 } from "@mui/icons-material";
-
-const MotionBox = motion.create(Box);
-
-const TerminalContainer = styled(MotionBox)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "rgba(15, 23, 42, 0.8)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  border: "1px solid rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(20px)",
-  boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-  fontFamily: "'Fira Code', monospace",
-  position: "relative",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column"
-}));
-
-const TerminalHeader = ({ title, icon, color }) => (
-  <Box sx={{ 
-    bgcolor: "#1e293b", 
-    px: { xs: 2, sm: 2.5 }, 
-    py: { xs: 1, sm: 1.5 }, 
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)", 
-    display: "flex", 
-    justifyContent: "space-between", 
-    alignItems: "center" 
-  }}>
-    <Stack direction="row" spacing={1}>
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#ff5f56" }} />
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#ffbd2e" }} />
-      <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#27c93f" }} />
-    </Stack>
-    <Stack direction="row" spacing={1} alignItems="center">
-      <Box sx={{ color: color || "rgba(255,255,255,0.4)", display: "flex", fontSize: "1rem" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 1 }}>
-        {title}
-      </Typography>
-    </Stack>
-  </Box>
-);
 
 const wings = [
   {
@@ -73,20 +18,13 @@ const wings = [
     tagline: "Creative & Digital Excellence",
     description: "Our creative powerhouse dedicated to high-end UI/UX design, branding, and digital storytelling. We blend aesthetics with functionality to create memorable digital experiences.",
     icon: <BrushIcon />,
-    color: "#f43f5e", // Rose
+    color: "#f43f5e",
     features: [
       "Brand Identity Design",
       "High-Fidelity UI/UX",
       "Motion Graphics",
       "Digital Storytelling",
       "Creative Strategy"
-    ],
-    terminalLines: [
-      { text: "omytech wing --load studio", type: "command" },
-      { text: "Initializing creative engine...", type: "response", color: "#64748b" },
-      { text: "Loading design systems [v4.0]...", type: "response", color: "#f43f5e" },
-      { text: "Optimizing visual assets...", type: "response", color: "#3b82f6" },
-      { text: "Status: Studio Environment Ready", type: "response", color: "#ffffff" },
     ]
   },
   {
@@ -95,20 +33,13 @@ const wings = [
     tagline: "Innovation & R&D Hub",
     description: "The experimental arm of OMYTECH where we research and develop emerging technologies. From IoT to Blockchain, OMYLABS is where the future is engineered.",
     icon: <ScienceIcon />,
-    color: "#8b5cf6", // Violet
+    color: "#06b6d4",
     features: [
       "IoT Prototyping",
       "Blockchain Solutions",
       "R&D Experiments",
       "Emerging Tech Analysis",
       "Proof of Concepts"
-    ],
-    terminalLines: [
-      { text: "omytech wing --load labs", type: "command" },
-      { text: "Connecting to research core...", type: "response", color: "#64748b" },
-      { text: "Calibrating experimental protocols...", type: "response", color: "#8b5cf6" },
-      { text: "Compiling innovation modules...", type: "response", color: "#10b981" },
-      { text: "Status: Labs Core Online", type: "response", color: "#ffffff" },
     ]
   },
   {
@@ -117,225 +48,230 @@ const wings = [
     tagline: "Next-Gen AI Solutions",
     description: "Dedicated to Artificial Intelligence and Machine Learning. OMYGEN focuses on building intelligent systems that automate complex tasks and provide data-driven insights.",
     icon: <AiIcon />,
-    color: "#3b82f6", // Blue
+    color: "#3b82f6",
     features: [
       "LLM Integration",
       "Predictive Analytics",
       "Neural Networks",
       "NLP Processing",
       "AI Automation"
-    ],
-    terminalLines: [
-      { text: "omytech wing --load gen", type: "command" },
-      { text: "Waking AI neural net...", type: "response", color: "#64748b" },
-      { text: "Syncing knowledge models...", type: "response", color: "#3b82f6" },
-      { text: "Analyzing dataset patterns...", type: "response", color: "#8b5cf6" },
-      { text: "Status: AI Engine Active", type: "response", color: "#ffffff" },
     ]
   }
 ];
 
 export default function WingsPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
-    <Box 
-      component="section" 
-      sx={{ 
-        minHeight: "100vh",
-        bgcolor: "#020617",
-        pt: { xs: 4, md: 8 },
-        pb: 12,
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-      {/* Scanline Effect */}
-      <Box sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        background: "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))",
-        zIndex: 10,
-        backgroundSize: "100% 2px, 3px 100%",
-        pointerEvents: "none"
-      }} />
+    <div className="min-h-screen bg-[#0A0A0A]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px]" />
 
-      <Box sx={{ position: "relative", zIndex: 1, width: "100%", px: { xs: 2, sm: 3, md: 6 } }}>
-        <Stack spacing={6}>
-          {/* Header Section */}
-          <Box sx={{ textAlign: "center", mb: 4 }}>
-            <Typography 
-              variant="h2" 
-              sx={{ 
-                color: "white", 
-                fontWeight: 900, 
-                mb: 2, 
-                fontFamily: "'Fira Code', monospace",
-                fontSize: { xs: "2.5rem", md: "4rem" }
-              }}
-            >
-              OUR_WINGS
-            </Typography>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: "rgba(255,255,255,0.6)", 
-                maxWidth: "800px", 
-                mx: "auto",
-                fontSize: { xs: "1rem", md: "1.2rem" }
-              }}
-            >
-              The specialized divisions of OMYTECH, each focusing on a core pillar of 
-              technological advancement and creative excellence.
-            </Typography>
-          </Box>
-
-          {/* Wings Grid */}
-          <Grid 
-            container 
-            spacing={{ xs: 3, md: 4 }} 
-            sx={{ 
-              alignItems: "stretch",
-              width: "100%",
-              margin: 0
-            }}
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6"
           >
+            Our Wings
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
+            <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
+              Specialized Divisions
+            </span>
+            <span className="block bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent pb-2">
+              Focused Excellence
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            style={{ lineHeight: '2', overflow: 'visible' }}
+          >
+            Each wing of OMYTECH focuses on a core pillar of technological advancement 
+            and creative excellence, delivering specialized solutions.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Wings Grid */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {wings.map((wing, index) => (
-              <Grid item xs={12} md={4} key={wing.id} sx={{ width: "100%", px: { xs: 0, md: 2 }, mb: { xs: 2, md: 0 } }}>
-                <TerminalContainer
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  <TerminalHeader title={`wing::${wing.id}`} icon={wing.icon} color={wing.color} />
-                  
-                  <Box sx={{ p: { xs: 3, md: 4 }, flexGrow: 1 }}>
-                    <Stack spacing={4}>
-                      <Box>
-                        <Typography 
-                          variant="h4" 
-                          sx={{ 
-                            color: wing.color, 
-                            fontWeight: 900, 
-                            fontFamily: "'Fira Code', monospace",
-                            fontSize: { xs: "1.8rem", md: "2.2rem" },
-                            mb: 1
-                          }}
-                        >
-                          {wing.name}
-                        </Typography>
-                        <Typography 
-                          variant="h6" 
-                          sx={{ 
-                            color: "white", 
-                            fontWeight: 700, 
-                            opacity: 0.9,
-                            fontSize: "1rem",
-                            mb: 2
-                          }}
-                        >
-                          {wing.tagline}
-                        </Typography>
-                        <Typography 
-                          variant="body1" 
-                          sx={{ 
-                            color: "rgba(255,255,255,0.7)", 
-                            lineHeight: 1.6,
-                            fontSize: "0.95rem"
-                          }}
-                        >
-                          {wing.description}
-                        </Typography>
-                      </Box>
+              <motion.div
+                key={wing.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative h-full bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+                  {/* Top accent line */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl transition-all duration-300"
+                    style={{ backgroundColor: wing.color }}
+                  />
 
-                      {/* Features List */}
-                      <Box>
-                        <Typography 
-                          sx={{ 
-                            color: "rgba(255,255,255,0.3)", 
-                            fontSize: "0.7rem", 
-                            fontWeight: 800, 
-                            letterSpacing: 2, 
-                            mb: 2,
-                            textTransform: "uppercase"
-                          }}
-                        >
-                          [ CORE_PILLARS ]
-                        </Typography>
-                        <Stack spacing={1.5}>
-                          {wing.features.map((feature, i) => (
-                            <Stack direction="row" spacing={1.5} alignItems="center" key={i}>
-                              <CheckIcon sx={{ color: wing.color, fontSize: "1rem" }} />
-                              <Typography sx={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>
-                                {feature}
-                              </Typography>
-                            </Stack>
-                          ))}
-                        </Stack>
-                      </Box>
+                  {/* Icon */}
+                  <div 
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                    style={{ 
+                      backgroundColor: `${wing.color}15`,
+                      color: wing.color
+                    }}
+                  >
+                    {React.cloneElement(wing.icon, { className: "w-8 h-8" })}
+                  </div>
 
-                      {/* Terminal Simulation */}
-                      <Box 
-                        sx={{ 
-                          bgcolor: "rgba(0,0,0,0.3)", 
-                          p: 2, 
-                          borderRadius: "12px", 
-                          border: "1px solid rgba(255,255,255,0.05)",
-                          fontFamily: "'Fira Code', monospace",
-                          mt: 'auto'
-                        }}
-                      >
-                        <Stack spacing={1}>
-                          {wing.terminalLines.map((line, i) => (
-                            <Typography 
-                              key={i} 
-                              sx={{ 
-                                color: line.color || "white", 
-                                fontSize: "0.75rem",
-                                opacity: line.type === "command" ? 1 : 0.8
-                              }}
-                            >
-                              {line.type === "command" ? "➜ " : "  "}{line.text}
-                            </Typography>
-                          ))}
-                        </Stack>
-                      </Box>
+                  {/* Title */}
+                  <h3 
+                    className="text-2xl font-bold mb-2 transition-colors"
+                    style={{ color: wing.color }}
+                  >
+                    {wing.name}
+                  </h3>
 
-                      <Button 
-                        variant="outlined"
-                        fullWidth
-                        endIcon={<ArrowForwardIcon />}
-                        sx={{ 
-                          color: wing.color, 
-                          borderColor: `${wing.color}44`,
-                          borderRadius: "12px",
-                          py: 1.2,
-                          textTransform: "none",
-                          fontWeight: 700,
-                          fontSize: "0.9rem",
-                          "&:hover": {
-                            borderColor: wing.color,
-                            bgcolor: `${wing.color}11`,
-                            transform: "translateX(5px)"
-                          },
-                          transition: "all 0.2s"
-                        }}
-                      >
-                        Explore {wing.id.toUpperCase()}
-                      </Button>
-                    </Stack>
-                  </Box>
-                </TerminalContainer>
-              </Grid>
+                  {/* Tagline */}
+                  <p className="text-white font-semibold mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
+                    {wing.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                    {wing.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="space-y-3 mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
+                      Core Pillars
+                    </p>
+                    {wing.features.map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <CheckIcon 
+                          className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                          style={{ color: wing.color }}
+                        />
+                        <span className="text-gray-300 text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div 
+                    className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3 mt-auto pt-4 border-t border-white/5"
+                    style={{ color: wing.color }}
+                  >
+                    Explore {wing.id.charAt(0).toUpperCase() + wing.id.slice(1)}
+                    <ArrowIcon className="w-4 h-4" />
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </Grid>
-        </Stack>
-      </Box>
-    </Box>
+          </div>
+        </div>
+      </section>
+
+      {/* Info Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              One Company, Multiple Specializations
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              Each wing operates with autonomy while sharing OMYTECH's core values of 
+              excellence, innovation, and client success. Together, we provide comprehensive 
+              solutions across the entire technology spectrum.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
+                View All Services
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+              >
+                Get in Touch
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative px-6 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {wings.map((wing, index) => (
+              <motion.div
+                key={wing.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative rounded-3xl p-8 text-center backdrop-blur-sm overflow-hidden group cursor-pointer"
+                style={{ 
+                  background: `linear-gradient(135deg, ${wing.color}15, ${wing.color}05)`,
+                  border: `1px solid ${wing.color}30`
+                }}
+              >
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
+                
+                <div className="relative z-10">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-110"
+                    style={{ 
+                      backgroundColor: `${wing.color}20`,
+                      color: wing.color
+                    }}
+                  >
+                    {React.cloneElement(wing.icon, { className: "w-6 h-6" })}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {wing.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                    {wing.tagline}
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+                    style={{ color: wing.color }}
+                  >
+                    Learn More
+                    <ArrowIcon className="w-4 h-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

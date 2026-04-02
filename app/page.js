@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import LogoCarousel from "@/components/LogoCarousel";
+import TechStack from "@/components/TechStack";
 
 export const metadata = {
   title: "Home",
@@ -15,6 +16,7 @@ export default function Home() {
     <main>
       <Hero />
       <LogoCarousel />
+      <TechStack />
     </main>
   );
 }

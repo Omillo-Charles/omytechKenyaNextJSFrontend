@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px]" 
            style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center" style={{ overflow: 'visible' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-18 text-center" style={{ overflow: 'visible' }}>
         {/* Trust badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

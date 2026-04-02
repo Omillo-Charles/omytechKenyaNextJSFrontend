@@ -35,7 +35,7 @@ export default function LogoCarousel() {
           {/* Scrolling container */}
           <div className="overflow-hidden">
             <motion.div
-              className="flex gap-12 items-center"
+              className="flex gap-6 md:gap-12 items-center"
               animate={{
                 x: [0, -100 / 3 + "%"],
               }}

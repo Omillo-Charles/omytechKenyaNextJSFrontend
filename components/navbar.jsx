@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { BiMenu, BiX } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,16 +48,23 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-400 hover:text-white font-medium transition-colors relative group"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full" />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`font-medium transition-colors relative group ${
+                      isActive ? 'text-cyan-400' : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-cyan-400 transition-all ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
+                  </Link>
+                );
+              })}
             </div>
 
             {/* CTA Button */}
@@ -115,16 +124,23 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex flex-col gap-2 flex-1">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-gray-400 hover:text-white hover:bg-white/5 font-medium py-3 px-4 rounded-lg transition-all"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`font-medium py-3 px-4 rounded-lg transition-all ${
+                          isActive 
+                            ? 'text-cyan-400 bg-cyan-400/10' 
+                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })}
                 </div>
 
                 <Link

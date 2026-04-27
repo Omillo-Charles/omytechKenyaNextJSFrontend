@@ -82,7 +82,7 @@ export default function WingsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Specialized Divisions
@@ -96,7 +96,7 @@ export default function WingsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Each wing of OMYTECH focuses on a core pillar of technological advancement 
@@ -137,7 +137,7 @@ export default function WingsPage() {
 
                   {/* Title */}
                   <h3 
-                    className="text-2xl font-bold mb-2 transition-colors"
+                    className="text-xl font-bold mb-2 transition-colors"
                     style={{ color: wing.color }}
                   >
                     {wing.name}
@@ -195,10 +195,10 @@ export default function WingsPage() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               One Company, Multiple Specializations
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Each wing operates with autonomy while sharing OMYTECH's core values of 
               excellence, innovation, and client success. Together, we provide comprehensive 
               solutions across the entire technology spectrum.

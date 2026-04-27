@@ -83,7 +83,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Built for Africa,
@@ -97,7 +97,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Enterprise-grade solutions designed to solve real-world challenges in property management and e-commerce
@@ -135,17 +135,17 @@ export default function ProductsPage() {
                   </div>
 
                   <h2 
-                    className="text-5xl md:text-6xl font-bold mb-3"
+                    className="text-4xl md:text-5xl font-bold mb-3"
                     style={{ color: product.color }}
                   >
                     {product.name}
                   </h2>
 
-                  <h3 className="text-2xl font-semibold text-white mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
+                  <h3 className="text-xl font-semibold text-white mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
                     {product.tagline}
                   </h3>
 
-                  <p className="text-gray-400 text-lg mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  <p className="text-gray-400 text-base mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                     {product.description}
                   </p>
 

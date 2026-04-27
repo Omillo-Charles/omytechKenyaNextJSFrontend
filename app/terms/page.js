@@ -84,7 +84,7 @@ export default function TermsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Terms of Service
@@ -95,7 +95,7 @@ export default function TermsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-gray-400 font-light"
+            className="text-base text-gray-400 font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Last Updated: January 2025
@@ -113,7 +113,7 @@ export default function TermsPage() {
             transition={{ delay: 0.2 }}
             className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
           >
-            <p className="text-gray-300 text-lg leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-gray-300 text-base leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Welcome to OMYTECH. These Terms of Service govern your use of our website and services. 
               Please read these terms carefully before using our services. By accessing or using our services, 
               you agree to be bound by these terms and our Privacy Policy.
@@ -135,7 +135,7 @@ export default function TermsPage() {
                   {React.cloneElement(section.icon, { className: "w-6 h-6" })}
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-xl font-bold text-white mb-4">
                     {section.title}
                   </h2>
                   {section.content.map((paragraph, i) => (
@@ -160,7 +160,7 @@ export default function TermsPage() {
                 <MailIcon className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-xl font-bold text-white mb-4">
                   Questions?
                 </h2>
                 <p className="text-gray-300 mb-4" style={{ lineHeight: '1.8', overflow: 'visible' }}>

@@ -82,7 +82,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Building the Future
@@ -96,7 +96,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light mb-12"
+            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light mb-12"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             We are a collective of engineers, designers, and strategists dedicated to 
@@ -114,7 +114,7 @@ export default function AboutPage() {
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div 
-                  className="text-3xl md:text-4xl font-bold mb-2"
+                  className="text-2xl md:text-3xl font-bold mb-2"
                   style={{ color: stat.color }}
                 >
                   {stat.value}
@@ -135,10 +135,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Our Mission
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               To empower Kenyan and global businesses through innovative, secure, and 
               scalable technology solutions that drive growth and create lasting impact.
             </p>

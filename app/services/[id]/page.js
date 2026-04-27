@@ -46,22 +46,46 @@ const serviceProtocols = {
     ],
     pricing: [
       {
-        plan: "Basic Web Development",
+        category: "Web Development",
+        plan: "Starter Website",
         price: "25,000",
         description: "Perfect for portfolios, blogs, and simple business landing pages.",
         features: ["Responsive design", "5 content pages", "Contact form", "Basic SEO setup", "1 month support"]
       },
       {
-        plan: "Custom Web Systems",
-        price: "85,000",
-        description: "Complex web applications with databases and user authentication.",
-        features: ["Dashboard integration", "Payment gateways", "User management", "Advanced SEO", "3 months support"]
+        category: "Web Development",
+        plan: "Business Website",
+        price: "55,000",
+        description: "Comprehensive websites for growing businesses with CMS integration.",
+        features: ["CMS Integration", "Service listings", "Blog platform", "Enhanced SEO", "3 months support"]
       },
       {
-        plan: "Mobile App Development",
+        category: "Web Development",
+        plan: "Enterprise Systems",
+        price: "120,000",
+        description: "Complex web applications with tailored functionality and integrations.",
+        features: ["Tailored dashboards", "API Integrations", "Advanced Security", "High Performance", "6 months support"]
+      },
+      {
+        category: "App Development",
+        plan: "MVP Mobile App",
         price: "150,000",
-        description: "High-performance iOS and Android applications.",
-        features: ["Cross-platform (React Native)", "Push notifications", "App Store deployment", "Offline functionality", "6 months support"]
+        description: "Functional cross-platform mobile app to test your core concept.",
+        features: ["Core functionality", "Basic Auth", "Push notifications", "App Store prep", "3 months support"]
+      },
+      {
+        category: "App Development",
+        plan: "Advanced Android App",
+        price: "250,000",
+        description: "Feature-rich Android-specific application with native performance.",
+        features: ["Native Android features", "Complex databases", "Payment systems", "Admin panel", "6 months support"]
+      },
+      {
+        category: "App Development",
+        plan: "Full Ecosystem (iOS & Android)",
+        price: "450,000",
+        description: "Complete mobile ecosystem for high-scale businesses.",
+        features: ["iOS & Android apps", "Real-time sync", "Analytics dashboard", "Scalable backend", "1 year support"]
       }
     ]
   },
@@ -468,75 +492,40 @@ export default function ServiceDetailPage() {
               Investment Plans
             </h2>
             <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
-              Choose the right protocol for your business growth. We offer transparent,
+              Choose the right protocol for your business growth. We offer transparent, 
               value-driven pricing for every stage of your journey.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {service.pricing.map((tier, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-2"
-                style={{
-                  backgroundColor: index === 1 ? `${service.color}05` : 'rgba(255, 255, 255, 0.02)',
-                  borderColor: index === 1 ? `${service.color}40` : 'rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                {index === 1 && (
-                  <div
-                    className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 text-white text-xs font-bold rounded-full uppercase tracking-wider"
-                    style={{ backgroundColor: service.color }}
-                  >
-                    Most Popular
+          {/* Grouped Plans for Software Engineering */}
+          {service.title === "Software Engineering" ? (
+            <div className="space-y-20">
+              {["Web Development", "App Development"].map((cat) => (
+                <div key={cat} className="space-y-10">
+                  <div className="flex items-center gap-4">
+                    <div className="h-px flex-grow bg-white/10" />
+                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-widest bg-white/5 px-6 py-2 rounded-full border border-white/10">
+                      {cat}
+                    </h3>
+                    <div className="h-px flex-grow bg-white/10" />
                   </div>
-                )}
-
-                <h3 className="text-xl font-bold text-white mb-2">{tier.plan}</h3>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-gray-400 text-sm">KES</span>
-                  <span className="text-3xl md:text-4xl font-bold text-white">{tier.price}</span>
-                  {tier.plan !== "Mobile App Development" && tier.plan !== "Enterprise Security" && tier.plan !== "Custom ML Models" && tier.plan !== "Digital Transformation" && (
-                    <span className="text-gray-500 text-sm">/start</span>
-                  )}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {service.pricing
+                      .filter((tier) => tier.category === cat)
+                      .map((tier, index) => (
+                        <PricingCard key={index} tier={tier} index={index} service={service} />
+                      ))}
+                  </div>
                 </div>
-
-                <p className="text-gray-400 text-sm mb-8" style={{ lineHeight: '1.6', overflow: 'visible' }}>
-                  {tier.description}
-                </p>
-
-                <div className="space-y-4 mb-8 flex-grow">
-                  {tier.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckIcon
-                        className="w-5 h-5 flex-shrink-0 mt-0.5"
-                        style={{ color: service.color }}
-                      />
-                      <span className="text-gray-300 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href={`https://wa.me/254715367859?text=${encodeURIComponent(`Hello OMYTECH Kenya, I'm interested in the ${tier.plan} plan for ${service.title} priced at KES ${tier.price}.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-full text-center font-semibold transition-all duration-300"
-                  style={{
-                    backgroundColor: index === 1 ? service.color : 'transparent',
-                    color: index === 1 ? '#000' : '#fff',
-                    border: index === 1 ? 'none' : '1px solid rgba(255, 255, 255, 0.2)'
-                  }}
-                >
-                  Choose {tier.plan}
-                </a>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {service.pricing.map((tier, index) => (
+                <PricingCard key={index} tier={tier} index={index} service={service} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -609,5 +598,71 @@ export default function ServiceDetailPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+// Helper Component for Pricing Card
+function PricingCard({ tier, index, service }) {
+  const isFeatured = index === 1;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-2"
+      style={{ 
+        backgroundColor: isFeatured ? `${service.color}05` : 'rgba(255, 255, 255, 0.02)',
+        borderColor: isFeatured ? `${service.color}40` : 'rgba(255, 255, 255, 0.1)'
+      }}
+    >
+      {isFeatured && (
+        <div 
+          className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 text-white text-xs font-bold rounded-full uppercase tracking-wider"
+          style={{ backgroundColor: service.color }}
+        >
+          Most Popular
+        </div>
+      )}
+      
+      <h3 className="text-xl font-bold text-white mb-2">{tier.plan}</h3>
+      <div className="flex items-baseline gap-1 mb-4">
+        <span className="text-gray-400 text-sm">KES</span>
+        <span className="text-3xl md:text-4xl font-bold text-white">{tier.price}</span>
+        {!tier.plan.includes("Full") && !tier.plan.includes("Enterprise") && (
+          <span className="text-gray-500 text-sm">/start</span>
+        )}
+      </div>
+      
+      <p className="text-gray-400 text-sm mb-8" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+        {tier.description}
+      </p>
+
+      <div className="space-y-4 mb-8 flex-grow">
+        {tier.features.map((feature, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <CheckIcon 
+              className="w-5 h-5 flex-shrink-0 mt-0.5" 
+              style={{ color: service.color }}
+            />
+            <span className="text-gray-300 text-sm">{feature}</span>
+          </div>
+        ))}
+      </div>
+
+      <a
+        href={`https://wa.me/254715367859?text=${encodeURIComponent(`Hello OMYTECH Kenya, I'm interested in the ${tier.plan} plan for ${service.title} priced at KES ${tier.price}.`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full py-3 rounded-full text-center font-semibold transition-all duration-300"
+        style={{ 
+          backgroundColor: isFeatured ? service.color : 'transparent',
+          color: isFeatured ? '#000' : '#fff',
+          border: isFeatured ? 'none' : '1px solid rgba(255, 255, 255, 0.2)'
+        }}
+      >
+        Choose {tier.plan}
+      </a>
+    </motion.div>
   );
 }

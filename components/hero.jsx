@@ -24,12 +24,12 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center bg-[#0A0A0A]" style={{ overflow: 'clip' }}>
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      
+
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" 
-           style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px]" 
-           style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]"
+        style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px]"
+        style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-18 text-center" style={{ overflow: 'visible' }}>
         {/* Trust badge */}
@@ -71,7 +71,7 @@ export default function Hero() {
           className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto mb-10 font-light py-2"
           style={{ lineHeight: '2', overflow: 'visible' }}
         >
-          OMYTECH brings cutting-edge technology solutions to your fingertips & streamline tasks. 
+          OMYTECH brings cutting-edge technology solutions to your fingertips & streamline tasks.
           We help you work smarter, not harder.
         </motion.p>
 
@@ -91,7 +91,7 @@ export default function Hero() {
               <ArrowIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>
-          
+
           <Link
             href="/services"
             className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/40"

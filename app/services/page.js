@@ -3,12 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
-  Code as CodeIcon, 
-  Storage as StorageIcon, 
-  Brush as DesignIcon, 
-  Security as SecurityIcon, 
-  AutoGraph as AiIcon, 
+import {
+  Code as CodeIcon,
+  Storage as StorageIcon,
+  Brush as DesignIcon,
+  Security as SecurityIcon,
+  AutoGraph as AiIcon,
   Lightbulb as StrategyIcon,
   ArrowForward as ArrowIcon
 } from "@mui/icons-material";
@@ -124,9 +124,9 @@ export default function ServicesPage() {
                 <Link href={`/services/${service.id}`}>
                   <div className="relative h-full bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
                     {/* Icon */}
-                    <div 
+                    <div
                       className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-                      style={{ 
+                      style={{
                         backgroundColor: `${service.color}15`,
                         color: service.color
                       }}
@@ -147,7 +147,7 @@ export default function ServicesPage() {
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {service.features.map((feature, i) => (
-                        <span 
+                        <span
                           key={i}
                           className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400 border border-white/10"
                         >
@@ -179,7 +179,7 @@ export default function ServicesPage() {
             className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
-            
+
             <div className="relative z-10">
               <h2 className="text-xl md:text-3xl font-bold text-white mb-4">
                 Ready to Transform Your Business?
@@ -189,7 +189,7 @@ export default function ServicesPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
               >
                 Get Started
                 <ArrowIcon className="w-5 h-5" />

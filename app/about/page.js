@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
+import {
   Code as CodeIcon,
   Groups as GroupsIcon,
   RocketLaunch as RocketIcon,
@@ -99,8 +99,8 @@ export default function AboutPage() {
             className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light mb-12"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
-            We are a collective of engineers, designers, and strategists dedicated to 
-            transforming ambitious ideas into powerful digital realities. Based in Nairobi, 
+            We are a collective of engineers, designers, and strategists dedicated to
+            transforming ambitious ideas into powerful digital realities. Based in Nairobi,
             serving the world.
           </motion.p>
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
           >
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div 
+                <div
                   className="text-xl md:text-3xl font-bold mb-2"
                   style={{ color: stat.color }}
                 >
@@ -139,7 +139,7 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
-              To empower Kenyan and global businesses through innovative, secure, and 
+              To empower Kenyan and global businesses through innovative, secure, and
               scalable technology solutions that drive growth and create lasting impact.
             </p>
           </motion.div>
@@ -173,9 +173,9 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group"
               >
-                <div 
+                <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-                  style={{ 
+                  style={{
                     backgroundColor: `${value.color}15`,
                     color: value.color
                   }}
@@ -221,11 +221,11 @@ export default function AboutPage() {
           >
             <div className="flex justify-center -space-x-4 mb-6">
               {[1, 2, 3, 4, 5].map((i) => (
-                <div 
+                <div
                   key={i}
                   className="w-16 h-16 rounded-full border-4 border-[#0A0A0A]"
-                  style={{ 
-                    background: `linear-gradient(135deg, ${['#3b82f6', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'][i-1]} 0%, ${['#1e40af', '#059669', '#d97706', '#0891b2', '#be185d'][i-1]} 100%)`
+                  style={{
+                    background: `linear-gradient(135deg, ${['#3b82f6', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'][i - 1]} 0%, ${['#1e40af', '#059669', '#d97706', '#0891b2', '#be185d'][i - 1]} 100%)`
                   }}
                 />
               ))}
@@ -257,7 +257,7 @@ export default function AboutPage() {
             className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
-            
+
             <div className="relative z-10">
               <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                 Ready to Work Together?
@@ -269,7 +269,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
-                Get in Touch
+                Get Started
                 <ArrowIcon className="w-5 h-5" />
               </Link>
             </div>

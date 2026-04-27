@@ -4,12 +4,12 @@ import React from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
-  Code as CodeIcon, 
-  Storage as StorageIcon, 
-  Brush as DesignIcon, 
-  Security as SecurityIcon, 
-  AutoGraph as AiIcon, 
+import {
+  Code as CodeIcon,
+  Storage as StorageIcon,
+  Brush as DesignIcon,
+  Security as SecurityIcon,
+  AutoGraph as AiIcon,
   Lightbulb as StrategyIcon,
   ArrowBack as ArrowBackIcon,
   CheckCircle as CheckIcon,
@@ -331,14 +331,14 @@ export default function ServiceDetailPage() {
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div 
+        <div
           className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-[120px]"
           style={{ backgroundColor: `${service.color}20` }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Back Button */}
-          <Link 
+          <Link
             href="/services"
             className="inline-flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white mb-8 transition-colors"
           >
@@ -354,9 +354,9 @@ export default function ServiceDetailPage() {
               transition={{ duration: 0.8 }}
             >
               {/* Icon */}
-              <div 
+              <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
-                style={{ 
+                style={{
                   backgroundColor: `${service.color}15`,
                   color: service.color
                 }}
@@ -367,8 +367,8 @@ export default function ServiceDetailPage() {
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                 {service.title}
               </h1>
-              
-              <p 
+
+              <p
                 className="text-xl md:text-2xl font-semibold mb-6"
                 style={{ color: service.color, lineHeight: '1.4', overflow: 'visible' }}
               >
@@ -399,8 +399,8 @@ export default function ServiceDetailPage() {
               <div className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckIcon 
-                      className="w-6 h-6 flex-shrink-0 mt-0.5" 
+                    <CheckIcon
+                      className="w-6 h-6 flex-shrink-0 mt-0.5"
                       style={{ color: service.color }}
                     />
                     <span className="text-gray-300 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
@@ -436,9 +436,9 @@ export default function ServiceDetailPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
               >
-                <div 
+                <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl font-bold"
-                  style={{ 
+                  style={{
                     backgroundColor: `${service.color}15`,
                     color: service.color
                   }}
@@ -468,7 +468,7 @@ export default function ServiceDetailPage() {
               Investment Plans
             </h2>
             <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
-              Choose the right protocol for your business growth. We offer transparent, 
+              Choose the right protocol for your business growth. We offer transparent,
               value-driven pricing for every stage of your journey.
             </p>
           </motion.div>
@@ -482,20 +482,20 @@ export default function ServiceDetailPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-2"
-                style={{ 
+                style={{
                   backgroundColor: index === 1 ? `${service.color}05` : 'rgba(255, 255, 255, 0.02)',
                   borderColor: index === 1 ? `${service.color}40` : 'rgba(255, 255, 255, 0.1)'
                 }}
               >
                 {index === 1 && (
-                  <div 
+                  <div
                     className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 text-white text-xs font-bold rounded-full uppercase tracking-wider"
                     style={{ backgroundColor: service.color }}
                   >
                     Most Popular
                   </div>
                 )}
-                
+
                 <h3 className="text-xl font-bold text-white mb-2">{tier.plan}</h3>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="text-gray-400 text-sm">KES</span>
@@ -504,7 +504,7 @@ export default function ServiceDetailPage() {
                     <span className="text-gray-500 text-sm">/start</span>
                   )}
                 </div>
-                
+
                 <p className="text-gray-400 text-sm mb-8" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                   {tier.description}
                 </p>
@@ -512,8 +512,8 @@ export default function ServiceDetailPage() {
                 <div className="space-y-4 mb-8 flex-grow">
                   {tier.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <CheckIcon 
-                        className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                      <CheckIcon
+                        className="w-5 h-5 flex-shrink-0 mt-0.5"
                         style={{ color: service.color }}
                       />
                       <span className="text-gray-300 text-sm">{feature}</span>
@@ -521,17 +521,19 @@ export default function ServiceDetailPage() {
                   ))}
                 </div>
 
-                <Link
-                  href="/contact"
+                <a
+                  href={`https://wa.me/254715367859?text=${encodeURIComponent(`Hello OMYTECH Kenya, I'm interested in the ${tier.plan} plan for ${service.title} priced at KES ${tier.price}.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-3 rounded-full text-center font-semibold transition-all duration-300"
-                  style={{ 
+                  style={{
                     backgroundColor: index === 1 ? service.color : 'transparent',
                     color: index === 1 ? '#000' : '#fff',
                     border: index === 1 ? 'none' : '1px solid rgba(255, 255, 255, 0.2)'
                   }}
                 >
                   Choose {tier.plan}
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -581,13 +583,13 @@ export default function ServiceDetailPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="relative rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
-            style={{ 
+            style={{
               background: `linear-gradient(135deg, ${service.color}15, ${service.color}05)`,
               border: `1px solid ${service.color}30`
             }}
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
-            
+
             <div className="relative z-10">
               <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                 Ready to Get Started?

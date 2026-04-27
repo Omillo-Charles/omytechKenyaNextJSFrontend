@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
+import {
   Brush as BrushIcon,
   Science as ScienceIcon,
   AutoAwesome as AiIcon,
@@ -99,7 +99,7 @@ export default function WingsPage() {
             className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
-            Each wing of OMYTECH focuses on a core pillar of technological advancement 
+            Each wing of OMYTECH focuses on a core pillar of technological advancement
             and creative excellence, delivering specialized solutions.
           </motion.p>
         </div>
@@ -119,15 +119,15 @@ export default function WingsPage() {
               >
                 <div className="relative h-full bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
                   {/* Top accent line */}
-                  <div 
+                  <div
                     className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl transition-all duration-300"
                     style={{ backgroundColor: wing.color }}
                   />
 
                   {/* Icon */}
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-                    style={{ 
+                    style={{
                       backgroundColor: `${wing.color}15`,
                       color: wing.color
                     }}
@@ -136,7 +136,7 @@ export default function WingsPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 
+                  <h3
                     className="text-lg md:text-xl font-bold mb-2 transition-colors"
                     style={{ color: wing.color }}
                   >
@@ -160,8 +160,8 @@ export default function WingsPage() {
                     </p>
                     {wing.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <CheckIcon 
-                          className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                        <CheckIcon
+                          className="w-5 h-5 flex-shrink-0 mt-0.5"
                           style={{ color: wing.color }}
                         />
                         <span className="text-gray-300 text-xs md:text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
@@ -172,7 +172,7 @@ export default function WingsPage() {
                   </div>
 
                   {/* CTA */}
-                  <div 
+                  <div
                     className="flex items-center gap-2 text-xs md:text-sm font-semibold transition-all duration-300 group-hover:gap-3 mt-auto pt-4 border-t border-white/5"
                     style={{ color: wing.color }}
                   >
@@ -199,8 +199,8 @@ export default function WingsPage() {
               One Company, Multiple Specializations
             </h2>
             <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
-              Each wing operates with autonomy while sharing OMYTECH's core values of 
-              excellence, innovation, and client success. Together, we provide comprehensive 
+              Each wing operates with autonomy while sharing OMYTECH's core values of
+              excellence, innovation, and client success. Together, we provide comprehensive
               solutions across the entire technology spectrum.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -235,17 +235,17 @@ export default function WingsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="relative rounded-3xl p-8 text-center backdrop-blur-sm overflow-hidden group cursor-pointer"
-                style={{ 
+                style={{
                   background: `linear-gradient(135deg, ${wing.color}15, ${wing.color}05)`,
                   border: `1px solid ${wing.color}30`
                 }}
               >
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
-                
+
                 <div className="relative z-10">
-                  <div 
+                  <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-110"
-                    style={{ 
+                    style={{
                       backgroundColor: `${wing.color}20`,
                       color: wing.color
                     }}

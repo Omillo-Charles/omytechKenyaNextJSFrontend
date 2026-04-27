@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
+import {
   HomeWork as HomeIcon,
   Storefront as StoreIcon,
   ArrowForward as ArrowIcon,
@@ -124,9 +124,9 @@ export default function ProductsPage() {
                     {product.status}
                   </div>
 
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                    style={{ 
+                    style={{
                       backgroundColor: `${product.color}15`,
                       color: product.color
                     }}
@@ -134,7 +134,7 @@ export default function ProductsPage() {
                     {React.cloneElement(product.icon, { className: "w-8 h-8" })}
                   </div>
 
-                  <h2 
+                  <h2
                     className="text-3xl md:text-5xl font-bold mb-3"
                     style={{ color: product.color }}
                   >
@@ -153,7 +153,7 @@ export default function ProductsPage() {
                   <div className="grid grid-cols-3 gap-4 mb-8">
                     {product.highlights.map((stat, i) => (
                       <div key={i} className="text-center">
-                        <div 
+                        <div
                           className="text-xl md:text-2xl font-bold mb-1"
                           style={{ color: product.color }}
                         >
@@ -192,8 +192,8 @@ export default function ProductsPage() {
                     <div className="space-y-4">
                       {product.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <CheckIcon 
-                            className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                          <CheckIcon
+                            className="w-5 h-5 flex-shrink-0 mt-0.5"
                             style={{ color: product.color }}
                           />
                           <span className="text-gray-300 text-sm md:text-base" style={{ lineHeight: '1.6', overflow: 'visible' }}>
@@ -220,7 +220,7 @@ export default function ProductsPage() {
             className="relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 rounded-3xl p-12 text-center backdrop-blur-sm overflow-hidden"
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
-            
+
             <div className="relative z-10">
               <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                 Need a Custom Solution?

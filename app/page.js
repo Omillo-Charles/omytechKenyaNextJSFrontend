@@ -8,6 +8,9 @@ export const metadata = {
     title: "OMYTECH - Innovating the Future, Empowering Africa",
     description: "Leading technology company providing web development, mobile apps, UI/UX design, and digital solutions in Kenya and across Africa.",
   },
+  verification: {
+    google: "rryBGYyF_gIWRFDIFOLhUtgkcNk_4mUrgYYunr8R3C8",
+  },
 };
 
 export default function Home() {

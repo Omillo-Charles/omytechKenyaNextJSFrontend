@@ -69,7 +69,7 @@ const TerminalHeader = ({ title, icon }) => (
     </Stack>
     <Stack direction="row" spacing={1} alignItems="center">
       <Box sx={{ color: "rgba(255,255,255,0.4)", display: "flex", fontSize: "0.8rem" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: "0.6rem" }}>
+      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: { xs: "0.5rem", md: "0.6rem" } }}>
         {title}
       </Typography>
     </Stack>
@@ -201,7 +201,7 @@ export default function BlogPage() {
                           bgcolor: "rgba(59, 130, 246, 0.1)", 
                           color: "#3b82f6",
                           fontWeight: 700,
-                          fontSize: "0.65rem",
+                          fontSize: { xs: "0.55rem", md: "0.65rem" },
                           fontFamily: "'Fira Code', monospace",
                           border: "1px solid rgba(59, 130, 246, 0.2)"
                         }}
@@ -216,6 +216,7 @@ export default function BlogPage() {
                       fontWeight: 800, 
                       mb: 2, 
                       lineHeight: 1.3,
+                      fontSize: { xs: "1.1rem", md: "1.25rem", lg: "1.5rem" },
                       height: "3.4rem",
                       overflow: "hidden",
                       display: "-webkit-box",
@@ -228,6 +229,7 @@ export default function BlogPage() {
                     <Typography variant="body2" sx={{ 
                       color: "rgba(255,255,255,0.5)", 
                       mb: 3,
+                      fontSize: { xs: "0.75rem", md: "0.875rem" },
                       height: "4rem",
                       overflow: "hidden",
                       display: "-webkit-box",
@@ -255,7 +257,7 @@ export default function BlogPage() {
                             textTransform: "none",
                             fontWeight: 800,
                             fontFamily: "'Fira Code', monospace",
-                            fontSize: "0.75rem",
+                            fontSize: { xs: "0.65rem", md: "0.75rem" },
                             "&:hover": { bgcolor: "transparent", color: "#60a5fa" }
                           }}
                         >

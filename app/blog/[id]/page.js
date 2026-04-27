@@ -58,7 +58,7 @@ const TerminalHeader = ({ title, icon }) => (
     </Stack>
     <Stack direction="row" spacing={1} alignItems="center">
       <Box sx={{ color: "rgba(255,255,255,0.4)", display: "flex" }}>{icon}</Box>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace" }}>
+      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", fontWeight: 700, fontFamily: "'Fira Code', monospace", fontSize: { xs: "0.5rem", md: "0.6rem" } }}>
         {title}
       </Typography>
     </Stack>
@@ -225,7 +225,7 @@ export default function BlogPost() {
           }}
         >
           <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>BLOG</Link>
-          <Typography sx={{ color: "#3b82f6", fontWeight: 700, fontSize: "0.85rem" }}>{`POST_${post.id}`}</Typography>
+          <Typography sx={{ color: "#3b82f6", fontWeight: 700, fontSize: { xs: "0.7rem", md: "0.85rem" } }}>{`POST_${post.id}`}</Typography>
         </Breadcrumbs>
 
         <TerminalContainer
@@ -261,7 +261,7 @@ export default function BlogPost() {
               fontWeight: 900, 
               mb: 4, 
               lineHeight: 1.2,
-              fontSize: { xs: "2rem", md: "3rem" }
+              fontSize: { xs: "1.5rem", md: "2.5rem", lg: "3rem" }
             }}>
               {post.title}
             </Typography>
@@ -280,7 +280,7 @@ export default function BlogPost() {
               sx={{ 
                 color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.8,
-                fontSize: "1.1rem",
+                fontSize: { xs: "0.95rem", md: "1.1rem" },
                 "& h3": { color: "#ffffff", mt: 4, mb: 2, fontWeight: 800 },
                 "& p": { mb: 3 },
                 "& .highlight": { color: "#3b82f6", fontWeight: 700 }
@@ -289,7 +289,7 @@ export default function BlogPost() {
             />
 
             <Box sx={{ mt: 8, pt: 4, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-              <Typography sx={{ color: "rgba(255,255,255,0.4)", mb: 2, fontWeight: 700, fontSize: "0.8rem" }}>TAGS_INDEX</Typography>
+              <Typography sx={{ color: "rgba(255,255,255,0.4)", mb: 2, fontWeight: 700, fontSize: { xs: "0.7rem", md: "0.8rem" } }}>TAGS_INDEX</Typography>
               <Stack direction="row" spacing={1}>
                 {post.tags.map(tag => (
                   <Chip 
@@ -299,7 +299,7 @@ export default function BlogPost() {
                     sx={{ 
                       color: "rgba(255,255,255,0.6)", 
                       borderColor: "rgba(255,255,255,0.1)",
-                      fontSize: "0.75rem",
+                      fontSize: { xs: "0.65rem", md: "0.75rem" },
                       "&:hover": { bgcolor: "rgba(255,255,255,0.05)" }
                     }}
                   />

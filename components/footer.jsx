@@ -66,7 +66,7 @@ export default function Footer() {
                 <div className="text-blue-400 text-[10px] font-bold uppercase tracking-wider">Kenya</div>
               </div>
             </Link>
-            <p className="text-gray-400 text-sm mb-6 leading-relaxed" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+            <p className="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.6', overflow: 'visible' }}>
               Innovating the future, empowering Africa with cutting-edge technology solutions.
             </p>
             {/* Social Links */}
@@ -91,13 +91,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-sm md:text-base text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                     {link.name}
@@ -109,13 +109,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
+            <h3 className="text-sm md:text-base text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <Link
                     href={service.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                     {service.name}
@@ -127,12 +127,12 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Get in Touch</h3>
+            <h3 className="text-sm md:text-base text-white font-semibold mb-4">Get in Touch</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:info@omytech.co.ke"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-start gap-3 group"
+                  className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm flex items-start gap-3 group"
                 >
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-400" />
                   <span style={{ lineHeight: '1.4', overflow: 'visible' }}>info@omytech.co.ke</span>
@@ -141,7 +141,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+254715367859"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-start gap-3 group"
+                  className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm flex items-start gap-3 group"
                 >
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-400" />
                   <span style={{ lineHeight: '1.4', overflow: 'visible' }}>+254 715 367 859</span>
@@ -152,7 +152,7 @@ export default function Footer() {
                   href="https://maps.app.goo.gl/9HdWNNGa33NXyEkb9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-start gap-3 group"
+                  className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm flex items-start gap-3 group"
                 >
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-400" />
                   <span style={{ lineHeight: '1.4', overflow: 'visible' }}>Nairobi, Kenya</span>
@@ -165,19 +165,19 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+            <p className="text-xs md:text-sm text-gray-500">
               © {currentYear} OMYTECH. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-white transition-colors text-sm"
+                className="text-gray-500 hover:text-white transition-colors text-xs md:text-sm"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-gray-500 hover:text-white transition-colors text-sm"
+                className="text-gray-500 hover:text-white transition-colors text-xs md:text-sm"
               >
                 Terms of Service
               </Link>

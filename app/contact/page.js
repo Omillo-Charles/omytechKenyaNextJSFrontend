@@ -96,7 +96,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6"
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs md:text-sm font-semibold mb-6"
           >
             Get in Touch
           </motion.div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Let's Build Something
@@ -119,7 +119,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
@@ -153,8 +153,8 @@ export default function ContactPage() {
                   >
                     {React.cloneElement(method.icon, { className: "w-6 h-6" })}
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{method.label}</h3>
-                  <p className="text-gray-400 text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                  <h3 className="text-sm md:text-base text-white font-semibold mb-2">{method.label}</h3>
+                  <p className="text-gray-400 text-xs md:text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                     {method.value}
                   </p>
                 </motion.a>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                 transition={{ delay: 0.4 }}
                 className="bg-white/[0.02] border border-white/10 rounded-3xl p-6 backdrop-blur-sm"
               >
-                <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+                <h3 className="text-sm md:text-base text-white font-semibold mb-4">Follow Us</h3>
                 <div className="flex gap-3">
                   {socialLinks.map((social, i) => (
                     <a
@@ -197,15 +197,15 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
                     <CheckIcon className="w-8 h-8 text-green-500" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-gray-400 text-center" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-2">Message Sent!</h3>
+                  <p className="text-gray-400 text-sm md:text-base text-center" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                     Thank you for reaching out. We'll get back to you soon.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="name" className="block text-xs md:text-sm font-medium text-gray-300 mb-2">
                       Name
                     </label>
                     <input
@@ -215,13 +215,13 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm md:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className="block text-xs md:text-sm font-medium text-gray-300 mb-2">
                       Email
                     </label>
                     <input
@@ -231,13 +231,13 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm md:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="subject" className="block text-xs md:text-sm font-medium text-gray-300 mb-2">
                       Subject
                     </label>
                     <input
@@ -247,13 +247,13 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm md:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                       placeholder="How can we help?"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="message" className="block text-xs md:text-sm font-medium text-gray-300 mb-2">
                       Message
                     </label>
                     <textarea
@@ -263,7 +263,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all resize-none"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm md:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all resize-none"
                       placeholder="Tell us about your project..."
                       style={{ lineHeight: '1.6' }}
                     />
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    className="w-full px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -305,15 +305,15 @@ export default function ContactPage() {
             <div className="aspect-video bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center">
               <div className="text-center">
                 <MapPinIcon className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">Visit Us</h3>
-                <p className="text-gray-400 mb-4" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Visit Us</h3>
+                <p className="text-gray-400 text-sm md:text-base mb-4" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                   Nairobi, Kenya
                 </p>
                 <a
                   href="https://maps.app.goo.gl/9HdWNNGa33NXyEkb9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                  className="inline-block px-5 py-2.5 md:px-6 md:py-3 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
                 >
                   Open in Maps
                 </a>

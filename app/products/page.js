@@ -74,7 +74,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6"
+            className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs md:text-sm font-semibold mb-6"
           >
             Our Products
           </motion.div>
@@ -83,7 +83,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Built for Africa,
@@ -97,7 +97,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Enterprise-grade solutions designed to solve real-world challenges in property management and e-commerce
@@ -135,17 +135,17 @@ export default function ProductsPage() {
                   </div>
 
                   <h2 
-                    className="text-4xl md:text-5xl font-bold mb-3"
+                    className="text-3xl md:text-5xl font-bold mb-3"
                     style={{ color: product.color }}
                   >
                     {product.name}
                   </h2>
 
-                  <h3 className="text-xl font-semibold text-white mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
                     {product.tagline}
                   </h3>
 
-                  <p className="text-gray-400 text-base mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  <p className="text-gray-400 text-sm md:text-base mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                     {product.description}
                   </p>
 
@@ -154,7 +154,7 @@ export default function ProductsPage() {
                     {product.highlights.map((stat, i) => (
                       <div key={i} className="text-center">
                         <div 
-                          className="text-2xl font-bold mb-1"
+                          className="text-xl md:text-2xl font-bold mb-1"
                           style={{ color: product.color }}
                         >
                           {stat.value}
@@ -170,14 +170,14 @@ export default function ProductsPage() {
                       href={product.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
                     >
                       <GitHubIcon className="w-5 h-5" />
                       View on GitHub
                     </a>
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white text-sm md:text-base font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
                     >
                       Request Demo
                       <ArrowIcon className="w-5 h-5" />
@@ -188,7 +188,7 @@ export default function ProductsPage() {
                 {/* Right Column - Features */}
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
-                    <h4 className="text-xl font-bold text-white mb-6">Key Features</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-white mb-6">Key Features</h4>
                     <div className="space-y-4">
                       {product.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
@@ -196,7 +196,7 @@ export default function ProductsPage() {
                             className="w-5 h-5 flex-shrink-0 mt-0.5" 
                             style={{ color: product.color }}
                           />
-                          <span className="text-gray-300" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                          <span className="text-gray-300 text-sm md:text-base" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                             {feature}
                           </span>
                         </div>
@@ -222,10 +222,10 @@ export default function ProductsPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
             
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                 Need a Custom Solution?
               </h2>
-              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-gray-400 mb-8 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 We can build tailored products specifically for your business needs
               </p>
               <Link

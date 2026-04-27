@@ -73,7 +73,7 @@ export default function WingsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold mb-6"
+            className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs md:text-sm font-semibold mb-6"
           >
             Our Wings
           </motion.div>
@@ -82,7 +82,7 @@ export default function WingsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Specialized Divisions
@@ -96,7 +96,7 @@ export default function WingsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             Each wing of OMYTECH focuses on a core pillar of technological advancement 
@@ -137,25 +137,25 @@ export default function WingsPage() {
 
                   {/* Title */}
                   <h3 
-                    className="text-xl font-bold mb-2 transition-colors"
+                    className="text-lg md:text-xl font-bold mb-2 transition-colors"
                     style={{ color: wing.color }}
                   >
                     {wing.name}
                   </h3>
 
                   {/* Tagline */}
-                  <p className="text-white font-semibold mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
+                  <p className="text-white text-sm md:text-base font-semibold mb-4" style={{ lineHeight: '1.4', overflow: 'visible' }}>
                     {wing.tagline}
                   </p>
 
                   {/* Description */}
-                  <p className="text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                     {wing.description}
                   </p>
 
                   {/* Features */}
                   <div className="space-y-3 mb-6">
-                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
+                    <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider font-semibold">
                       Core Pillars
                     </p>
                     {wing.features.map((feature, i) => (
@@ -164,7 +164,7 @@ export default function WingsPage() {
                           className="w-5 h-5 flex-shrink-0 mt-0.5" 
                           style={{ color: wing.color }}
                         />
-                        <span className="text-gray-300 text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                        <span className="text-gray-300 text-xs md:text-sm" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                           {feature}
                         </span>
                       </div>
@@ -173,7 +173,7 @@ export default function WingsPage() {
 
                   {/* CTA */}
                   <div 
-                    className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3 mt-auto pt-4 border-t border-white/5"
+                    className="flex items-center gap-2 text-xs md:text-sm font-semibold transition-all duration-300 group-hover:gap-3 mt-auto pt-4 border-t border-white/5"
                     style={{ color: wing.color }}
                   >
                     Explore {wing.id.charAt(0).toUpperCase() + wing.id.slice(1)}
@@ -195,10 +195,10 @@ export default function WingsPage() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-6">
               One Company, Multiple Specializations
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Each wing operates with autonomy while sharing OMYTECH's core values of 
               excellence, innovation, and client success. Together, we provide comprehensive 
               solutions across the entire technology spectrum.
@@ -206,14 +206,14 @@ export default function WingsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 View All Services
                 <ArrowIcon className="w-5 h-5" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white text-sm md:text-base font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
               >
                 Get in Touch
                 <ArrowIcon className="w-5 h-5" />
@@ -252,15 +252,15 @@ export default function WingsPage() {
                   >
                     {React.cloneElement(wing.icon, { className: "w-6 h-6" })}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base md:text-lg font-bold text-white mb-2">
                     {wing.name}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                  <p className="text-gray-400 text-xs md:text-sm mb-4" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                     {wing.tagline}
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+                    className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold transition-colors"
                     style={{ color: wing.color }}
                   >
                     Learn More

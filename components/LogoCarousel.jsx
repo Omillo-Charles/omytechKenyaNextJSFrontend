@@ -22,7 +22,7 @@ export default function LogoCarousel() {
     <section className="relative py-12 overflow-hidden bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <p className="text-gray-500 text-sm font-medium uppercase tracking-wider">
+          <p className="text-gray-500 text-xs md:text-sm font-medium uppercase tracking-wider">
             Inspired by Industry Leaders
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function LogoCarousel() {
                       e.target.style.display = 'none';
                     }}
                   />
-                  <span className="text-gray-400 text-sm font-medium">
+                  <span className="text-gray-400 text-xs md:text-sm font-medium">
                     {company.name}
                   </span>
                 </div>

@@ -44,7 +44,7 @@ export default function Hero() {
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 border-2 border-[#0A0A0A]" />
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-[#0A0A0A]" />
           </div>
-          <span className="text-sm text-gray-400 font-medium">Over 50+ businesses trust us</span>
+          <span className="text-xs md:text-sm text-gray-400 font-medium">Over 50+ businesses trust us</span>
         </motion.div>
 
         {/* Main headline */}
@@ -52,7 +52,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.15] tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.15] tracking-tight"
           style={{ overflow: 'visible' }}
         >
           <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-10 font-light py-2"
+          className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto mb-10 font-light py-2"
           style={{ lineHeight: '2', overflow: 'visible' }}
         >
           OMYTECH brings cutting-edge technology solutions to your fingertips & streamline tasks. 
@@ -117,10 +117,10 @@ export default function Hero() {
             { label: "Team Members", value: "15+" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent mb-2">
+              <div className="text-xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
+              <div className="text-xs md:text-sm text-gray-500 font-medium">{stat.label}</div>
             </div>
           ))}
         </motion.div>

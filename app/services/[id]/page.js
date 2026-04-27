@@ -43,6 +43,26 @@ const serviceProtocols = {
       "Fast time-to-market",
       "Maintainable codebase",
       "Cross-platform support"
+    ],
+    pricing: [
+      {
+        plan: "Basic Web Development",
+        price: "25,000",
+        description: "Perfect for portfolios, blogs, and simple business landing pages.",
+        features: ["Responsive design", "5 content pages", "Contact form", "Basic SEO setup", "1 month support"]
+      },
+      {
+        plan: "Custom Web Systems",
+        price: "85,000",
+        description: "Complex web applications with databases and user authentication.",
+        features: ["Dashboard integration", "Payment gateways", "User management", "Advanced SEO", "3 months support"]
+      },
+      {
+        plan: "Mobile App Development",
+        price: "150,000",
+        description: "High-performance iOS and Android applications.",
+        features: ["Cross-platform (React Native)", "Push notifications", "App Store deployment", "Offline functionality", "6 months support"]
+      }
     ]
   },
   "cloud-infrastructure": {
@@ -71,6 +91,26 @@ const serviceProtocols = {
       "Auto-scaling capabilities",
       "Cost optimization",
       "24/7 monitoring"
+    ],
+    pricing: [
+      {
+        plan: "Cloud Setup & Migration",
+        price: "30,000",
+        description: "Initial server setup and migration of existing assets.",
+        features: ["AWS/Azure setup", "Data migration", "SSL configuration", "Basic monitoring"]
+      },
+      {
+        plan: "Infrastructure Management",
+        price: "75,000",
+        description: "Monthly management of your cloud ecosystem.",
+        features: ["Auto-scaling setup", "Performance tuning", "Weekly backups", "Security updates"]
+      },
+      {
+        plan: "DevOps Automation",
+        price: "150,000",
+        description: "Full CI/CD pipeline and infrastructure as code.",
+        features: ["Terraform scripts", "Kubernetes setup", "CI/CD pipelines", "24/7 SRE support"]
+      }
     ]
   },
   "ui-ux-design": {
@@ -99,6 +139,26 @@ const serviceProtocols = {
       "Increased engagement",
       "Better conversion rates",
       "Accessible interfaces"
+    ],
+    pricing: [
+      {
+        plan: "Landing Page Design",
+        price: "15,000",
+        description: "High-converting visual design for a single page.",
+        features: ["UI mockups", "Conversion focus", "Responsive design", "Style assets"]
+      },
+      {
+        plan: "Full Product UX/UI",
+        price: "50,000",
+        description: "Comprehensive design protocol for a complete product.",
+        features: ["User research", "Wireframing", "Interactive prototype", "Testing"]
+      },
+      {
+        plan: "Design System",
+        price: "100,000",
+        description: "Complete design language for enterprise applications.",
+        features: ["Component library", "Design tokens", "Usage guidelines", "Documentation"]
+      }
     ]
   },
   "cybersecurity": {
@@ -127,6 +187,26 @@ const serviceProtocols = {
       "Compliance ready",
       "Threat prevention",
       "Regular audits"
+    ],
+    pricing: [
+      {
+        plan: "Security Audit",
+        price: "25,000",
+        description: "Comprehensive vulnerability scan and risk report.",
+        features: ["Vulnerability scan", "Risk assessment", "Security roadmap"]
+      },
+      {
+        plan: "Penetration Testing",
+        price: "65,000",
+        description: "Active simulation of cyber attacks to find gaps.",
+        features: ["Exploit testing", "Data breach simulation", "Remediation guide"]
+      },
+      {
+        plan: "Enterprise Security",
+        price: "150,000",
+        description: "Full-scale implementation of security protocols.",
+        features: ["WAF setup", "SIEM integration", "Zero-trust architecture"]
+      }
     ]
   },
   "ai-data-science": {
@@ -155,6 +235,26 @@ const serviceProtocols = {
       "Automated insights",
       "Custom AI models",
       "Real-time processing"
+    ],
+    pricing: [
+      {
+        plan: "Data Analysis",
+        price: "40,000",
+        description: "Visualize and interpret your business data.",
+        features: ["Data cleaning", "Insight dashboards", "Trend reporting"]
+      },
+      {
+        plan: "AI Chatbot Integration",
+        price: "85,000",
+        description: "Smart AI assistants integrated into your platform.",
+        features: ["LLM setup", "Custom knowledge base", "API integration"]
+      },
+      {
+        plan: "Custom ML Models",
+        price: "250,000",
+        description: "Predictive models built specifically for your needs.",
+        features: ["Custom training", "Data engineering", "Scalable deployment"]
+      }
     ]
   },
   "digital-strategy": {
@@ -183,6 +283,26 @@ const serviceProtocols = {
       "Market insights",
       "Growth optimization",
       "ROI tracking"
+    ],
+    pricing: [
+      {
+        plan: "Strategic Audit",
+        price: "20,000",
+        description: "Assessment of your current digital presence.",
+        features: ["Competitive audit", "Gap analysis", "Priority roadmap"]
+      },
+      {
+        plan: "Growth Protocol",
+        price: "55,000",
+        description: "Ongoing strategy for market expansion.",
+        features: ["Market analysis", "Monthly reporting", "Optimization plan"]
+      },
+      {
+        plan: "Digital Transformation",
+        price: "120,000",
+        description: "Complete tech and process overhaul.",
+        features: ["Process automation", "Tech stack migration", "Staff training"]
+      }
     ]
   }
 };
@@ -196,7 +316,7 @@ export default function ServiceDetailPage() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Service Not Found</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Service Not Found</h1>
           <Link href="/services" className="text-blue-400 hover:text-blue-300">
             Back to Services
           </Link>
@@ -220,7 +340,7 @@ export default function ServiceDetailPage() {
           {/* Back Button */}
           <Link 
             href="/services"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white mb-8 transition-colors"
           >
             <ArrowBackIcon className="w-5 h-5" />
             Back to Services
@@ -244,24 +364,24 @@ export default function ServiceDetailPage() {
                 {React.cloneElement(service.icon, { className: "w-10 h-10" })}
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                 {service.title}
               </h1>
               
               <p 
-                className="text-2xl font-semibold mb-6"
+                className="text-xl md:text-2xl font-semibold mb-6"
                 style={{ color: service.color, lineHeight: '1.4', overflow: 'visible' }}
               >
                 {service.tagline}
               </p>
 
-              <p className="text-lg text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-sm md:text-base lg:text-lg text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 {service.overview}
               </p>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 Get Started
                 <ArrowIcon className="w-5 h-5" />
@@ -275,7 +395,7 @@ export default function ServiceDetailPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
             >
-              <h3 className="text-2xl font-bold text-white mb-6">Key Benefits</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Key Benefits</h3>
               <div className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -283,7 +403,7 @@ export default function ServiceDetailPage() {
                       className="w-6 h-6 flex-shrink-0 mt-0.5" 
                       style={{ color: service.color }}
                     />
-                    <span className="text-gray-300 text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                    <span className="text-gray-300 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                       {benefit}
                     </span>
                   </div>
@@ -301,7 +421,7 @@ export default function ServiceDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-white mb-12 text-center"
+            className="text-3xl md:text-5xl font-bold text-white mb-12 text-center"
           >
             How We Work
           </motion.h2>
@@ -325,10 +445,93 @@ export default function ServiceDetailPage() {
                 >
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.name}</h3>
-                <p className="text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3">{feature.name}</h3>
+                <p className="text-sm md:text-base text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                   {feature.description}
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="relative px-6 py-20 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              Investment Plans
+            </h2>
+            <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              Choose the right protocol for your business growth. We offer transparent, 
+              value-driven pricing for every stage of your journey.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {service.pricing.map((tier, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative flex flex-col p-8 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-2"
+                style={{ 
+                  backgroundColor: index === 1 ? `${service.color}05` : 'rgba(255, 255, 255, 0.02)',
+                  borderColor: index === 1 ? `${service.color}40` : 'rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {index === 1 && (
+                  <div 
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 text-white text-xs font-bold rounded-full uppercase tracking-wider"
+                    style={{ backgroundColor: service.color }}
+                  >
+                    Most Popular
+                  </div>
+                )}
+                
+                <h3 className="text-xl font-bold text-white mb-2">{tier.plan}</h3>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-gray-400 text-sm">KES</span>
+                  <span className="text-3xl md:text-4xl font-bold text-white">{tier.price}</span>
+                  {tier.plan !== "Mobile App Development" && tier.plan !== "Enterprise Security" && tier.plan !== "Custom ML Models" && tier.plan !== "Digital Transformation" && (
+                    <span className="text-gray-500 text-sm">/start</span>
+                  )}
+                </div>
+                
+                <p className="text-gray-400 text-sm mb-8" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                  {tier.description}
+                </p>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  {tier.features.map((feature, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckIcon 
+                        className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                        style={{ color: service.color }}
+                      />
+                      <span className="text-gray-300 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/contact"
+                  className="w-full py-3 rounded-full text-center font-semibold transition-all duration-300"
+                  style={{ 
+                    backgroundColor: index === 1 ? service.color : 'transparent',
+                    color: index === 1 ? '#000' : '#fff',
+                    border: index === 1 ? 'none' : '1px solid rgba(255, 255, 255, 0.2)'
+                  }}
+                >
+                  Choose {tier.plan}
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -344,10 +547,10 @@ export default function ServiceDetailPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Technology Stack
             </h2>
-            <p className="text-gray-400 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-gray-400 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               We use industry-leading tools and technologies
             </p>
           </motion.div>
@@ -361,7 +564,7 @@ export default function ServiceDetailPage() {
             {service.techStack.map((tech, index) => (
               <div
                 key={index}
-                className="px-6 py-3 bg-white/[0.05] border border-white/10 rounded-full text-gray-300 font-medium hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
+                className="px-4 py-2 md:px-6 md:py-3 bg-white/[0.05] border border-white/10 rounded-full text-gray-300 text-xs md:text-sm font-medium hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
               >
                 {tech}
               </div>
@@ -386,15 +589,15 @@ export default function ServiceDetailPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
             
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                 Ready to Get Started?
               </h2>
-              <p className="text-gray-400 mb-8 text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-gray-400 mb-8 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 Let's discuss how we can help you achieve your goals with {service.title.toLowerCase()}
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 Contact Us
                 <ArrowIcon className="w-5 h-5" />

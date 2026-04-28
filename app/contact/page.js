@@ -70,7 +70,7 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    const whatsappMessage = `Hello Omytech,\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage: ${formData.message}`;
+    const whatsappMessage = `Hello OMYTECH Kenya,\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage: ${formData.message}`;
     const whatsappUrl = `https://wa.me/254715367859?text=${encodeURIComponent(whatsappMessage)}`;
     
     // Open WhatsApp in a new tab

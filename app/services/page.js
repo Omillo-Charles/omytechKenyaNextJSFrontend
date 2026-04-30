@@ -78,7 +78,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs md:text-sm font-semibold mb-6"
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-sm font-semibold mb-6"
           >
             Our Services
           </motion.div>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-2xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               AI Solutions That Take
@@ -101,7 +101,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
+            className="text-xs md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             We design, develop, and implement automation tools that help you work smarter, not harder
@@ -135,12 +135,12 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-base md:text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                    <p className="text-xs md:text-base text-gray-400 mb-6 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                       {service.description}
                     </p>
 
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Arrow */}
-                    <div className="flex items-center gap-2 text-xs md:text-sm font-semibold transition-all duration-300 group-hover:gap-3" style={{ color: service.color }}>
+                    <div className="flex items-center gap-2 text-[10px] md:text-sm font-semibold transition-all duration-300 group-hover:gap-3" style={{ color: service.color }}>
                       Learn More
                       <ArrowIcon className="w-4 h-4" />
                     </div>
@@ -181,15 +181,15 @@ export default function ServicesPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
             <div className="relative z-10">
-              <h2 className="text-xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-lg md:text-3xl font-bold text-white mb-4">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-gray-400 mb-8 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-gray-400 mb-8 text-xs md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 Let's discuss how we can help you achieve your goals
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-xs md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
               >
                 Get Started
                 <ArrowIcon className="w-5 h-5" />

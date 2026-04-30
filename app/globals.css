@@ -4373,3 +4373,157 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL MOBILE TYPOGRAPHY REDUCTION  (≤ 640px)
+   Applied on top of all per-section mobile rules above.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* ── About Section ── */
+  .about-heading-futuristic  { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .about-text-futuristic     { font-size: 0.82rem; }
+  .value-title               { font-size: 0.95rem; }
+  .value-description         { font-size: 0.78rem; }
+
+  /* ── Services Section ── */
+  .services-title            { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .services-tagline          { font-size: 0.8rem; }
+  .service-title             { font-size: 1rem; }
+  .service-description       { font-size: 0.8rem; }
+  .service-btn-primary,
+  .service-btn-secondary     { font-size: 0.82rem; }
+
+  /* ── Testimonials Section ── */
+  .testimonials-title        { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .testimonials-subtitle     { font-size: 0.8rem; }
+  .testimonial-text          { font-size: 0.82rem; }
+  .author-name               { font-size: 0.9rem; }
+  .author-role               { font-size: 0.8rem; }
+  .cta-text                  { font-size: 0.95rem; }
+  .cta-button                { font-size: 0.85rem; padding: 0.7rem 1.3rem; }
+
+  /* ── Wings Section ── */
+  .wings-title               { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .wings-subtitle            { font-size: 0.8rem; }
+  .wing-title                { font-size: 1.1rem; }
+  .wing-subtitle             { font-size: 0.72rem; }
+  .wing-description          { font-size: 0.8rem; }
+  .wings-cta-text            { font-size: 0.95rem; }
+  .wings-cta-button          { font-size: 0.85rem; padding: 0.7rem 1.5rem; }
+
+  /* ── Footer ── */
+  .footer-brand-name         { font-size: 1rem; }
+  .footer-nav-link           { font-size: 0.8rem; }
+  .footer-copyright          { font-size: 0.75rem; }
+  .footer-legal-link         { font-size: 0.75rem; }
+
+  /* ── Contact Page ── */
+  .contact-hero-title        { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .contact-hero-subtitle     { font-size: 0.85rem; }
+  .contact-info-title        { font-size: 1.25rem; }
+  .contact-info-text         { font-size: 0.85rem; }
+  .contact-info-card-title   { font-size: 0.9rem; }
+  .contact-info-card-content { font-size: 0.82rem; }
+  .form-label                { font-size: 0.82rem; }
+  .form-input,
+  .form-textarea             { font-size: 0.88rem; }
+  .form-submit-btn           { font-size: 0.9rem; }
+
+  /* ── Legal Pages ── */
+  .legal-hero-title          { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .legal-hero-subtitle       { font-size: 0.85rem; }
+  .legal-section-title       { font-size: 1.1rem; }
+  .legal-section-content p   { font-size: 0.85rem; }
+  .legal-intro p             { font-size: 0.85rem; }
+  .legal-contact-title       { font-size: 1.2rem; }
+  .legal-contact p           { font-size: 0.85rem; }
+
+  /* ── Careers Page ── */
+  .careers-hero-title        { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .careers-hero-subtitle     { font-size: 0.85rem; }
+  .careers-message-title     { font-size: 1.25rem; }
+  .careers-message-text      { font-size: 0.88rem; }
+  .careers-contact-label     { font-size: 0.82rem; }
+  .careers-contact-email     { font-size: 0.95rem; }
+  .careers-cta-button        { font-size: 0.88rem; }
+
+  /* ── Support Page ── */
+  .support-hero-title        { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .support-hero-subtitle     { font-size: 0.85rem; }
+  .support-section-title     { font-size: 1.25rem; }
+  .support-option-title      { font-size: 1.1rem; }
+  .support-option-description{ font-size: 0.85rem; }
+  .support-option-action     { font-size: 0.9rem; }
+  .support-hours-title       { font-size: 1.1rem; }
+  .support-hours-text        { font-size: 0.85rem; }
+  .support-faq-question      { font-size: 0.95rem; }
+  .support-faq-answer        { font-size: 0.85rem; }
+  .support-cta-title         { font-size: 1.35rem; }
+  .support-cta-text          { font-size: 0.88rem; }
+  .support-cta-button        { font-size: 0.88rem; }
+
+  /* ── Docs Page ── */
+  .docs-hero-title           { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .docs-hero-subtitle        { font-size: 0.85rem; }
+  .docs-intro-title          { font-size: 1.2rem; }
+  .docs-intro-text           { font-size: 0.85rem; }
+  .docs-card-title           { font-size: 1.1rem; }
+  .docs-card-description     { font-size: 0.85rem; }
+  .docs-card-topics li       { font-size: 0.82rem; }
+  .docs-cta-title            { font-size: 1.35rem; }
+  .docs-cta-text             { font-size: 0.88rem; }
+  .docs-cta-button           { font-size: 0.85rem; }
+
+  /* ── Case Studies Page ── */
+  .case-studies-hero-title   { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .case-studies-hero-subtitle{ font-size: 0.85rem; }
+  .case-study-title          { font-size: 1.2rem; }
+  .case-study-description    { font-size: 0.85rem; }
+  .case-study-client         { font-size: 0.85rem; }
+  .case-study-category       { font-size: 0.8rem; }
+  .case-study-tag            { font-size: 0.78rem; }
+  .case-study-link           { font-size: 0.88rem; }
+  .result-value              { font-size: 1.1rem; }
+  .result-label              { font-size: 0.75rem; }
+  .case-studies-cta-title    { font-size: 1.35rem; }
+  .case-studies-cta-text     { font-size: 0.88rem; }
+  .case-studies-cta-button   { font-size: 0.88rem; }
+
+  /* ── Blog Page ── */
+  .blog-hero-title           { font-size: 1.6rem; }
+  .blog-hero-subtitle        { font-size: 0.85rem; }
+  .blog-section-title        { font-size: 1.35rem; }
+  .blog-featured-content h3  { font-size: 1.1rem; }
+  .blog-featured-content p   { font-size: 0.85rem; }
+  .blog-post-content h3      { font-size: 1rem; }
+  .blog-post-content p       { font-size: 0.82rem; }
+  .blog-read-more            { font-size: 0.85rem; }
+  .blog-post-link            { font-size: 0.82rem; }
+  .blog-category-btn         { font-size: 0.82rem; }
+  .blog-newsletter-content h2{ font-size: 1.35rem; }
+  .blog-newsletter-content p { font-size: 0.88rem; }
+
+  /* ── Portfolio Modern ── */
+  .portfolio-hero-title      { font-size: clamp(1.6rem, 7vw, 2.2rem) !important; }
+  .portfolio-hero-subtitle   { font-size: 0.85rem !important; }
+  .portfolio-card-title      { font-size: 1.1rem; }
+  .portfolio-card-description{ font-size: 0.85rem; }
+  .portfolio-category        { font-size: 0.75rem; }
+  .portfolio-tag             { font-size: 0.75rem; }
+  .portfolio-cta-title       { font-size: clamp(1.35rem, 5vw, 1.75rem); }
+  .portfolio-cta-text        { font-size: 0.88rem; }
+  .portfolio-cta-btn         { font-size: 0.9rem; }
+  .portfolio-empty h2        { font-size: 1.35rem; }
+  .portfolio-empty p         { font-size: 0.88rem; }
+
+  /* ── Auth Pages ── */
+  .auth-title                { font-size: 1.4rem; }
+  .auth-subtitle             { font-size: 0.85rem; }
+  .checkbox-label,
+  .forgot-link,
+  .auth-footer-text          { font-size: 0.82rem; }
+  .auth-submit-btn           { font-size: 0.9rem; }
+  .social-auth-btn           { font-size: 0.85rem; }
+}
+

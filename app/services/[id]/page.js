@@ -340,7 +340,7 @@ export default function ServiceDetailPage() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Service Not Found</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">Service Not Found</h1>
           <Link href="/services" className="text-blue-400 hover:text-blue-300">
             Back to Services
           </Link>
@@ -364,7 +364,7 @@ export default function ServiceDetailPage() {
           {/* Back Button */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-xs md:text-base text-gray-400 hover:text-white mb-8 transition-colors"
           >
             <ArrowBackIcon className="w-5 h-5" />
             Back to Services
@@ -388,24 +388,24 @@ export default function ServiceDetailPage() {
                 {React.cloneElement(service.icon, { className: "w-10 h-10" })}
               </div>
 
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                 {service.title}
               </h1>
 
               <p
-                className="text-xl md:text-2xl font-semibold mb-6"
+                className="text-lg md:text-2xl font-semibold mb-6"
                 style={{ color: service.color, lineHeight: '1.4', overflow: 'visible' }}
               >
                 {service.tagline}
               </p>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-[13px] md:text-base lg:text-lg text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 {service.overview}
               </p>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-xs md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 Get Started
                 <ArrowIcon className="w-5 h-5" />
@@ -419,7 +419,7 @@ export default function ServiceDetailPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
             >
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Key Benefits</h3>
+              <h3 className="text-lg md:text-2xl font-bold text-white mb-6">Key Benefits</h3>
               <div className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -427,7 +427,7 @@ export default function ServiceDetailPage() {
                       className="w-6 h-6 flex-shrink-0 mt-0.5"
                       style={{ color: service.color }}
                     />
-                    <span className="text-gray-300 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
+                    <span className="text-gray-300 text-[13px] md:text-base lg:text-lg" style={{ lineHeight: '1.6', overflow: 'visible' }}>
                       {benefit}
                     </span>
                   </div>
@@ -445,7 +445,7 @@ export default function ServiceDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white mb-12 text-center"
+            className="text-2xl md:text-5xl font-bold text-white mb-12 text-center"
           >
             How We Work
           </motion.h2>
@@ -469,8 +469,8 @@ export default function ServiceDetailPage() {
                 >
                   {index + 1}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3">{feature.name}</h3>
-                <p className="text-sm md:text-base text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                <h3 className="text-base md:text-xl font-bold text-white mb-3">{feature.name}</h3>
+                <p className="text-xs md:text-base text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                   {feature.description}
                 </p>
               </motion.div>
@@ -488,10 +488,10 @@ export default function ServiceDetailPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
               Investment Plans
             </h2>
-            <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-gray-400 text-xs md:text-base lg:text-lg max-w-2xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Choose the right protocol for your business growth. We offer transparent, 
               value-driven pricing for every stage of your journey.
             </p>
@@ -504,7 +504,7 @@ export default function ServiceDetailPage() {
                 <div key={cat} className="space-y-10">
                   <div className="flex items-center gap-4">
                     <div className="h-px flex-grow bg-white/10" />
-                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-widest bg-white/5 px-6 py-2 rounded-full border border-white/10">
+                    <h3 className="text-lg md:text-2xl font-bold text-white uppercase tracking-widest bg-white/5 px-6 py-2 rounded-full border border-white/10">
                       {cat}
                     </h3>
                     <div className="h-px flex-grow bg-white/10" />
@@ -555,7 +555,7 @@ export default function ServiceDetailPage() {
             {service.techStack.map((tech, index) => (
               <div
                 key={index}
-                className="px-4 py-2 md:px-6 md:py-3 bg-white/[0.05] border border-white/10 rounded-full text-gray-300 text-xs md:text-sm font-medium hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
+                className="px-4 py-2 md:px-6 md:py-3 bg-white/[0.05] border border-white/10 rounded-full text-gray-300 text-[10px] md:text-sm font-medium hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300"
               >
                 {tech}
               </div>
@@ -580,15 +580,15 @@ export default function ServiceDetailPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
             <div className="relative z-10">
-              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-xl md:text-4xl font-bold text-white mb-4">
                 Ready to Get Started?
               </h2>
-              <p className="text-gray-400 mb-8 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-gray-400 mb-8 text-xs md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 Let's discuss how we can help you achieve your goals with {service.title.toLowerCase()}
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-black text-xs md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 Contact Us
                 <ArrowIcon className="w-5 h-5" />
@@ -628,7 +628,7 @@ function PricingCard({ tier, index, service }) {
       <h3 className="text-xl font-bold text-white mb-2">{tier.plan}</h3>
       <div className="flex items-baseline gap-1 mb-4">
         <span className="text-gray-400 text-sm">KES</span>
-        <span className="text-3xl md:text-4xl font-bold text-white">{tier.price}</span>
+        <span className="text-2xl md:text-4xl font-bold text-white">{tier.price}</span>
         {!tier.plan.includes("Full") && !tier.plan.includes("Enterprise") && (
           <span className="text-gray-500 text-sm">/start</span>
         )}

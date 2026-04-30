@@ -43,8 +43,8 @@ export default function Navbar() {
                 <Image src="/omytechlogo.png" alt="OMYTECH" width={24} height={24} />
               </div>
               <div>
-                <div className="text-white font-bold text-base md:text-lg leading-none">OMYTECH</div>
-                <div className="text-blue-400 text-[10px] font-bold uppercase tracking-wider">Kenya</div>
+                <div className="text-white font-bold text-sm md:text-lg leading-none">OMYTECH</div>
+                <div className="text-blue-400 text-[9px] font-bold uppercase tracking-wider">Kenya</div>
               </div>
             </Link>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
                     <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                       <Image src="/omytechlogo.png" alt="OMYTECH" width={20} height={20} />
                     </div>
-                    <span className="text-white font-bold text-sm md:text-base">OMYTECH</span>
+                    <span className="text-white font-bold text-xs md:text-base">OMYTECH</span>
                   </Link>
                   <button
                     onClick={() => setIsOpen(false)}
@@ -133,7 +133,7 @@ export default function Navbar() {
                         key={link.name}
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className={`text-sm font-medium py-2.5 px-4 rounded-lg transition-all ${
+                        className={`text-xs font-medium py-2.5 px-4 rounded-lg transition-all ${
                           isActive 
                             ? 'text-cyan-400 bg-cyan-400/10' 
                             : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -148,7 +148,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="w-full py-2.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-gray-100 transition-all text-center"
+                  className="w-full py-2.5 bg-white text-black text-xs font-semibold rounded-full hover:bg-gray-100 transition-all text-center"
                 >
                   Get Started
                 </Link>

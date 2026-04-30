@@ -73,7 +73,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs md:text-sm font-semibold mb-6"
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-sm font-semibold mb-6"
           >
             About OMYTECH
           </motion.div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-2xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             <span className="block bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent pb-2">
               Building the Future
@@ -96,7 +96,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light mb-12"
+            className="text-xs md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto font-light mb-12"
             style={{ lineHeight: '2', overflow: 'visible' }}
           >
             We are a collective of engineers, designers, and strategists dedicated to
@@ -114,12 +114,12 @@ export default function AboutPage() {
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div
-                  className="text-xl md:text-3xl font-bold mb-2"
+                  className="text-lg md:text-3xl font-bold mb-2"
                   style={{ color: stat.color }}
                 >
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-gray-500 font-medium">{stat.label}</div>
+                <div className="text-[10px] md:text-sm text-gray-500 font-medium">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -135,10 +135,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/10 rounded-3xl p-12 backdrop-blur-sm text-center"
           >
-            <h2 className="text-xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="text-lg md:text-3xl font-bold text-white mb-6">
               Our Mission
             </h2>
-            <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-xs md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               To empower Kenyan and global businesses through innovative, secure, and
               scalable technology solutions that drive growth and create lasting impact.
             </p>
@@ -155,10 +155,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
               Our Core Values
             </h2>
-            <p className="text-gray-400 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-xs md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               The principles that guide everything we do
             </p>
           </motion.div>
@@ -183,11 +183,11 @@ export default function AboutPage() {
                   {React.cloneElement(value.icon, { className: "w-7 h-7" })}
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3">
+                <h3 className="text-base md:text-xl font-bold text-white mb-3">
                   {value.title}
                 </h3>
 
-                <p className="text-sm md:text-base text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                <p className="text-xs md:text-base text-gray-400 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                   {value.description}
                 </p>
               </motion.div>
@@ -205,10 +205,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
               Meet Our Team
             </h2>
-            <p className="text-gray-400 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-xs md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Talented individuals passionate about technology
             </p>
           </motion.div>
@@ -230,10 +230,10 @@ export default function AboutPage() {
                 />
               ))}
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <h3 className="text-lg md:text-2xl font-bold text-white mb-3">
               15+ Talented Professionals
             </h3>
-            <p className="text-sm md:text-base text-gray-400 mb-6" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+            <p className="text-xs md:text-base text-gray-400 mb-6" style={{ lineHeight: '1.8', overflow: 'visible' }}>
               Engineers, designers, and strategists working together to create exceptional digital experiences
             </p>
             <Link
@@ -259,15 +259,15 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
             <div className="relative z-10">
-              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-xl md:text-4xl font-bold text-white mb-4">
                 Ready to Work Together?
               </h2>
-              <p className="text-gray-400 mb-8 text-sm md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+              <p className="text-gray-400 mb-8 text-xs md:text-base lg:text-lg" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                 Let's discuss how we can help transform your business with technology
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-all duration-300"
               >
                 Get Started
                 <ArrowIcon className="w-5 h-5" />

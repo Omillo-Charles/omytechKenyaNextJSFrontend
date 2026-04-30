@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     name: "ADESK Kenya",
-    website: "adeskills.co.ke",
+    website: "adeskills.co.ke/en",
     quote: "The technical solutions provided by OMYTECH have revolutionized how we deliver skills training to our students across Kenya.",
     role: "Education"
   }
@@ -134,10 +134,10 @@ export default function Hero() {
                   <h4 className="text-white font-semibold text-xs md:text-sm">{t.name}</h4>
                   <p className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{t.role}</p>
                 </div>
-                <a 
-                  href={`https://${t.website}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={`https://${t.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[10px] text-gray-500 hover:text-white transition-colors underline underline-offset-4 decoration-white/20"
                 >
                   {t.website}

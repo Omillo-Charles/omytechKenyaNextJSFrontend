@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowForward as ArrowIcon } from "@mui/icons-material";
+import { ArrowForward as ArrowIcon, Code as CodeIcon } from "@mui/icons-material";
 
 
 
@@ -55,10 +55,8 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
         >
-          <div className="flex -space-x-2">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-[#0A0A0A]" />
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 border-2 border-[#0A0A0A]" />
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-[#0A0A0A]" />
+          <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-500/30">
+            <CodeIcon className="w-4 h-4 text-blue-400" />
           </div>
           <span className="text-[10px] md:text-sm text-gray-400 font-medium">Over 50+ businesses trust us</span>
         </motion.div>

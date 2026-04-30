@@ -96,13 +96,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-20 max-w-xs mx-auto sm:max-w-none"
         >
           <Link
             href="/contact"
-            className="group relative px-8 py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-white text-black text-sm md:text-base font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-full sm:w-auto"
           >
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center justify-center gap-2">
               Get Started
               <ArrowIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </span>
@@ -110,9 +110,9 @@ export default function Hero() {
 
           <Link
             href="/services"
-            className="group px-8 py-4 border border-white/20 text-white text-sm md:text-base font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/40"
+            className="group px-6 py-3 sm:px-8 sm:py-4 border border-white/20 text-white text-sm md:text-base font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               Explore Services
               <ArrowIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </span>

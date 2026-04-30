@@ -7,6 +7,22 @@ import { ArrowForward as ArrowIcon } from "@mui/icons-material";
 
 
 
+
+const testimonials = [
+  {
+    name: "MhengGee Media",
+    website: "mhengagee.co.ke",
+    quote: "OMYTECH transformed our digital presence with a stunning, high-performance platform that perfectly captures our media vision.",
+    role: "Media Agency"
+  },
+  {
+    name: "ADESK Kenya",
+    website: "adeskills.co.ke",
+    quote: "The technical solutions provided by OMYTECH have revolutionized how we deliver skills training to our students across Kenya.",
+    role: "Education"
+  }
+];
+
 export default function Hero() {
   const [mounted, setMounted] = React.useState(false);
 
@@ -101,6 +117,34 @@ export default function Hero() {
               <ArrowIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>
+        </motion.div>
+
+        {/* Testimonials */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16"
+        >
+          {testimonials.map((t, i) => (
+            <div key={i} className="group p-5 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm text-left hover:bg-white/[0.04] transition-all duration-300">
+              <p className="text-gray-400 text-xs md:text-sm italic mb-4 leading-relaxed font-light italic">"{t.quote}"</p>
+              <div className="flex items-center justify-between mt-auto">
+                <div>
+                  <h4 className="text-white font-semibold text-xs md:text-sm">{t.name}</h4>
+                  <p className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{t.role}</p>
+                </div>
+                <a 
+                  href={`https://${t.website}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-[10px] text-gray-500 hover:text-white transition-colors underline underline-offset-4 decoration-white/20"
+                >
+                  {t.website}
+                </a>
+              </div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Stats */}

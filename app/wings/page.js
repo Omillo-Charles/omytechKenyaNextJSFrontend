@@ -117,10 +117,16 @@ export default function WingsPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="relative h-full bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                  {/* Top accent line */}
+                <Link href={`/wings/${wing.id}`} className="relative h-full block bg-[#0F0F0F]/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-500 hover:bg-[#151515] hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
+                  {/* Top accent line & glow */}
                   <div
-                    className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl transition-all duration-300"
+                    className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500 opacity-30 group-hover:opacity-100"
+                    style={{ 
+                      background: `linear-gradient(90deg, transparent, ${wing.color}, transparent)`,
+                    }}
+                  />
+                  <div
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 blur-sm transition-all duration-500 opacity-0 group-hover:opacity-100"
                     style={{ backgroundColor: wing.color }}
                   />
 
@@ -179,7 +185,7 @@ export default function WingsPage() {
                     Explore {wing.id.charAt(0).toUpperCase() + wing.id.slice(1)}
                     <ArrowIcon className="w-4 h-4" />
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -259,7 +265,7 @@ export default function WingsPage() {
                     {wing.tagline}
                   </p>
                   <Link
-                    href="/contact"
+                    href={`/wings/${wing.id}`}
                     className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold transition-colors"
                     style={{ color: wing.color }}
                   >

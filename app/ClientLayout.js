@@ -26,9 +26,13 @@ export default function ClientLayout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar />
-      {children}
-      <Footer />
+      <div className="relative flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }

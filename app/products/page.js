@@ -145,21 +145,21 @@ export default function ProductsPage() {
                     {product.tagline}
                   </h3>
 
-                  <p className="text-xs md:text-base mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
+                  <p className="text-xs md:text-base text-gray-400 mb-8 leading-relaxed" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                     {product.description}
                   </p>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div className="grid grid-cols-3 gap-8 mb-10 border-t border-b border-white/5 py-6">
                     {product.highlights.map((stat, i) => (
-                      <div key={i} className="text-center">
+                      <div key={i} className="text-left">
                         <div
-                          className="text-lg md:text-2xl font-bold mb-1"
+                          className="text-xl md:text-3xl font-bold mb-1"
                           style={{ color: product.color }}
                         >
                           {stat.value}
                         </div>
-                        <div className="text-xs text-gray-500">{stat.label}</div>
+                        <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest font-semibold">{stat.label}</div>
                       </div>
                     ))}
                   </div>

@@ -151,7 +151,7 @@ export default function WingDetailPage() {
 
       <div className="relative z-10">
         {/* Navigation */}
-        <div className="max-w-7xl mx-auto px-6 pt-28 md:pt-32 pb-8">
+        <div className="max-w-7xl mx-auto px-6 pt-28 md:pt-32 pb-4">
           <Link 
             href="/wings"
             className="group inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
@@ -164,25 +164,14 @@ export default function WingDetailPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 pt-12 pb-24">
+        <section className="max-w-7xl mx-auto px-6 pt-6 pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div 
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8"
-                style={{ 
-                  backgroundColor: `${wing.color}10`,
-                  borderColor: `${wing.color}30`,
-                  color: wing.color
-                }}
-              >
-                <div className="animate-pulse w-2 h-2 rounded-full" style={{ backgroundColor: wing.color }} />
-                <span className="text-xs font-bold uppercase tracking-widest">Active Division</span>
-              </div>
-              
+
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 {wing.name.split(' ').map((word, i) => (
                   <span key={i} className={i === 1 ? `bg-gradient-to-r ${wing.gradient} bg-clip-text text-transparent` : ""}>

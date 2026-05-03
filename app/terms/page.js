@@ -130,14 +130,16 @@ export default function TermsPage() {
               transition={{ delay: index * 0.1 }}
               className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 flex-shrink-0">
-                  {React.cloneElement(section.icon, { className: "w-6 h-6" })}
-                </div>
-                <div>
-                  <h2 className="text-lg md:text-xl font-bold text-white mb-4">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                    {React.cloneElement(section.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
+                  </div>
+                  <h2 className="text-lg md:text-xl font-bold text-white">
                     {section.title}
                   </h2>
+                </div>
+                <div className="pl-0 md:pl-16">
                   {section.content.map((paragraph, i) => (
                     <p key={i} className="text-gray-400 text-sm md:text-base leading-relaxed mb-4 last:mb-0" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                       {paragraph}
@@ -155,14 +157,16 @@ export default function TermsPage() {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
-                <MailIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-lg md:text-xl font-bold text-white mb-4">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                  <MailIcon className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+                <h2 className="text-lg md:text-xl font-bold text-white">
                   Questions?
                 </h2>
+              </div>
+              <div className="pl-0 md:pl-16">
                 <p className="text-gray-300 text-sm md:text-base mb-4" style={{ lineHeight: '1.8', overflow: 'visible' }}>
                   If you have any questions about these Terms of Service, please contact our legal team:
                 </p>

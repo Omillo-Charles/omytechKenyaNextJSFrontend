@@ -199,16 +199,16 @@ export default function WingDetailPage() {
                 {wing.description}
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                  className="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-white text-black text-sm md:text-base font-bold rounded-full hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto"
                 >
                   Start a Project
                 </Link>
                 <Link
                   href="#overview"
-                  className="px-8 py-4 border border-white/10 text-white font-bold rounded-full hover:bg-white/5 transition-all"
+                  className="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 border border-white/10 text-white text-sm md:text-base font-bold rounded-full hover:bg-white/5 transition-all w-full sm:w-auto"
                 >
                   Learn More
                 </Link>
@@ -308,16 +308,16 @@ export default function WingDetailPage() {
             <p className="text-gray-400 text-sm md:text-base lg:text-lg mb-10 max-w-2xl mx-auto">
               Whether you have a specific project in mind or just want to explore the possibilities, our experts are ready to collaborate.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link
                 href="/contact"
-                className="px-10 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 bg-white text-black text-sm md:text-base font-bold rounded-full hover:scale-105 transition-all w-full sm:w-auto"
               >
                 Get in Touch
               </Link>
               <Link
                 href="/wings"
-                className="px-10 py-4 border border-white/20 text-white font-bold rounded-full hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border border-white/20 text-white text-sm md:text-base font-bold rounded-full hover:bg-white/5 transition-all w-full sm:w-auto"
               >
                 View Other Wings
               </Link>
